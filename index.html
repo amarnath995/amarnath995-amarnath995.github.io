@@ -38,7 +38,7 @@ section+section{border-top:1px solid var(--border)}
 .btn-primary:hover{background:#1d4ed8}
 .btn-outline{background:#fff;color:var(--ink);border:1.5px solid var(--border)}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
-.hero-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,#93c5fd,#0891b2);display:flex;align-items:center;justify-content:center;font-size:34px;flex-shrink:0}
+.hero-avatar{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#93c5fd,#0891b2);display:flex;align-items:center;justify-content:center;font-size:34px;flex-shrink:0;overflow:hidden;border:3px solid var(--border)}
 
 .affil-single{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 26px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px}
 .affil-role{font-weight:700;font-size:15px;margin-bottom:3px}
@@ -63,6 +63,7 @@ section+section{border-top:1px solid var(--border)}
 .proj-desc{font-size:13px;color:var(--muted);line-height:1.6}
 .proj-tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:5px}
 .chip{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--muted)}
+.skill-tag{display:inline-block;font-size:13px;padding:5px 14px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--ink);font-weight:500}
 
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
 .skill-group{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px}
@@ -137,7 +138,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
         <h1 class="hero-name">Amarnath<br>Chakraborty</h1>
         <div class="hero-title">Ph.D. Physics · University of Missouri–Columbia</div>
         <p class="hero-bio">
-          I work at the intersection of theoretical condensed matter, quantum computing, and machine learning — building simulations of two-dimensional quantum materials and developing hybrid workflows to accelerate materials discovery.
+          I work at the intersection of theoretical condensed matter and quantum computing — building simulations of two-dimensional quantum materials and developing hybrid quantum–classical workflows. I'm actively learning machine learning to connect these worlds and build predictive models for materials discovery.
         </p>
         <div class="hero-links">
           <a class="btn btn-primary" href="cv.pdf" download>⬇ Download CV</a>
@@ -146,7 +147,12 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
           <a class="btn btn-outline" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">LinkedIn</a>
         </div>
       </div>
-      <div class="hero-avatar">⚛</div>
+      <!-- PHOTO: upload a file named exactly "photo.jpg" to your GitHub repo and it will appear here -->
+      <div class="hero-avatar">
+        <img src="photo.jpg" alt="Amarnath Chakraborty"
+          onerror="this.parentElement.innerHTML='⚛'"
+          style="width:100%;height:100%;object-fit:cover;border-radius:50%"/>
+      </div>
     </div>
   </section>
 </div>
@@ -154,19 +160,53 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
 <!-- AFFILIATION -->
 <div class="container" id="about">
   <section>
-    <div class="section-label">Current Position</div>
+    <div class="section-label">Positions</div>
     <h2 class="section-title">Where I Work</h2>
-    <div class="affil-single">
+
+    <!-- ═══ CURRENT POSITION ═══ -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Current</div>
+    <div class="affil-single" style="margin-bottom:24px">
       <div>
-        <div class="affil-role">Ph.D. Researcher — Physics & Astronomy</div>
-        <div class="affil-place">University of Missouri–Columbia</div>
-        <div class="affil-detail">Advisors: Prof. Giovanni Vignale · Dr. Guang Bian<br>2D quantum materials · Quantum computing · Machine learning for materials</div>
-      </div>
-      <div class="affil-links">
-        <a class="btn btn-outline" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank" style="font-size:12px">Full profile on LinkedIn →</a>
-        <a class="btn btn-outline" href="cv.pdf" download style="font-size:12px">Download CV →</a>
+        <!-- EDIT: role title -->
+        <div class="affil-role">Quantum Research Intern</div>
+        <!-- EDIT: company name -->
+        <div class="affil-place">Chinar Quantum AI</div>
+        <!-- EDIT: description paragraph -->
+        <div class="affil-detail" style="margin-top:6px;font-size:13.5px;color:#334155;line-height:1.75;max-width:580px">
+          Helping build the quantum Hamiltonian simulation effort at the core of the company, and forging connections with academic groups to contribute toward India's National Quantum Mission. This phase is about bringing many-body physics and quantum computing together — designing practical quantum workflows aimed at solving the materials and simulation challenges of the future.
+        </div>
       </div>
     </div>
+
+    <!-- ═══ UPCOMING POSITION ═══ -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Upcoming</div>
+    <div style="border:2px solid var(--accent);border-radius:var(--radius);padding:22px 26px;margin-bottom:24px;background:linear-gradient(135deg,#eff6ff,#f0f9ff)">
+      <div>
+        <div style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:#dbeafe;color:#1d4ed8;padding:2px 10px;border-radius:20px;margin-bottom:10px">Starting Soon</div>
+        <!-- EDIT: role title -->
+        <div class="affil-role">Postdoctoral Scientist</div>
+        <!-- EDIT: institution -->
+        <div class="affil-place">Seoul National University</div>
+        <!-- EDIT: advisor, project description -->
+        <div class="affil-detail" style="margin-top:6px;font-size:13.5px;color:#334155;line-height:1.75;max-width:580px">
+          Working with Prof. Bohm-Jung Yang on altermagnetic responses in two-dimensional materials, with a focus on probing and classifying these responses through their quantum geometric tensor signatures — connecting the Berry curvature and quantum metric of the underlying band structure to measurable transport and optical phenomena in this emerging class of magnetic systems.
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ RECENT PAST ═══ -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Recent Past</div>
+    <div class="affil-single">
+      <div>
+        <!-- EDIT: role title -->
+        <div class="affil-role">Ph.D. in Physics</div>
+        <!-- EDIT: institution -->
+        <div class="affil-place">University of Missouri–Columbia</div>
+        <!-- EDIT: advisors and focus -->
+        <div class="affil-detail">Advisors: Prof. Giovanni Vignale · Dr. Guang Bian<br>2D quantum materials · Quantum computing · Machine learning for materials (learning)</div>
+      </div>
+    </div>
+
   </section>
 </div>
 
@@ -227,7 +267,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
         </div>
       </div>
       <p style="font-size:14px;color:#334155;line-height:1.85;margin-bottom:16px">
-        My overarching goal is to build a modular generative workflow that tightly couples classical simulation, quantum simulation, and machine learning. The idea is to use physics-based quantum and classical solvers to generate high-fidelity training data for correlated quantum systems, then feed those outputs into machine learning models to construct exact, interpretable predictive models — ultimately creating a feedback loop that accelerates the discovery of new quantum materials and device-relevant properties.
+        My overarching goal is to build a modular generative workflow that tightly couples classical simulation, quantum simulation, and machine learning. The idea is to use physics-based quantum and classical solvers to generate high-fidelity training data for correlated quantum systems, then feed those outputs into ML models to construct exact, interpretable predictive models. I'm currently building my ML foundation with this vision in mind — working toward a feedback loop that accelerates the discovery of new quantum materials and device-relevant properties.
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:6px">
         <span class="chip" style="border-color:#bfdbfe;color:#1d4ed8;background:#dbeafe">Classical simulation</span>
@@ -285,31 +325,76 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
 <!-- SKILLS -->
 <div class="container" id="skills">
   <section>
-    <div class="section-label">Technical Skills</div>
-    <h2 class="section-title">Tools & Expertise</h2>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <div class="skill-group-title">Programming</div>
-        <div class="skill-item">Python</div><div class="skill-item">Julia</div>
-        <div class="skill-item">Fortran</div><div class="skill-item">MATLAB / Mathematica</div>
-        <div class="skill-item">Qiskit</div>
+    <div class="section-label">Skills</div>
+    <h2 class="section-title">What I Work With</h2>
+    <div style="display:flex;flex-direction:column;gap:20px">
+
+      <!-- ROW 1 -->
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+        <div style="min-width:130px;padding-top:4px">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2)">Code</div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <!-- EDIT: add/remove language chips here -->
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Julia</span>
+          <span class="skill-tag">Qiskit</span>
+          <span class="skill-tag">Fortran</span>
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">Mathematica</span>
+        </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Quantum Computing</div>
-        <div class="skill-item">VQE / SQD</div><div class="skill-item">Noise mitigation</div>
-        <div class="skill-item">IBM heavy-hex</div><div class="skill-item">Error correction</div>
+
+      <div style="border-top:1px solid var(--border)"></div>
+
+      <!-- ROW 2 -->
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+        <div style="min-width:130px;padding-top:4px">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2)">Quantum</div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <!-- EDIT: add/remove quantum computing chips here -->
+          <span class="skill-tag">Variational Algorithms (VQE)</span>
+          <span class="skill-tag">Sample-based Diagonalization</span>
+          <span class="skill-tag">IBM Heavy-Hex Hardware</span>
+          <span class="skill-tag">Quantum Reservoir Computing</span>
+        </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Materials Modelling</div>
-        <div class="skill-item">Tight-binding</div><div class="skill-item">Kubo formalism</div>
-        <div class="skill-item">DFT (VASP)</div><div class="skill-item">Green's functions</div>
-        <div class="skill-item">TMDCA / Lanczos</div>
+
+      <div style="border-top:1px solid var(--border)"></div>
+
+      <!-- ROW 3 -->
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+        <div style="min-width:130px;padding-top:4px">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2)">Theory</div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <!-- EDIT: add/remove theory/modelling chips here -->
+          <span class="skill-tag">Tight-binding models</span>
+          <span class="skill-tag">Kubo formalism</span>
+          <span class="skill-tag">Green's functions</span>
+          <span class="skill-tag">DFT (VASP)</span>
+          <span class="skill-tag">TMDCA · Lanczos</span>
+        </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Conceptual Areas</div>
-        <div class="skill-item">Topological phases</div><div class="skill-item">Correlated electrons</div>
-        <div class="skill-item">Quantum geometry</div><div class="skill-item">Dirac / Weyl systems</div>
+
+      <div style="border-top:1px solid var(--border)"></div>
+
+      <!-- ROW 4 -->
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+        <div style="min-width:130px;padding-top:4px">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2)">Physics</div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <!-- EDIT: add/remove physics concept chips here -->
+          <span class="skill-tag">Quantum geometry</span>
+          <span class="skill-tag">Topological phases</span>
+          <span class="skill-tag">Altermagnetism</span>
+          <span class="skill-tag">Dirac · Weyl systems</span>
+          <span class="skill-tag">Correlated electrons</span>
+        </div>
       </div>
+
     </div>
   </section>
 </div>
