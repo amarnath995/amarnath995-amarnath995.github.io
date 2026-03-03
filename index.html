@@ -64,20 +64,43 @@ section+section{border-top:1px solid var(--border)}
 .proj-tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:5px}
 .chip{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--muted)}
 .skill-tag{display:inline-block;font-size:13px;padding:5px 14px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--ink);font-weight:500}
-.acc-item{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;background:#fff;transition:border-color .2s}
-.acc-item:hover{border-color:var(--accent)}
-.acc-item.open{border-color:var(--accent)}
-.acc-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
-.acc-title{font-weight:600;font-size:15px;color:var(--ink)}
-.acc-arrow{font-size:16px;color:var(--muted);transition:transform .25s;display:inline-block}
-.acc-item.open .acc-arrow{transform:rotate(180deg);color:var(--accent)}
-.acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.acc-item.open .acc-body{max-height:500px}
-.acc-list{list-style:none;padding:0 20px 16px;display:flex;flex-wrap:wrap;gap:8px}
-.acc-list li{font-size:13px;padding:5px 14px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--ink);font-weight:500}
 
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
-.skill-group{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px}
+/* Skill cards */
+.skill-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-card{border-radius:14px;padding:22px 20px;cursor:pointer;transition:transform .15s,box-shadow .15s;user-select:none;position:relative}
+.skill-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.skill-card-icon{font-size:28px;margin-bottom:10px}
+.skill-card-title{font-weight:700;font-size:15px;margin-bottom:4px}
+.skill-card-hint{font-size:12px;opacity:.7}
+.skill-card-arrow{position:absolute;top:18px;right:18px;font-size:14px;transition:transform .25s}
+.skill-card.open .skill-card-arrow{transform:rotate(180deg)}
+.skill-panel{grid-column:1/-1;display:none;border-radius:12px;padding:18px 20px;margin-top:-8px}
+.skill-panel.open{display:flex;flex-wrap:wrap;gap:8px}
+.skill-pill{font-size:13px;padding:5px 14px;border-radius:20px;font-weight:500}
+
+/* card 1 — indigo */
+.sk1{background:#eef2ff;border:1.5px solid #c7d2fe}
+.sk1 .skill-card-title{color:#3730a3}
+.sk1 .skill-card-hint{color:#6366f1}
+.sk1-panel{background:#f5f3ff;border:1.5px solid #ddd6fe}
+.sk1-pill{background:#ede9fe;border:1px solid #c4b5fd;color:#5b21b6}
+/* card 2 — cyan */
+.sk2{background:#ecfeff;border:1.5px solid #a5f3fc}
+.sk2 .skill-card-title{color:#0e7490}
+.sk2 .skill-card-hint{color:#0891b2}
+.sk2-panel{background:#f0fdff;border:1.5px solid #a5f3fc}
+.sk2-pill{background:#cffafe;border:1px solid #67e8f9;color:#0e7490}
+/* card 3 — emerald */
+.sk3{background:#ecfdf5;border:1.5px solid #6ee7b7}
+.sk3 .skill-card-title{color:#065f46}
+.sk3 .skill-card-hint{color:#059669}
+.sk3-panel{background:#f0fdf9;border:1.5px solid #6ee7b7}
+.sk3-pill{background:#d1fae5;border:1px solid #6ee7b7;color:#065f46}
+
+@media(max-width:600px){.skill-cards{grid-template-columns:1fr}}
+.novel-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px}
+.novel-title{font-weight:600;font-size:13px;margin-bottom:4px;line-height:1.4}
+.novel-author{font-size:12px;color:var(--muted)}
 .skill-group-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2);margin-bottom:10px}
 .skill-item{font-size:13px;color:var(--ink);padding:3px 0;border-bottom:1px solid var(--border)}
 .skill-item:last-child{border-bottom:none}
@@ -135,6 +158,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
       <li><a href="#projects">Projects</a></li>
       <li><a href="#arxiv">arXiv</a></li>
       <li><a href="#thoughts">Thoughts</a></li>
+      <li><a href="#novels">Reading</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -149,7 +173,9 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
         <h1 class="hero-name">Amarnath<br>Chakraborty</h1>
         <div class="hero-title">Ph.D. Physics · University of Missouri–Columbia</div>
         <p class="hero-bio">
-          I work at the intersection of theoretical condensed matter and quantum computing — building simulations of two-dimensional quantum materials and developing hybrid quantum–classical workflows. I'm actively learning machine learning to connect these worlds and build predictive models for materials discovery.
+          I grew up in Jhargram, a small town in West Bengal, India. I studied Physics at Midnapore College and went on to complete my M.Sc. at the University of Hyderabad, before spending a year at JNCASR in Bangalore. In 2019, I moved to the University of Missouri–Columbia to pursue a Ph.D. in Theoretical Condensed Matter Physics under Prof. Giovanni Vignale.<br><br>
+          My research spans emergent quantum phenomena in two-dimensional materials — from nonsymmorphic Dirac semimetals to twisted bilayer graphene — combining analytical theory with numerical simulation to probe band topology, magneto-optical response, and quantum geometry. I am now building toward hybrid quantum–classical workflows and actively learning machine learning to connect simulation with predictive materials design.<br><br>
+          Outside physics, I'm an avid reader — mostly novels — and someone who believes the best ideas live at the edges of disciplines.
         </p>
         <div class="hero-links">
           <a class="btn btn-primary" href="cv.pdf" download>⬇ Download CV</a>
@@ -168,65 +194,67 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
   </section>
 </div>
 
-<!-- SKILLS (accordion) -->
+<!-- SKILLS -->
 <div class="container" id="skills">
   <section>
     <div class="section-label">Skills</div>
     <h2 class="section-title">What I Work With</h2>
-    <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="skill-cards">
 
-      <!-- ═══ ACCORDION 1: Theoretical Physics ═══
-           To edit: change items inside the <ul> below -->
-      <div class="acc-item">
-        <div class="acc-header" onclick="toggleAcc(this.parentElement)">
-          <span class="acc-title">Theoretical Physics</span>
-          <span class="acc-arrow">▾</span>
-        </div>
-        <div class="acc-body">
-          <ul class="acc-list">
-            <li>Tight-binding models</li>
-            <li>Green's functions</li>
-            <li>Response theory &amp; Transport properties</li>
-            <li>Magneto-optics</li>
-            <li>Dirac physics</li>
-            <li>Altermagnetism</li>
-            <li>Quantum geometry</li>
-            <li>Quantum Reservoir Computing</li>
-          </ul>
-        </div>
+      <!-- CARD 1: Theoretical Physics -->
+      <div class="skill-card sk1" onclick="toggleSkill('sk-theory','sk1-arrow')">
+        <span class="skill-card-arrow" id="sk1-arrow">▾</span>
+        <div class="skill-card-icon">🔭</div>
+        <div class="skill-card-title">Theoretical Physics</div>
+        <div class="skill-card-hint">Click to expand</div>
       </div>
 
-      <!-- ═══ ACCORDION 2: Classical Computational ═══ -->
-      <div class="acc-item">
-        <div class="acc-header" onclick="toggleAcc(this.parentElement)">
-          <span class="acc-title">Classical Computational</span>
-          <span class="acc-arrow">▾</span>
-        </div>
-        <div class="acc-body">
-          <ul class="acc-list">
-            <li>Python</li>
-            <li>VASP (DFT)</li>
-            <li>Julia</li>
-            <li>MATLAB</li>
-            <li>TMDCA</li>
-          </ul>
-        </div>
+      <!-- CARD 2: Classical Computation -->
+      <div class="skill-card sk2" onclick="toggleSkill('sk-classical','sk2-arrow')">
+        <span class="skill-card-arrow" id="sk2-arrow">▾</span>
+        <div class="skill-card-icon">🖥️</div>
+        <div class="skill-card-title">Classical Computation</div>
+        <div class="skill-card-hint">Click to expand</div>
       </div>
 
-      <!-- ═══ ACCORDION 3: Quantum Computing ═══ -->
-      <div class="acc-item">
-        <div class="acc-header" onclick="toggleAcc(this.parentElement)">
-          <span class="acc-title">Quantum Computing</span>
-          <span class="acc-arrow">▾</span>
-        </div>
-        <div class="acc-body">
-          <ul class="acc-list">
-            <li>Qiskit</li>
-            <li>Quantum Hamiltonian simulation (VQE)</li>
-            <li>Sample-based Quantum Diagonalization (SQD)</li>
-            <li>IBM heavy-hex hardware</li>
-          </ul>
-        </div>
+      <!-- CARD 3: Quantum Computing -->
+      <div class="skill-card sk3" onclick="toggleSkill('sk-quantum','sk3-arrow')">
+        <span class="skill-card-arrow" id="sk3-arrow">▾</span>
+        <div class="skill-card-icon">⚛️</div>
+        <div class="skill-card-title">Quantum Computing</div>
+        <div class="skill-card-hint">Click to expand</div>
+      </div>
+
+      <!-- PANEL 1 -->
+      <!-- EDIT: add/remove pills inside this panel for Theoretical Physics -->
+      <div class="skill-panel sk1-panel" id="sk-theory">
+        <span class="skill-pill sk1-pill">Tight-binding models</span>
+        <span class="skill-pill sk1-pill">Green's functions</span>
+        <span class="skill-pill sk1-pill">Response theory &amp; Transport</span>
+        <span class="skill-pill sk1-pill">Magneto-optics</span>
+        <span class="skill-pill sk1-pill">Dirac physics</span>
+        <span class="skill-pill sk1-pill">Altermagnetism</span>
+        <span class="skill-pill sk1-pill">Quantum geometry</span>
+        <span class="skill-pill sk1-pill">Quantum Reservoir Computing</span>
+      </div>
+
+      <!-- PANEL 2 -->
+      <!-- EDIT: add/remove pills inside this panel for Classical Computation -->
+      <div class="skill-panel sk2-panel" id="sk-classical">
+        <span class="skill-pill sk2-pill">Python</span>
+        <span class="skill-pill sk2-pill">Julia</span>
+        <span class="skill-pill sk2-pill">MATLAB</span>
+        <span class="skill-pill sk2-pill">VASP (DFT)</span>
+        <span class="skill-pill sk2-pill">TMDCA</span>
+      </div>
+
+      <!-- PANEL 3 -->
+      <!-- EDIT: add/remove pills inside this panel for Quantum Computing -->
+      <div class="skill-panel sk3-panel" id="sk-quantum">
+        <span class="skill-pill sk3-pill">Qiskit</span>
+        <span class="skill-pill sk3-pill">Variational Quantum Eigensolver (VQE)</span>
+        <span class="skill-pill sk3-pill">Sample-based Quantum Diagonalization (SQD)</span>
+        <span class="skill-pill sk3-pill">IBM Heavy-Hex Hardware</span>
       </div>
 
     </div>
@@ -452,6 +480,30 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
   </section>
 </div>
 
+<!-- NOVELS -->
+<div class="container" id="novels">
+  <section>
+    <div class="section-label">Reading</div>
+    <h2 class="section-title">Novels I've Read</h2>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:20px">A few I keep coming back to. More to be added.</p>
+    <!-- EDIT: add your novels below. Copy a <div class="novel-card"> block to add one. -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px">
+      <div class="novel-card">
+        <div class="novel-title">Novel Title Here</div>
+        <div class="novel-author">Author Name</div>
+      </div>
+      <div class="novel-card">
+        <div class="novel-title">Novel Title Here</div>
+        <div class="novel-author">Author Name</div>
+      </div>
+      <div class="novel-card">
+        <div class="novel-title">Novel Title Here</div>
+        <div class="novel-author">Author Name</div>
+      </div>
+    </div>
+  </section>
+</div>
+
 <!-- CONTACT -->
 <div class="container" id="contact">
   <section>
@@ -522,11 +574,18 @@ async function fetchArxiv() {
   } catch(err) {
     box.innerHTML = '<div class="arxiv-loading">⚠ Could not fetch papers. Please try again in a moment.</div>';
   }
-// Accordion toggle
-function toggleAcc(el) {
-  const isOpen = el.classList.contains('open');
-  document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) el.classList.add('open');
+// Skill card toggle
+function toggleSkill(panelId, arrowId) {
+  const panel = document.getElementById(panelId);
+  const arrow = document.getElementById(arrowId);
+  const isOpen = panel.classList.contains('open');
+  // close all panels first
+  document.querySelectorAll('.skill-panel').forEach(p => p.classList.remove('open'));
+  document.querySelectorAll('.skill-card-arrow').forEach(a => { a.style.transform = ''; });
+  if (!isOpen) {
+    panel.classList.add('open');
+    arrow.style.transform = 'rotate(180deg)';
+  }
 }
 
 // Build email to avoid Cloudflare interception
