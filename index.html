@@ -71,9 +71,9 @@ section+section{border-top:1px solid var(--border)}
 .acc-title{font-weight:600;font-size:15px;color:var(--ink)}
 .acc-arrow{font-size:16px;color:var(--muted);transition:transform .25s;display:inline-block}
 .acc-item.open .acc-arrow{transform:rotate(180deg);color:var(--accent)}
-.acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s}
-.acc-item.open .acc-body{max-height:400px;padding-bottom:16px}
-.acc-list{list-style:none;padding:0 20px;display:flex;flex-wrap:wrap;gap:8px}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.acc-item.open .acc-body{max-height:500px}
+.acc-list{list-style:none;padding:0 20px 16px;display:flex;flex-wrap:wrap;gap:8px}
 .acc-list li{font-size:13px;padding:5px 14px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--ink);font-weight:500}
 
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
@@ -177,8 +177,8 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
 
       <!-- ═══ ACCORDION 1: Theoretical Physics ═══
            To edit: change items inside the <ul> below -->
-      <div class="acc-item" onclick="toggleAcc(this)">
-        <div class="acc-header">
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this.parentElement)">
           <span class="acc-title">Theoretical Physics</span>
           <span class="acc-arrow">▾</span>
         </div>
@@ -197,8 +197,8 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
       </div>
 
       <!-- ═══ ACCORDION 2: Classical Computational ═══ -->
-      <div class="acc-item" onclick="toggleAcc(this)">
-        <div class="acc-header">
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this.parentElement)">
           <span class="acc-title">Classical Computational</span>
           <span class="acc-arrow">▾</span>
         </div>
@@ -214,8 +214,8 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
       </div>
 
       <!-- ═══ ACCORDION 3: Quantum Computing ═══ -->
-      <div class="acc-item" onclick="toggleAcc(this)">
-        <div class="acc-header">
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this.parentElement)">
           <span class="acc-title">Quantum Computing</span>
           <span class="acc-arrow">▾</span>
         </div>
