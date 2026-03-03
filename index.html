@@ -82,6 +82,9 @@ section+section{border-top:1px solid var(--border)}
 .arxiv-card-link:hover{text-decoration:underline}
 .arxiv-loading{text-align:center;padding:28px;color:var(--muted);font-size:14px}
 .arxiv-date{font-size:11px;color:var(--muted);margin-left:8px}
+.topic-btn{padding:8px 16px;border-radius:20px;border:1.5px solid var(--border);background:#fff;color:var(--muted);font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s}
+.topic-btn:hover{border-color:var(--accent);color:var(--accent)}
+.topic-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 
 .thought-list{display:flex;flex-direction:column;gap:20px}
 .thought-card{border-left:3px solid var(--accent);padding:12px 20px}
@@ -140,7 +143,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
           <a class="btn btn-primary" href="cv.pdf" download>⬇ Download CV</a>
           <a class="btn btn-outline" href="https://scholar.google.com/citations?user=YOURID" target="_blank">Google Scholar</a>
           <a class="btn btn-outline" href="https://github.com/amarnath995" target="_blank">GitHub</a>
-          <a class="btn btn-outline" href="https://linkedin.com/in/amarnath-chakraborty95" target="_blank">LinkedIn</a>
+          <a class="btn btn-outline" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">LinkedIn</a>
         </div>
       </div>
       <div class="hero-avatar">⚛</div>
@@ -160,7 +163,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
         <div class="affil-detail">Advisors: Prof. Giovanni Vignale · Dr. Guang Bian<br>2D quantum materials · Quantum computing · Machine learning for materials</div>
       </div>
       <div class="affil-links">
-        <a class="btn btn-outline" href="https://linkedin.com/in/amarnath-chakraborty95" target="_blank" style="font-size:12px">Full profile on LinkedIn →</a>
+        <a class="btn btn-outline" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank" style="font-size:12px">Full profile on LinkedIn →</a>
         <a class="btn btn-outline" href="cv.pdf" download style="font-size:12px">Download CV →</a>
       </div>
     </div>
@@ -288,23 +291,25 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
   <section>
     <div class="section-label">arXiv Spotlight</div>
     <h2 class="section-title">Latest Preprints I'm Watching</h2>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:18px">Pick a category and fetch live papers straight from arXiv.</p>
-    <div class="arxiv-controls">
-      <select class="arxiv-select" id="arxiv-cat">
-        <option value="cond-mat">cond-mat (Condensed Matter)</option>
-        <option value="cond-mat.mes-hall">cond-mat.mes-hall (Mesoscale & Nanoscale)</option>
-        <option value="cond-mat.str-el">cond-mat.str-el (Strongly Correlated)</option>
-        <option value="cond-mat.supr-con">cond-mat.supr-con (Superconductivity)</option>
-        <option value="quant-ph">quant-ph (Quantum Physics)</option>
-        <option value="cond-mat.mtrl-sci">cond-mat.mtrl-sci (Materials Science)</option>
-      </select>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:18px">Three topics I follow closely — click any to fetch the latest papers.</p>
+
+    <!-- TOPIC BUTTONS — edit the data-query and label text to change topics -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
+      <button class="topic-btn active" data-query="altermagnets OR altermagnetism" onclick="selectTopic(this)">Altermagnets</button>
+      <button class="topic-btn" data-query="quantum Hamiltonian simulation" onclick="selectTopic(this)">Quantum Hamiltonian Simulation</button>
+      <button class="topic-btn" data-query="twisted bilayer graphene" onclick="selectTopic(this)">Twisted Bilayer Graphene</button>
+    </div>
+
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:20px;flex-wrap:wrap">
       <select class="arxiv-select" id="arxiv-count">
         <option value="5">5 papers</option>
         <option value="10">10 papers</option>
       </select>
       <button class="btn btn-primary" onclick="fetchArxiv()">Fetch Latest →</button>
+      <span id="arxiv-active-label" style="font-size:12px;color:var(--muted)">Topic: <strong>Altermagnets</strong></span>
     </div>
-    <div id="arxiv-results"><div class="arxiv-loading">← Select a category and click Fetch Latest</div></div>
+
+    <div id="arxiv-results"><div class="arxiv-loading">← Pick a topic and click Fetch Latest</div></div>
   </section>
 </div>
 
@@ -340,13 +345,13 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
     <div class="section-label">Contact</div>
     <h2 class="section-title">Get in Touch</h2>
     <div class="contact-grid">
-      <a class="contact-item" href="mailto:amarnathchakraborty95@gmail.com">
+      <a class="contact-item" href="/cdn-cgi/l/email-protection#8feee2eefde1eefbe7ece7eee4fdeeede0fdfbf6b6bacfe8e2eee6e3a1ece0e2">
         <span class="contact-icon">✉</span>
-        <div class="contact-text"><div class="contact-label">PERSONAL EMAIL</div><div class="contact-val">amarnathchakraborty95@gmail.com</div></div>
+        <div class="contact-text"><div class="contact-label">PERSONAL EMAIL</div><div class="contact-val"><span class="__cf_email__" data-cfemail="8cede1edfee2edf8e4efe4ede7feedeee3fef8f5b5b9ccebe1ede5e0a2efe3e1">[email&#160;protected]</span></div></div>
       </a>
-      <a class="contact-item" href="mailto:achakraborty@mail.missouri.edu">
+      <a class="contact-item" href="/cdn-cgi/l/email-protection#58393b3039332a393a372a2c2118353931347635312b2b372d2a31763d3c2d">
         <span class="contact-icon">🎓</span>
-        <div class="contact-text"><div class="contact-label">UNIVERSITY EMAIL</div><div class="contact-val">achakraborty@mail.missouri.edu</div></div>
+        <div class="contact-text"><div class="contact-label">UNIVERSITY EMAIL</div><div class="contact-val"><span class="__cf_email__" data-cfemail="dfbebcb7beb4adbebdb0adaba69fb2beb6b3f1b2b6acacb0aaadb6f1babbaa">[email&#160;protected]</span></div></div>
       </a>
       <a class="contact-item" href="https://github.com/amarnath995" target="_blank">
         <span class="contact-icon">⌥</span>
@@ -365,13 +370,21 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
 </footer>
 
 <script>
+let activeQuery = 'altermagnets OR altermagnetism';
+
+function selectTopic(btn) {
+  document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeQuery = btn.dataset.query;
+  document.getElementById('arxiv-active-label').innerHTML = `Topic: <strong>${btn.textContent}</strong>`;
+}
+
 async function fetchArxiv() {
-  const cat = document.getElementById('arxiv-cat').value;
   const n = document.getElementById('arxiv-count').value;
   const box = document.getElementById('arxiv-results');
   box.innerHTML = '<div class="arxiv-loading">⏳ Fetching latest papers…</div>';
   try {
-    const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${cat}&sortBy=submittedDate&sortOrder=descending&max_results=${n}`;
+    const apiUrl = `https://export.arxiv.org/api/query?search_query=all:${encodeURIComponent(activeQuery)}&sortBy=submittedDate&sortOrder=descending&max_results=${n}`;
     const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`;
     const res = await fetch(proxyUrl);
     if (!res.ok) throw new Error('bad response');
