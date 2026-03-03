@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Amarnath Chakraborty | Physics & Quantum Materials</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a2e;--muted:#5c677d;--accent:#2563eb;--accent2:#0891b2;
+  --bg:#ffffff;--surface:#f7f8fc;--border:#e4e7ef;--radius:10px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:15px}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%}
+.nav-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:54px}
+.nav-logo{font-family:'Source Serif 4',serif;font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.nav-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+
+.container{max-width:860px;margin:0 auto;padding:0 5%}
+section{padding:64px 0}
+section+section{border-top:1px solid var(--border)}
+.section-label{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.section-title{font-family:'Source Serif 4',serif;font-size:26px;font-weight:600;margin-bottom:24px}
+
+#hero{padding:72px 0 52px}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:start}
+.hero-name{font-family:'Source Serif 4',serif;font-size:38px;font-weight:600;line-height:1.15;margin-bottom:8px}
+.hero-title{font-size:14px;color:var(--accent);font-weight:600;margin-bottom:14px;letter-spacing:.3px}
+.hero-bio{font-size:14.5px;color:var(--muted);line-height:1.85;max-width:560px;margin-bottom:22px}
+.hero-links{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:'DM Sans',sans-serif}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#1d4ed8}
+.btn-outline{background:#fff;color:var(--ink);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.hero-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,#93c5fd,#0891b2);display:flex;align-items:center;justify-content:center;font-size:34px;flex-shrink:0}
+
+.affil-single{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 26px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px}
+.affil-role{font-weight:700;font-size:15px;margin-bottom:3px}
+.affil-place{font-size:14px;color:var(--accent);margin-bottom:3px}
+.affil-detail{font-size:13px;color:var(--muted)}
+.affil-links{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+
+.pub-list{display:flex;flex-direction:column;gap:14px}
+.pub-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;display:flex;gap:16px;align-items:flex-start}
+.pub-year{font-size:12px;font-weight:700;color:var(--accent);min-width:36px;padding-top:2px}
+.pub-title{font-weight:600;font-size:14px;margin-bottom:4px;line-height:1.45}
+.pub-journal{font-size:12px;color:var(--muted)}
+.pub-tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:700;margin-left:8px}
+.tag-blue{background:#dbeafe;color:#1d4ed8}
+.tag-green{background:#dcfce7;color:#166534}
+
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.proj-card{border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:box-shadow .2s;background:#fff}
+.proj-card:hover{box-shadow:0 4px 18px rgba(37,99,235,.1)}
+.proj-icon{font-size:22px;margin-bottom:10px}
+.proj-title{font-weight:700;font-size:14px;margin-bottom:6px}
+.proj-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.proj-tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--muted)}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.skill-group{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px}
+.skill-group-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2);margin-bottom:10px}
+.skill-item{font-size:13px;color:var(--ink);padding:3px 0;border-bottom:1px solid var(--border)}
+.skill-item:last-child{border-bottom:none}
+
+.arxiv-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+.arxiv-select{padding:8px 12px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;font-family:'DM Sans',sans-serif;background:#fff;color:var(--ink);cursor:pointer;outline:none}
+.arxiv-select:focus{border-color:var(--accent)}
+#arxiv-results{display:flex;flex-direction:column;gap:12px}
+.arxiv-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px}
+.arxiv-card-title{font-weight:600;font-size:14px;margin-bottom:5px;line-height:1.5}
+.arxiv-card-authors{font-size:12px;color:var(--muted);margin-bottom:5px}
+.arxiv-card-summary{font-size:13px;color:#475569;line-height:1.65;margin-bottom:8px}
+.arxiv-card-link{font-size:12px;font-weight:600;color:var(--accent);text-decoration:none}
+.arxiv-card-link:hover{text-decoration:underline}
+.arxiv-loading{text-align:center;padding:28px;color:var(--muted);font-size:14px}
+.arxiv-date{font-size:11px;color:var(--muted);margin-left:8px}
+
+.thought-list{display:flex;flex-direction:column;gap:20px}
+.thought-card{border-left:3px solid var(--accent);padding:12px 20px}
+.thought-date{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1px;margin-bottom:4px}
+.thought-text{font-family:'Source Serif 4',serif;font-size:15px;color:var(--ink);line-height:1.85;font-style:italic}
+.thought-tag{font-size:11px;font-weight:600;color:var(--accent2);margin-top:6px}
+
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.contact-item{display:flex;align-items:flex-start;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;text-decoration:none;color:var(--ink);transition:border-color .2s;min-width:0}
+.contact-item:hover{border-color:var(--accent)}
+.contact-icon{font-size:18px;flex-shrink:0;margin-top:2px}
+.contact-text{min-width:0}
+.contact-label{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.5px}
+.contact-val{font-size:13px;font-weight:500;word-break:break-all;line-height:1.4}
+
+footer{background:var(--surface);border-top:1px solid var(--border);padding:24px 5%;text-align:center;font-size:13px;color:var(--muted)}
+
+@media(max-width:600px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-avatar{display:none}
+  .hero-name{font-size:28px}
+  .pub-card{flex-direction:column;gap:6px}
+  .nav-links{gap:12px}
+  .affil-links{align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero">AC</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#publications">Papers</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#arxiv">arXiv</a></li>
+      <li><a href="#thoughts">Thoughts</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="container" id="hero">
+  <section style="border:none">
+    <div class="hero-grid">
+      <div>
+        <div class="section-label">Physicist · Quantum Materials</div>
+        <h1 class="hero-name">Amarnath<br>Chakraborty</h1>
+        <div class="hero-title">Ph.D. Physics · University of Missouri–Columbia</div>
+        <p class="hero-bio">
+          I work at the intersection of theoretical condensed matter, quantum computing, and machine learning — building simulations of two-dimensional quantum materials and developing hybrid workflows to accelerate materials discovery.
+        </p>
+        <div class="hero-links">
+          <a class="btn btn-primary" href="cv.pdf" download>⬇ Download CV</a>
+          <a class="btn btn-outline" href="https://scholar.google.com/citations?user=YOURID" target="_blank">Google Scholar</a>
+          <a class="btn btn-outline" href="https://github.com/amarnath995" target="_blank">GitHub</a>
+          <a class="btn btn-outline" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-avatar">⚛</div>
+    </div>
+  </section>
+</div>
+
+<!-- AFFILIATION -->
+<div class="container" id="about">
+  <section>
+    <div class="section-label">Current Position</div>
+    <h2 class="section-title">Where I Work</h2>
+    <div class="affil-single">
+      <div>
+        <div class="affil-role">Ph.D. Researcher — Physics & Astronomy</div>
+        <div class="affil-place">University of Missouri–Columbia</div>
+        <div class="affil-detail">Advisors: Prof. Giovanni Vignale · Dr. Guang Bian<br>2D quantum materials · Quantum computing · Machine learning for materials</div>
+      </div>
+      <div class="affil-links">
+        <a class="btn btn-outline" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank" style="font-size:12px">Full profile on LinkedIn →</a>
+        <a class="btn btn-outline" href="cv.pdf" download style="font-size:12px">Download CV →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- PUBLICATIONS -->
+<div class="container" id="publications">
+  <section>
+    <div class="section-label">Publications</div>
+    <h2 class="section-title">Peer-Reviewed Research</h2>
+    <div class="pub-list">
+      <div class="pub-card">
+        <div class="pub-year">2025</div>
+        <div>
+          <div class="pub-title">Insulator-Metal Transition &amp; Magnetic Crossover in Bilayer Graphene <span class="pub-tag tag-blue">PRB</span></div>
+          <div class="pub-journal">Physical Review B 111, 125130 · Bilayer graphene · Trigonal warping · Low-field transitions</div>
+        </div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-year">2024</div>
+        <div>
+          <div class="pub-title">Observation of 2D Weyl Fermions in Bismuthene <span class="pub-tag tag-green">Nat Commun</span></div>
+          <div class="pub-journal">Nature Communications 15, 6001 · Theory–experiment collaboration with NUS</div>
+        </div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-year">2023</div>
+        <div>
+          <div class="pub-title">Giant Faraday Rotation in Nonsymmorphic Dirac Semimetals <span class="pub-tag tag-blue">PRB</span></div>
+          <div class="pub-journal">Physical Review B 107, 245120 · Optical response · Topological semimetals</div>
+        </div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-year">2021</div>
+        <div>
+          <div class="pub-title">Photon Absorption in 2D Nonsymmorphic Dirac Semimetals <span class="pub-tag tag-blue">PRB</span></div>
+          <div class="pub-journal">Physical Review B 105, 085101 · Optical conductivity · 2D materials</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- PROJECTS -->
+<div class="container" id="projects">
+  <section>
+    <div class="section-label">Research Projects</div>
+    <h2 class="section-title">What I'm Building</h2>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-icon">🌀</div>
+        <div class="proj-title">TBG Berry Curvature & Orbital Response</div>
+        <div class="proj-desc">Continuum model of twisted bilayer graphene to analyze Berry curvature and orbital susceptibility for topological qubit platforms.</div>
+        <div class="proj-tags"><span class="chip">Tight-binding</span><span class="chip">TBG</span><span class="chip">Python/Julia</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">💻</div>
+        <div class="proj-title">VQE & SQD for Fermi-Hubbard</div>
+        <div class="proj-desc">Error-mitigated VQE and Sample-based Quantum Diagonalization on IBM heavy-hex hardware, benchmarking correlated phases.</div>
+        <div class="proj-tags"><span class="chip">Qiskit</span><span class="chip">VQE</span><span class="chip">SQD</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">⚡</div>
+        <div class="proj-title">Optical Response in Dirac Semimetals</div>
+        <div class="proj-desc">Kubo formalism analysis of giant Faraday rotation and photon absorption in nonsymmorphic 2D Dirac systems.</div>
+        <div class="proj-tags"><span class="chip">Kubo formalism</span><span class="chip">Semimetals</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">🔬</div>
+        <div class="proj-title">2D Weyl Fermions in Bismuthene</div>
+        <div class="proj-desc">Theory predictions confirmed experimentally with NUS collaborators, published in Nature Communications.</div>
+        <div class="proj-tags"><span class="chip">Weyl physics</span><span class="chip">NUS collab</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">🤖</div>
+        <div class="proj-title">ML Surrogates for 2D Materials</div>
+        <div class="proj-desc">Active-learning workflows combining TMDCA and Lanczos with ML surrogates to screen 2D materials and high-Tc candidates.</div>
+        <div class="proj-tags"><span class="chip">ML</span><span class="chip">TMDCA</span><span class="chip">Active learning</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">📦</div>
+        <div class="proj-title">TBGBands & Response (Open Source)</div>
+        <div class="proj-desc">Python library for simulating Berry curvature in TBG under magnetic fields, with CI and docs for cross-group reuse.</div>
+        <div class="proj-tags"><span class="chip">Open source</span><span class="chip">Python</span><span class="chip">GitHub</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- SKILLS -->
+<div class="container" id="skills">
+  <section>
+    <div class="section-label">Technical Skills</div>
+    <h2 class="section-title">Tools & Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Programming</div>
+        <div class="skill-item">Python</div><div class="skill-item">Julia</div>
+        <div class="skill-item">Fortran</div><div class="skill-item">MATLAB / Mathematica</div>
+        <div class="skill-item">Qiskit</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Quantum Computing</div>
+        <div class="skill-item">VQE / SQD</div><div class="skill-item">Noise mitigation</div>
+        <div class="skill-item">IBM heavy-hex</div><div class="skill-item">Error correction</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Materials Modelling</div>
+        <div class="skill-item">Tight-binding</div><div class="skill-item">Kubo formalism</div>
+        <div class="skill-item">DFT (VASP)</div><div class="skill-item">Green's functions</div>
+        <div class="skill-item">TMDCA / Lanczos</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Conceptual Areas</div>
+        <div class="skill-item">Topological phases</div><div class="skill-item">Correlated electrons</div>
+        <div class="skill-item">Quantum geometry</div><div class="skill-item">Dirac / Weyl systems</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ARXIV SPOTLIGHT -->
+<div class="container" id="arxiv">
+  <section>
+    <div class="section-label">arXiv Spotlight</div>
+    <h2 class="section-title">Latest Preprints I'm Watching</h2>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:18px">Pick a category and fetch live papers straight from arXiv.</p>
+    <div class="arxiv-controls">
+      <select class="arxiv-select" id="arxiv-cat">
+        <option value="cond-mat">cond-mat (Condensed Matter)</option>
+        <option value="cond-mat.mes-hall">cond-mat.mes-hall (Mesoscale & Nanoscale)</option>
+        <option value="cond-mat.str-el">cond-mat.str-el (Strongly Correlated)</option>
+        <option value="cond-mat.supr-con">cond-mat.supr-con (Superconductivity)</option>
+        <option value="quant-ph">quant-ph (Quantum Physics)</option>
+        <option value="cond-mat.mtrl-sci">cond-mat.mtrl-sci (Materials Science)</option>
+      </select>
+      <select class="arxiv-select" id="arxiv-count">
+        <option value="5">5 papers</option>
+        <option value="10">10 papers</option>
+      </select>
+      <button class="btn btn-primary" onclick="fetchArxiv()">Fetch Latest →</button>
+    </div>
+    <div id="arxiv-results"><div class="arxiv-loading">← Select a category and click Fetch Latest</div></div>
+  </section>
+</div>
+
+<!-- THOUGHTS -->
+<div class="container" id="thoughts">
+  <section>
+    <div class="section-label">New Thoughts</div>
+    <h2 class="section-title">Notes & Reflections</h2>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:22px">Short ideas and things I'm thinking about — updated occasionally.</p>
+    <div class="thought-list">
+      <div class="thought-card">
+        <div class="thought-date">JUNE 2025</div>
+        <div class="thought-text">"The geometry of a quantum state — its Berry curvature and quantum metric — is far more physically consequential than I initially appreciated. It shows up in transport, optical response, and now even qubit design."</div>
+        <div class="thought-tag"># Quantum Geometry</div>
+      </div>
+      <div class="thought-card">
+        <div class="thought-date">MAY 2025</div>
+        <div class="thought-text">"Running VQE on real IBM hardware is humbling. The gap between a textbook algorithm and a noise-resilient implementation on heavy-hex is enormous — and I think that's exactly where the field needs people."</div>
+        <div class="thought-tag"># Quantum Computing</div>
+      </div>
+      <div class="thought-card">
+        <div class="thought-date">MARCH 2025</div>
+        <div class="thought-text">"The most impactful 2D materials papers combine a clean theoretical prediction with an experimentally accessible signature. The theory has to 'speak' to the experiment. That's what I want my work to do."</div>
+        <div class="thought-tag"># Research Philosophy</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div class="container" id="contact">
+  <section>
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="contact-grid">
+      <a class="contact-item" href="mailto:amarnathchakraborty95@gmail.com">
+        <span class="contact-icon">✉</span>
+        <div class="contact-text"><div class="contact-label">PERSONAL EMAIL</div><div class="contact-val">amarnathchakraborty95@gmail.com</div></div>
+      </a>
+      <a class="contact-item" href="mailto:achakraborty@mail.missouri.edu">
+        <span class="contact-icon">🎓</span>
+        <div class="contact-text"><div class="contact-label">UNIVERSITY EMAIL</div><div class="contact-val">achakraborty@mail.missouri.edu</div></div>
+      </a>
+      <a class="contact-item" href="https://github.com/amarnath995" target="_blank">
+        <span class="contact-icon">⌥</span>
+        <div class="contact-text"><div class="contact-label">GITHUB</div><div class="contact-val">github.com/amarnath995</div></div>
+      </a>
+      <a class="contact-item" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">
+        <span class="contact-icon">🔗</span>
+        <div class="contact-text"><div class="contact-label">LINKEDIN</div><div class="contact-val">Full academic profile</div></div>
+      </a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div>© 2025 Amarnath Chakraborty · <a href="https://github.com/amarnath995/amarnath995.github.io" style="color:var(--muted);text-decoration:none">View source on GitHub</a></div>
+</footer>
+
+<script>
+async function fetchArxiv() {
+  const cat = document.getElementById('arxiv-cat').value;
+  const n = document.getElementById('arxiv-count').value;
+  const box = document.getElementById('arxiv-results');
+  box.innerHTML = '<div class="arxiv-loading">⏳ Fetching latest papers…</div>';
+  try {
+    const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${cat}&sortBy=submittedDate&sortOrder=descending&max_results=${n}`;
+    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`;
+    const res = await fetch(proxyUrl);
+    if (!res.ok) throw new Error('bad response');
+    const txt = await res.text();
+    const xml = new DOMParser().parseFromString(txt, 'application/xml');
+    const entries = xml.querySelectorAll('entry');
+    if (!entries.length) { box.innerHTML = '<div class="arxiv-loading">No results found. Try again shortly.</div>'; return; }
+    box.innerHTML = '';
+    entries.forEach(e => {
+      const title = e.querySelector('title')?.textContent?.trim().replace(/\s+/g,' ') || '';
+      const summary = (e.querySelector('summary')?.textContent?.trim().replace(/\s+/g,' ') || '').slice(0,260) + '…';
+      const allAuthors = [...e.querySelectorAll('author name')];
+      const authors = allAuthors.slice(0,4).map(a=>a.textContent).join(', ') + (allAuthors.length > 4 ? ' et al.' : '');
+      const link = e.querySelector('id')?.textContent?.trim() || '#';
+      const dateRaw = e.querySelector('published')?.textContent?.trim() || '';
+      const date = dateRaw ? new Date(dateRaw).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : '';
+      const div = document.createElement('div');
+      div.className = 'arxiv-card';
+      div.innerHTML = `
+        <div class="arxiv-card-title">${title}</div>
+        <div class="arxiv-card-authors">${authors}${date?`<span class="arxiv-date">· ${date}</span>`:''}</div>
+        <div class="arxiv-card-summary">${summary}</div>
+        <a class="arxiv-card-link" href="${link}" target="_blank">Read on arXiv →</a>`;
+      box.appendChild(div);
+    });
+  } catch(err) {
+    box.innerHTML = '<div class="arxiv-loading">⚠ Could not fetch papers. Please try again in a moment.</div>';
+  }
+}
+</script>
+</body>
+</html>
