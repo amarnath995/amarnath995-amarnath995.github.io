@@ -143,7 +143,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
           <a class="btn btn-primary" href="cv.pdf" download>⬇ Download CV</a>
           <a class="btn btn-outline" href="https://scholar.google.com/citations?user=YOURID" target="_blank">Google Scholar</a>
           <a class="btn btn-outline" href="https://github.com/amarnath995" target="_blank">GitHub</a>
-          <a class="btn btn-outline" href="https://linkedin.com/in/amarnath-chakraborty95" target="_blank">LinkedIn</a>
+          <a class="btn btn-outline" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">LinkedIn</a>
         </div>
       </div>
       <div class="hero-avatar">⚛</div>
@@ -163,7 +163,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
         <div class="affil-detail">Advisors: Prof. Giovanni Vignale · Dr. Guang Bian<br>2D quantum materials · Quantum computing · Machine learning for materials</div>
       </div>
       <div class="affil-links">
-        <a class="btn btn-outline" href="https://linkedin.com/in/amarnath-chakraborty95" target="_blank" style="font-size:12px">Full profile on LinkedIn →</a>
+        <a class="btn btn-outline" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank" style="font-size:12px">Full profile on LinkedIn →</a>
         <a class="btn btn-outline" href="cv.pdf" download style="font-size:12px">Download CV →</a>
       </div>
     </div>
@@ -211,46 +211,74 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
 <!-- PROJECTS -->
 <div class="container" id="projects">
   <section>
-    <div class="section-label">Research Projects</div>
+    <div class="section-label">Research Vision</div>
     <h2 class="section-title">What I'm Building</h2>
-    <div class="proj-grid">
-      <div class="proj-card">
-        <div class="proj-icon">🌀</div>
-        <div class="proj-title">TBG Berry Curvature & Orbital Response</div>
-        <div class="proj-desc">Continuum model of twisted bilayer graphene to analyze Berry curvature and orbital susceptibility for topological qubit platforms.</div>
-        <div class="proj-tags"><span class="chip">Tight-binding</span><span class="chip">TBG</span><span class="chip">Python/Julia</span></div>
+
+    <!-- ═══════════════════════════════════════════════════
+         BIG GOAL CARD
+         To edit: change the text inside the <p> tag and the chips below
+    ════════════════════════════════════════════════════ -->
+    <div style="border:2px solid var(--accent);border-radius:var(--radius);padding:28px 30px;margin-bottom:28px;background:linear-gradient(135deg,#eff6ff,#f0f9ff)">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+        <span style="font-size:26px">🎯</span>
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:2px">Long-Term Goal</div>
+          <div style="font-weight:700;font-size:17px;color:var(--ink)">Generative Hybrid Quantum–Classical Workflow</div>
+        </div>
       </div>
-      <div class="proj-card">
-        <div class="proj-icon">💻</div>
-        <div class="proj-title">VQE & SQD for Fermi-Hubbard</div>
-        <div class="proj-desc">Error-mitigated VQE and Sample-based Quantum Diagonalization on IBM heavy-hex hardware, benchmarking correlated phases.</div>
-        <div class="proj-tags"><span class="chip">Qiskit</span><span class="chip">VQE</span><span class="chip">SQD</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-icon">⚡</div>
-        <div class="proj-title">Optical Response in Dirac Semimetals</div>
-        <div class="proj-desc">Kubo formalism analysis of giant Faraday rotation and photon absorption in nonsymmorphic 2D Dirac systems.</div>
-        <div class="proj-tags"><span class="chip">Kubo formalism</span><span class="chip">Semimetals</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-icon">🔬</div>
-        <div class="proj-title">2D Weyl Fermions in Bismuthene</div>
-        <div class="proj-desc">Theory predictions confirmed experimentally with NUS collaborators, published in Nature Communications.</div>
-        <div class="proj-tags"><span class="chip">Weyl physics</span><span class="chip">NUS collab</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-icon">🤖</div>
-        <div class="proj-title">ML Surrogates for 2D Materials</div>
-        <div class="proj-desc">Active-learning workflows combining TMDCA and Lanczos with ML surrogates to screen 2D materials and high-Tc candidates.</div>
-        <div class="proj-tags"><span class="chip">ML</span><span class="chip">TMDCA</span><span class="chip">Active learning</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-icon">📦</div>
-        <div class="proj-title">TBGBands & Response (Open Source)</div>
-        <div class="proj-desc">Python library for simulating Berry curvature in TBG under magnetic fields, with CI and docs for cross-group reuse.</div>
-        <div class="proj-tags"><span class="chip">Open source</span><span class="chip">Python</span><span class="chip">GitHub</span></div>
+      <p style="font-size:14px;color:#334155;line-height:1.85;margin-bottom:16px">
+        My overarching goal is to build a modular generative workflow that tightly couples classical simulation, quantum simulation, and machine learning. The idea is to use physics-based quantum and classical solvers to generate high-fidelity training data for correlated quantum systems, then feed those outputs into machine learning models to construct exact, interpretable predictive models — ultimately creating a feedback loop that accelerates the discovery of new quantum materials and device-relevant properties.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <span class="chip" style="border-color:#bfdbfe;color:#1d4ed8;background:#dbeafe">Classical simulation</span>
+        <span class="chip" style="border-color:#bfdbfe;color:#1d4ed8;background:#dbeafe">Quantum simulation</span>
+        <span class="chip" style="border-color:#bfdbfe;color:#1d4ed8;background:#dbeafe">Generative ML</span>
+        <span class="chip" style="border-color:#bfdbfe;color:#1d4ed8;background:#dbeafe">Predictive modelling</span>
+        <span class="chip" style="border-color:#bfdbfe;color:#1d4ed8;background:#dbeafe">Hybrid workflows</span>
       </div>
     </div>
+
+    <!-- ═══════════════════════════════════════════════════
+         SHORT-TERM GOALS (2 cards side by side)
+         To edit: change proj-title and proj-desc text in each card
+    ════════════════════════════════════════════════════ -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Currently Working On</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:28px">
+
+      <div class="proj-card" style="border-color:#c7d2fe">
+        <div class="proj-icon">💻</div>
+        <!-- EDIT SHORT-TERM GOAL 1 TITLE HERE -->
+        <div class="proj-title">Quantum Hamiltonian Simulations</div>
+        <!-- EDIT SHORT-TERM GOAL 1 DESCRIPTION HERE -->
+        <div class="proj-desc">Developing and benchmarking error-mitigated quantum Hamiltonian simulation workflows — including VQE and Sample-based Quantum Diagonalization — on IBM heavy-hex hardware, targeting correlated phases and ground-state properties of the Fermi-Hubbard model.</div>
+        <div class="proj-tags"><span class="chip">VQE</span><span class="chip">SQD</span><span class="chip">Qiskit</span><span class="chip">IBM hardware</span></div>
+      </div>
+
+      <div class="proj-card" style="border-color:#c7d2fe">
+        <div class="proj-icon">🌊</div>
+        <!-- EDIT SHORT-TERM GOAL 2 TITLE HERE -->
+        <div class="proj-title">Quantum Reservoir Computing</div>
+        <!-- EDIT SHORT-TERM GOAL 2 DESCRIPTION HERE -->
+        <div class="proj-desc">Exploring quantum reservoir computing as a near-term quantum ML paradigm — learning how driven quantum systems can act as expressive reservoirs for temporal and correlated data, with an eye toward integrating this into the broader hybrid workflow.</div>
+        <div class="proj-tags"><span class="chip">QRC</span><span class="chip">Near-term QML</span><span class="chip">Dynamical systems</span></div>
+      </div>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+         PAST WORK — GitHub link only
+         To edit: change the href to your actual GitHub repo URL
+    ════════════════════════════════════════════════════ -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Past Work</div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="font-weight:600;font-size:14px;margin-bottom:3px">2D Quantum Materials — Simulations & Code</div>
+        <div style="font-size:13px;color:var(--muted)">Tight-binding models, Berry curvature, optical response, TBG — all prior simulation work lives here.</div>
+      </div>
+      <!-- EDIT THIS HREF to your actual GitHub repo link -->
+      <a class="btn btn-outline" href="https://github.com/amarnath995" target="_blank" style="flex-shrink:0">View on GitHub →</a>
+    </div>
+
   </section>
 </div>
 
@@ -357,7 +385,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
         <span class="contact-icon">⌥</span>
         <div class="contact-text"><div class="contact-label">GITHUB</div><div class="contact-val">github.com/amarnath995</div></div>
       </a>
-      <a class="contact-item" href="https://linkedin.com/in/amarnath-chakraborty95" target="_blank">
+      <a class="contact-item" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">
         <span class="contact-icon">🔗</span>
         <div class="contact-text"><div class="contact-label">LINKEDIN</div><div class="contact-val">Full academic profile</div></div>
       </a>
