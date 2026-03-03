@@ -1,149 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Amarnath Chakraborty | Physics & Quantum Materials</title>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<title>Amarnath Chakraborty | Physicist</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --ink:#1a1a2e;--muted:#5c677d;--accent:#2563eb;--accent2:#0891b2;
-  --bg:#ffffff;--surface:#f7f8fc;--border:#e4e7ef;--radius:10px;
+[data-theme="light"]{
+  --bg:#fafafa;--surface:#f0f2f8;--surface2:#e8eaf2;
+  --ink:#111827;--muted:#6b7280;--border:#dde1ec;
+  --accent:#2563eb;--a2:#7c3aed;--a3:#0891b2;
+  --card:#ffffff;--nav-bg:rgba(250,250,250,0.93);
+}
+[data-theme="dark"]{
+  --bg:#0d0f1a;--surface:#151826;--surface2:#1e2235;
+  --ink:#e8eaf0;--muted:#8b92a8;--border:#252840;
+  --accent:#60a5fa;--a2:#a78bfa;--a3:#22d3ee;
+  --card:#151826;--nav-bg:rgba(13,15,26,0.95);
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:15px}
-
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%}
-.nav-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:54px}
-.nav-logo{font-family:'Source Serif 4',serif;font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
-.nav-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:15px;transition:background .3s,color .3s}
+nav{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 5%;transition:background .3s}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:'Lora',serif;font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.nav-links{display:flex;gap:18px;list-style:none;align-items:center;flex-wrap:wrap}
 .nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--accent)}
-
-.container{max-width:860px;margin:0 auto;padding:0 5%}
-section{padding:64px 0}
+.theme-btn{background:none;border:1.5px solid var(--border);border-radius:20px;padding:5px 12px;font-size:13px;cursor:pointer;color:var(--muted);font-family:'Inter',sans-serif;transition:all .2s}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+.container{max-width:900px;margin:0 auto;padding:0 5%}
+section{padding:72px 0}
 section+section{border-top:1px solid var(--border)}
-.section-label{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.section-title{font-family:'Source Serif 4',serif;font-size:26px;font-weight:600;margin-bottom:24px}
+.label{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.section-title{font-family:'Lora',serif;font-size:28px;font-weight:600;margin-bottom:28px;color:var(--ink)}
 
-#hero{padding:72px 0 52px}
-.hero-grid{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:start}
-.hero-name{font-family:'Source Serif 4',serif;font-size:38px;font-weight:600;line-height:1.15;margin-bottom:8px}
-.hero-title{font-size:14px;color:var(--accent);font-weight:600;margin-bottom:14px;letter-spacing:.3px}
-.hero-bio{font-size:14.5px;color:var(--muted);line-height:1.85;max-width:560px;margin-bottom:22px}
+/* HERO */
+#hero{padding:80px 0 60px;border:none!important}
+.hero-grid{display:grid;grid-template-columns:1fr 140px;gap:40px;align-items:start}
+.hero-name{font-family:'Lora',serif;font-size:44px;font-weight:600;line-height:1.1;margin-bottom:8px;color:var(--ink)}
+.hero-sub{font-size:14px;color:var(--accent);font-weight:600;margin-bottom:18px}
+.hero-bio{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:24px}
+.hero-bio strong{color:var(--ink);font-weight:600}
 .hero-links{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:'DM Sans',sans-serif}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:#1d4ed8}
-.btn-outline{background:#fff;color:var(--ink);border:1.5px solid var(--border)}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
-.hero-avatar{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#93c5fd,#0891b2);display:flex;align-items:center;justify-content:center;font-size:34px;flex-shrink:0;overflow:hidden;border:3px solid var(--border)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:7px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:'Inter',sans-serif}
+.btn-p{background:var(--accent);color:#fff}.btn-p:hover{opacity:.88}
+.btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--border)}.btn-o:hover{border-color:var(--accent);color:var(--accent)}
+.avatar{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--a3));display:flex;align-items:center;justify-content:center;font-size:38px;flex-shrink:0;overflow:hidden;border:3px solid var(--border)}
+.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 
-.affil-single{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 26px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px}
-.affil-role{font-weight:700;font-size:15px;margin-bottom:3px}
-.affil-place{font-size:14px;color:var(--accent);margin-bottom:3px}
-.affil-detail{font-size:13px;color:var(--muted)}
-.affil-links{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+/* SKILL CARDS */
+.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sk-card{border-radius:16px;padding:24px 20px;cursor:pointer;transition:transform .15s,box-shadow .15s;position:relative;border:2px solid transparent;user-select:none}
+.sk-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.13)}
+.sk-icon{font-size:30px;margin-bottom:12px;display:block}
+.sk-title{font-weight:700;font-size:15px;margin-bottom:4px}
+.sk-hint{font-size:12px;opacity:.6}
+.sk-chev{position:absolute;top:16px;right:18px;font-size:16px;transition:transform .25s}
+.sk1{background:#eef2ff;border-color:#c7d2fe}.sk1 .sk-title{color:#3730a3}
+.sk2{background:#ecfeff;border-color:#a5f3fc}.sk2 .sk-title{color:#0e7490}
+.sk3{background:#f0fdf4;border-color:#bbf7d0}.sk3 .sk-title{color:#065f46}
+[data-theme="dark"] .sk1{background:#1a1c35;border-color:#3730a3}[data-theme="dark"] .sk1 .sk-title{color:#a5b4fc}
+[data-theme="dark"] .sk2{background:#0c1f25;border-color:#0e7490}[data-theme="dark"] .sk2 .sk-title{color:#22d3ee}
+[data-theme="dark"] .sk3{background:#0a1f18;border-color:#065f46}[data-theme="dark"] .sk3 .sk-title{color:#34d399}
+.sk-panel{grid-column:1/-1;display:none;flex-wrap:wrap;gap:8px;padding:20px;border-radius:14px;animation:fadeUp .2s ease}
+.sk-panel.open{display:flex}
+.p1{background:#eef2ff;border:2px solid #c7d2fe}
+.p2{background:#ecfeff;border:2px solid #a5f3fc}
+.p3{background:#f0fdf4;border:2px solid #bbf7d0}
+[data-theme="dark"] .p1{background:#1a1c35;border-color:#3730a3}
+[data-theme="dark"] .p2{background:#0c1f25;border-color:#0e7490}
+[data-theme="dark"] .p3{background:#0a1f18;border-color:#065f46}
+.pill{font-size:13px;padding:6px 15px;border-radius:20px;font-weight:500}
+.pi1{background:#e0e7ff;color:#3730a3;border:1px solid #c7d2fe}
+.pi2{background:#cffafe;color:#0e7490;border:1px solid #a5f3fc}
+.pi3{background:#dcfce7;color:#065f46;border:1px solid #bbf7d0}
+[data-theme="dark"] .pi1{background:#312e81;color:#c7d2fe;border-color:#4338ca}
+[data-theme="dark"] .pi2{background:#164e63;color:#a5f3fc;border-color:#0891b2}
+[data-theme="dark"] .pi3{background:#14532d;color:#bbf7d0;border-color:#065f46}
 
-.pub-list{display:flex;flex-direction:column;gap:14px}
-.pub-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;display:flex;gap:16px;align-items:flex-start}
-.pub-year{font-size:12px;font-weight:700;color:var(--accent);min-width:36px;padding-top:2px}
-.pub-title{font-weight:600;font-size:14px;margin-bottom:4px;line-height:1.45}
-.pub-journal{font-size:12px;color:var(--muted)}
-.pub-tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:700;margin-left:8px}
-.tag-blue{background:#dbeafe;color:#1d4ed8}
-.tag-green{background:#dcfce7;color:#166534}
+/* POSITIONS */
+.pos-list{display:flex;flex-direction:column;gap:14px}
+.pos-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 26px}
+.pos-card:hover{border-color:var(--accent)}
+.pos-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.t-now{background:#dbeafe;color:#1d4ed8}[data-theme="dark"] .t-now{background:#1e3a5f;color:#93c5fd}
+.t-next{background:#ede9fe;color:#5b21b6}[data-theme="dark"] .t-next{background:#2e1a4e;color:#c4b5fd}
+.t-past{background:var(--surface2);color:var(--muted)}
+.p-upcoming{border:2px solid var(--a2)!important}
+.pos-role{font-weight:700;font-size:16px;margin-bottom:3px}
+.pos-place{font-size:14px;color:var(--accent);margin-bottom:8px;font-weight:500}
+.pos-desc{font-size:14px;color:var(--muted);line-height:1.8}
 
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.proj-card{border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:box-shadow .2s;background:#fff}
-.proj-card:hover{box-shadow:0 4px 18px rgba(37,99,235,.1)}
-.proj-icon{font-size:22px;margin-bottom:10px}
-.proj-title{font-weight:700;font-size:14px;margin-bottom:6px}
-.proj-desc{font-size:13px;color:var(--muted);line-height:1.6}
-.proj-tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:5px}
-.chip{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--muted)}
-.skill-tag{display:inline-block;font-size:13px;padding:5px 14px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--ink);font-weight:500}
+/* PUBS */
+.pub-list{display:flex;flex-direction:column;gap:12px}
+.pub-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;display:flex;gap:18px}
+.pub-year{font-size:12px;font-weight:700;color:var(--accent);min-width:36px;flex-shrink:0;padding-top:3px}
+.pub-title{font-weight:600;font-size:14px;margin-bottom:5px;line-height:1.5}
+.pub-meta{font-size:12px;color:var(--muted)}
+.ptag{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;font-weight:700;margin-left:8px;vertical-align:middle}
+.prb{background:#dbeafe;color:#1d4ed8}[data-theme="dark"] .prb{background:#1e3a5f;color:#93c5fd}
+.pnc{background:#dcfce7;color:#166534}[data-theme="dark"] .pnc{background:#14532d;color:#86efac}
 
-/* Skill cards */
-.skill-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.skill-card{border-radius:14px;padding:22px 20px;cursor:pointer;transition:transform .15s,box-shadow .15s;user-select:none;position:relative}
-.skill-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
-.skill-card-icon{font-size:28px;margin-bottom:10px}
-.skill-card-title{font-weight:700;font-size:15px;margin-bottom:4px}
-.skill-card-hint{font-size:12px;opacity:.7}
-.skill-card-arrow{position:absolute;top:18px;right:18px;font-size:14px;transition:transform .25s}
-.skill-card.open .skill-card-arrow{transform:rotate(180deg)}
-.skill-panel{grid-column:1/-1;display:none;border-radius:12px;padding:18px 20px;margin-top:-8px}
-.skill-panel.open{display:flex;flex-wrap:wrap;gap:8px}
-.skill-pill{font-size:13px;padding:5px 14px;border-radius:20px;font-weight:500}
+/* PROJECTS */
+.big-goal{border:2px solid var(--accent);border-radius:16px;padding:30px;margin-bottom:28px;background:var(--surface)}
+.bg-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.bg-title{font-family:'Lora',serif;font-size:20px;font-weight:600;margin-bottom:14px}
+.bg-desc{font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:16px}
+.goal-chips{display:flex;flex-wrap:wrap;gap:8px}
+.gc{font-size:12px;padding:4px 12px;border-radius:20px;background:#dbeafe;color:#1d4ed8;border:1px solid #bfdbfe;font-weight:500}
+[data-theme="dark"] .gc{background:#1e3a5f;color:#93c5fd;border-color:#1d4ed8}
+.stg-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+.stg-card{background:var(--card);border:1.5px solid #c7d2fe;border-radius:14px;padding:22px}
+[data-theme="dark"] .stg-card{border-color:#3730a3}
+.stg-icon{font-size:24px;margin-bottom:10px}
+.stg-title{font-weight:700;font-size:14px;margin-bottom:8px}
+.stg-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.stg-chips{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.sc{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--muted);font-weight:500}
+.past-row{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.past-title{font-weight:600;font-size:14px;margin-bottom:4px}
+.past-sub{font-size:13px;color:var(--muted)}
 
-/* card 1 — indigo */
-.sk1{background:#eef2ff;border:1.5px solid #c7d2fe}
-.sk1 .skill-card-title{color:#3730a3}
-.sk1 .skill-card-hint{color:#6366f1}
-.sk1-panel{background:#f5f3ff;border:1.5px solid #ddd6fe}
-.sk1-pill{background:#ede9fe;border:1px solid #c4b5fd;color:#5b21b6}
-/* card 2 — cyan */
-.sk2{background:#ecfeff;border:1.5px solid #a5f3fc}
-.sk2 .skill-card-title{color:#0e7490}
-.sk2 .skill-card-hint{color:#0891b2}
-.sk2-panel{background:#f0fdff;border:1.5px solid #a5f3fc}
-.sk2-pill{background:#cffafe;border:1px solid #67e8f9;color:#0e7490}
-/* card 3 — emerald */
-.sk3{background:#ecfdf5;border:1.5px solid #6ee7b7}
-.sk3 .skill-card-title{color:#065f46}
-.sk3 .skill-card-hint{color:#059669}
-.sk3-panel{background:#f0fdf9;border:1.5px solid #6ee7b7}
-.sk3-pill{background:#d1fae5;border:1px solid #6ee7b7;color:#065f46}
+/* ARXIV */
+.topic-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.t-btn{padding:8px 18px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--muted);font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s}
+.t-btn:hover{border-color:var(--accent);color:var(--accent)}
+.t-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.count-sel{padding:8px 12px;border:1.5px solid var(--border);border-radius:7px;font-size:13px;font-family:'Inter',sans-serif;background:var(--card);color:var(--ink);cursor:pointer;outline:none}
+.arxiv-list{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.arxiv-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
+.arxiv-title{font-weight:600;font-size:14px;margin-bottom:6px;line-height:1.5}
+.arxiv-authors{font-size:12px;color:var(--muted);margin-bottom:6px}
+.arxiv-abs{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:8px}
+.arxiv-lnk{font-size:12px;font-weight:600;color:var(--accent);text-decoration:none}
+.arxiv-lnk:hover{text-decoration:underline}
+.arxiv-msg{text-align:center;padding:32px;color:var(--muted);font-size:14px}
 
-@media(max-width:600px){.skill-cards{grid-template-columns:1fr}}
-.novel-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px}
-.novel-title{font-weight:600;font-size:13px;margin-bottom:4px;line-height:1.4}
+/* THOUGHTS */
+.thought-list{display:flex;flex-direction:column;gap:18px}
+.thought{border-left:3px solid var(--accent);padding:14px 22px;background:var(--surface);border-radius:0 10px 10px 0}
+.t-date{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--muted);margin-bottom:6px}
+.t-text{font-family:'Lora',serif;font-size:15px;color:var(--ink);line-height:1.9;font-style:italic}
+.t-tag{font-size:11px;font-weight:600;color:var(--a3);margin-top:8px}
+
+/* NOVELS */
+.novel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px}
+.novel-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;transition:border-color .2s}
+.novel-card:hover{border-color:var(--a2)}
+.novel-title{font-weight:600;font-size:13px;margin-bottom:5px;line-height:1.4}
 .novel-author{font-size:12px;color:var(--muted)}
-.skill-group-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2);margin-bottom:10px}
-.skill-item{font-size:13px;color:var(--ink);padding:3px 0;border-bottom:1px solid var(--border)}
-.skill-item:last-child{border-bottom:none}
 
-.arxiv-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
-.arxiv-select{padding:8px 12px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;font-family:'DM Sans',sans-serif;background:#fff;color:var(--ink);cursor:pointer;outline:none}
-.arxiv-select:focus{border-color:var(--accent)}
-#arxiv-results{display:flex;flex-direction:column;gap:12px}
-.arxiv-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px}
-.arxiv-card-title{font-weight:600;font-size:14px;margin-bottom:5px;line-height:1.5}
-.arxiv-card-authors{font-size:12px;color:var(--muted);margin-bottom:5px}
-.arxiv-card-summary{font-size:13px;color:#475569;line-height:1.65;margin-bottom:8px}
-.arxiv-card-link{font-size:12px;font-weight:600;color:var(--accent);text-decoration:none}
-.arxiv-card-link:hover{text-decoration:underline}
-.arxiv-loading{text-align:center;padding:28px;color:var(--muted);font-size:14px}
-.arxiv-date{font-size:11px;color:var(--muted);margin-left:8px}
-.topic-btn{padding:8px 16px;border-radius:20px;border:1.5px solid var(--border);background:#fff;color:var(--muted);font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s}
-.topic-btn:hover{border-color:var(--accent);color:var(--accent)}
-.topic-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.cc{display:flex;align-items:flex-start;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);transition:border-color .2s;min-width:0}
+.cc:hover{border-color:var(--accent)}
+.cc-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.cc-label{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);margin-bottom:3px}
+.cc-val{font-size:13px;font-weight:500;word-break:break-all;line-height:1.4}
 
-.thought-list{display:flex;flex-direction:column;gap:20px}
-.thought-card{border-left:3px solid var(--accent);padding:12px 20px}
-.thought-date{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1px;margin-bottom:4px}
-.thought-text{font-family:'Source Serif 4',serif;font-size:15px;color:var(--ink);line-height:1.85;font-style:italic}
-.thought-tag{font-size:11px;font-weight:600;color:var(--accent2);margin-top:6px}
-
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.contact-item{display:flex;align-items:flex-start;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;text-decoration:none;color:var(--ink);transition:border-color .2s;min-width:0}
-.contact-item:hover{border-color:var(--accent)}
-.contact-icon{font-size:18px;flex-shrink:0;margin-top:2px}
-.contact-text{min-width:0}
-.contact-label{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.5px}
-.contact-val{font-size:13px;font-weight:500;word-break:break-all;line-height:1.4}
-
-footer{background:var(--surface);border-top:1px solid var(--border);padding:24px 5%;text-align:center;font-size:13px;color:var(--muted)}
-
-@media(max-width:600px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-avatar{display:none}
-  .hero-name{font-size:28px}
-  .pub-card{flex-direction:column;gap:6px}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:28px 5%;text-align:center;font-size:13px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@media(max-width:640px){
+  .hero-grid,.stg-grid{grid-template-columns:1fr}
+  .avatar{display:none}
+  .hero-name{font-size:32px}
+  .skill-grid{grid-template-columns:1fr}
   .nav-links{gap:12px}
-  .affil-links{align-items:flex-start}
 }
 </style>
 </head>
@@ -153,42 +177,43 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
   <div class="nav-inner">
     <a class="nav-logo" href="#hero">AC</a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">Positions</a></li>
       <li><a href="#publications">Papers</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#projects">Research</a></li>
       <li><a href="#arxiv">arXiv</a></li>
       <li><a href="#thoughts">Thoughts</a></li>
       <li><a href="#novels">Reading</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><button class="theme-btn" id="theme-btn" onclick="toggleTheme()">🌙 Dark</button></li>
     </ul>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="container" id="hero">
-  <section style="border:none">
+  <section>
     <div class="hero-grid">
       <div>
-        <div class="section-label">Physicist · Quantum Materials</div>
+        <div class="label">Physicist · Quantum Materials</div>
         <h1 class="hero-name">Amarnath<br>Chakraborty</h1>
-        <div class="hero-title">Ph.D. Physics · University of Missouri–Columbia</div>
+        <div class="hero-sub">Ph.D. Physics · University of Missouri–Columbia</div>
         <p class="hero-bio">
-          I grew up in Jhargram, a small town in West Bengal, India. I studied Physics at Midnapore College and went on to complete my M.Sc. at the University of Hyderabad, before spending a year at JNCASR in Bangalore. In 2019, I moved to the University of Missouri–Columbia to pursue a Ph.D. in Theoretical Condensed Matter Physics under Prof. Giovanni Vignale.<br><br>
-          My research spans emergent quantum phenomena in two-dimensional materials — from nonsymmorphic Dirac semimetals to twisted bilayer graphene — combining analytical theory with numerical simulation to probe band topology, magneto-optical response, and quantum geometry. I am now building toward hybrid quantum–classical workflows and actively learning machine learning to connect simulation with predictive materials design.<br><br>
-          Outside physics, I'm an avid reader — mostly novels — and someone who believes the best ideas live at the edges of disciplines.
+          I grew up in <strong>Jhargram</strong>, a small town in West Bengal, India. I studied Physics at Midnapore College, completed my M.Sc. at the <strong>University of Hyderabad</strong>, and spent a year at <strong>JNCASR, Bangalore</strong> before moving to <strong>Missouri</strong> in 2019 to pursue a Ph.D. under Prof. Giovanni Vignale.<br><br>
+          My doctoral work spans emergent quantum phenomena in two-dimensional materials — from nonsymmorphic Dirac semimetals to twisted bilayer graphene — combining analytical theory with numerical simulation to probe band topology, magneto-optical response, and quantum geometry. I'm now working toward hybrid quantum–classical workflows and actively learning machine learning to connect simulation with predictive materials design.<br><br>
+          Outside physics, I'm an <strong>avid reader</strong> — mostly novels — and someone who believes the best ideas live at the edges of disciplines.
         </p>
         <div class="hero-links">
-          <a class="btn btn-primary" href="cv.pdf" download>⬇ Download CV</a>
-          <a class="btn btn-outline" href="https://scholar.google.com/citations?user=YOURID" target="_blank">Google Scholar</a>
-          <a class="btn btn-outline" href="https://github.com/amarnath995" target="_blank">GitHub</a>
-          <a class="btn btn-outline" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">LinkedIn</a>
+          <a class="btn btn-p" href="cv.pdf" download>⬇ Download CV</a>
+          <a class="btn btn-o" href="https://scholar.google.com/citations?user=YOURID" target="_blank">Scholar</a>
+          <a class="btn btn-o" href="https://github.com/amarnath995" target="_blank">GitHub</a>
+          <a class="btn btn-o" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">LinkedIn</a>
         </div>
       </div>
-      <!-- PHOTO: upload a file named exactly "photo.jpg" to your GitHub repo and it will appear here -->
-      <div class="hero-avatar">
-        <img src="photo.jpg" alt="Amarnath Chakraborty"
-          onerror="this.parentElement.innerHTML='⚛'"
-          style="width:100%;height:100%;object-fit:cover;border-radius:50%"/>
+      <!-- Upload photo.jpg to your repo root to show your photo -->
+      <div class="avatar">
+        <img src="photo.jpg" alt="Amarnath" id="av-img"/>
+        <span id="av-fb" style="display:none">⚛</span>
       </div>
     </div>
   </section>
@@ -197,284 +222,211 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
 <!-- SKILLS -->
 <div class="container" id="skills">
   <section>
-    <div class="section-label">Skills</div>
+    <div class="label">Skills</div>
     <h2 class="section-title">What I Work With</h2>
-    <div class="skill-cards">
+    <div class="skill-grid">
 
-      <!-- CARD 1: Theoretical Physics -->
-      <div class="skill-card sk1" onclick="toggleSkill('sk-theory','sk1-arrow')">
-        <span class="skill-card-arrow" id="sk1-arrow">▾</span>
-        <div class="skill-card-icon">🔭</div>
-        <div class="skill-card-title">Theoretical Physics</div>
-        <div class="skill-card-hint">Click to expand</div>
+      <div class="sk-card sk1" id="c-theory" onclick="toggleSkill('theory')">
+        <span class="sk-chev" id="v-theory">▾</span>
+        <span class="sk-icon">🔭</span>
+        <div class="sk-title">Theoretical Physics</div>
+        <div class="sk-hint">Click to expand</div>
       </div>
 
-      <!-- CARD 2: Classical Computation -->
-      <div class="skill-card sk2" onclick="toggleSkill('sk-classical','sk2-arrow')">
-        <span class="skill-card-arrow" id="sk2-arrow">▾</span>
-        <div class="skill-card-icon">🖥️</div>
-        <div class="skill-card-title">Classical Computation</div>
-        <div class="skill-card-hint">Click to expand</div>
+      <div class="sk-card sk2" id="c-classical" onclick="toggleSkill('classical')">
+        <span class="sk-chev" id="v-classical">▾</span>
+        <span class="sk-icon">🖥️</span>
+        <div class="sk-title">Classical Computation</div>
+        <div class="sk-hint">Click to expand</div>
       </div>
 
-      <!-- CARD 3: Quantum Computing -->
-      <div class="skill-card sk3" onclick="toggleSkill('sk-quantum','sk3-arrow')">
-        <span class="skill-card-arrow" id="sk3-arrow">▾</span>
-        <div class="skill-card-icon">⚛️</div>
-        <div class="skill-card-title">Quantum Computing</div>
-        <div class="skill-card-hint">Click to expand</div>
+      <div class="sk-card sk3" id="c-quantum" onclick="toggleSkill('quantum')">
+        <span class="sk-chev" id="v-quantum">▾</span>
+        <span class="sk-icon">⚛️</span>
+        <div class="sk-title">Quantum Computing</div>
+        <div class="sk-hint">Click to expand</div>
       </div>
 
-      <!-- PANEL 1 -->
-      <!-- EDIT: add/remove pills inside this panel for Theoretical Physics -->
-      <div class="skill-panel sk1-panel" id="sk-theory">
-        <span class="skill-pill sk1-pill">Tight-binding models</span>
-        <span class="skill-pill sk1-pill">Green's functions</span>
-        <span class="skill-pill sk1-pill">Response theory &amp; Transport</span>
-        <span class="skill-pill sk1-pill">Magneto-optics</span>
-        <span class="skill-pill sk1-pill">Dirac physics</span>
-        <span class="skill-pill sk1-pill">Altermagnetism</span>
-        <span class="skill-pill sk1-pill">Quantum geometry</span>
-        <span class="skill-pill sk1-pill">Quantum Reservoir Computing</span>
+      <!-- EDIT: pills for Theoretical Physics -->
+      <div class="sk-panel p1" id="p-theory">
+        <span class="pill pi1">Tight-binding models</span>
+        <span class="pill pi1">Green's functions</span>
+        <span class="pill pi1">Response theory &amp; Transport</span>
+        <span class="pill pi1">Magneto-optics</span>
+        <span class="pill pi1">Dirac physics</span>
+        <span class="pill pi1">Altermagnetism</span>
+        <span class="pill pi1">Quantum geometry</span>
+        <span class="pill pi1">Quantum Reservoir Computing</span>
       </div>
 
-      <!-- PANEL 2 -->
-      <!-- EDIT: add/remove pills inside this panel for Classical Computation -->
-      <div class="skill-panel sk2-panel" id="sk-classical">
-        <span class="skill-pill sk2-pill">Python</span>
-        <span class="skill-pill sk2-pill">Julia</span>
-        <span class="skill-pill sk2-pill">MATLAB</span>
-        <span class="skill-pill sk2-pill">VASP (DFT)</span>
-        <span class="skill-pill sk2-pill">TMDCA</span>
+      <!-- EDIT: pills for Classical Computation -->
+      <div class="sk-panel p2" id="p-classical">
+        <span class="pill pi2">Python</span>
+        <span class="pill pi2">Julia</span>
+        <span class="pill pi2">MATLAB</span>
+        <span class="pill pi2">VASP (DFT)</span>
+        <span class="pill pi2">TMDCA</span>
       </div>
 
-      <!-- PANEL 3 -->
-      <!-- EDIT: add/remove pills inside this panel for Quantum Computing -->
-      <div class="skill-panel sk3-panel" id="sk-quantum">
-        <span class="skill-pill sk3-pill">Qiskit</span>
-        <span class="skill-pill sk3-pill">Variational Quantum Eigensolver (VQE)</span>
-        <span class="skill-pill sk3-pill">Sample-based Quantum Diagonalization (SQD)</span>
-        <span class="skill-pill sk3-pill">IBM Heavy-Hex Hardware</span>
+      <!-- EDIT: pills for Quantum Computing -->
+      <div class="sk-panel p3" id="p-quantum">
+        <span class="pill pi3">Qiskit</span>
+        <span class="pill pi3">Variational Quantum Eigensolver (VQE)</span>
+        <span class="pill pi3">Sample-based Quantum Diagonalization (SQD)</span>
+        <span class="pill pi3">IBM Heavy-Hex Hardware</span>
       </div>
 
     </div>
   </section>
 </div>
 
-<!-- AFFILIATION -->
+<!-- POSITIONS -->
 <div class="container" id="about">
   <section>
-    <div class="section-label">Positions</div>
+    <div class="label">Positions</div>
     <h2 class="section-title">Where I Work</h2>
-
-    <!-- ═══ CURRENT POSITION ═══ -->
-    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Current</div>
-    <div class="affil-single" style="margin-bottom:24px">
-      <div>
-        <!-- EDIT: role title -->
-        <div class="affil-role">Quantum Research Intern</div>
-        <!-- EDIT: company name -->
-        <div class="affil-place">Chinar Quantum AI</div>
-        <!-- EDIT: description paragraph -->
-        <div class="affil-detail" style="margin-top:6px;font-size:13.5px;color:#334155;line-height:1.75;max-width:580px">
-          Helping build the quantum Hamiltonian simulation effort at the core of the company, and forging connections with academic groups to contribute toward India's National Quantum Mission. This phase is about bringing many-body physics and quantum computing together — designing practical quantum workflows aimed at solving the materials and simulation challenges of the future.
-        </div>
+    <div class="pos-list">
+      <!-- EDIT: Current -->
+      <div class="pos-card">
+        <div><span class="pos-tag t-now">Current</span></div>
+        <div class="pos-role">Quantum Research Intern</div>
+        <div class="pos-place">Chinar Quantum AI</div>
+        <div class="pos-desc">Helping build the quantum Hamiltonian simulation effort at the core of the company, and forging connections with academic groups to contribute toward India's National Quantum Mission. This phase is about bringing many-body physics and quantum computing together — designing practical quantum workflows aimed at solving the materials and simulation challenges of the future.</div>
+      </div>
+      <!-- EDIT: Upcoming -->
+      <div class="pos-card p-upcoming">
+        <div><span class="pos-tag t-next">Starting Soon</span></div>
+        <div class="pos-role">Postdoctoral Scientist</div>
+        <div class="pos-place">Seoul National University</div>
+        <div class="pos-desc">Working with Prof. Bohm-Jung Yang on altermagnetic responses in two-dimensional materials — probing and classifying these responses through their quantum geometric tensor signatures, connecting Berry curvature and quantum metric of the underlying band structure to measurable transport and optical phenomena in this emerging class of magnetic systems.</div>
+      </div>
+      <!-- EDIT: Past -->
+      <div class="pos-card">
+        <div><span class="pos-tag t-past">Recent Past</span></div>
+        <div class="pos-role">Ph.D. in Physics</div>
+        <div class="pos-place">University of Missouri–Columbia</div>
+        <div class="pos-desc">Advisors: Prof. Giovanni Vignale · Dr. Guang Bian · 2D quantum materials · Quantum computing · Machine learning for materials (learning)</div>
       </div>
     </div>
-
-    <!-- ═══ UPCOMING POSITION ═══ -->
-    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Upcoming</div>
-    <div style="border:2px solid var(--accent);border-radius:var(--radius);padding:22px 26px;margin-bottom:24px;background:linear-gradient(135deg,#eff6ff,#f0f9ff)">
-      <div>
-        <div style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:#dbeafe;color:#1d4ed8;padding:2px 10px;border-radius:20px;margin-bottom:10px">Starting Soon</div>
-        <!-- EDIT: role title -->
-        <div class="affil-role">Postdoctoral Scientist</div>
-        <!-- EDIT: institution -->
-        <div class="affil-place">Seoul National University</div>
-        <!-- EDIT: advisor, project description -->
-        <div class="affil-detail" style="margin-top:6px;font-size:13.5px;color:#334155;line-height:1.75;max-width:580px">
-          Working with Prof. Bohm-Jung Yang on altermagnetic responses in two-dimensional materials, with a focus on probing and classifying these responses through their quantum geometric tensor signatures — connecting the Berry curvature and quantum metric of the underlying band structure to measurable transport and optical phenomena in this emerging class of magnetic systems.
-        </div>
-      </div>
+    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn btn-o" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">Full profile on LinkedIn →</a>
+      <a class="btn btn-o" href="cv.pdf" download>Download CV →</a>
     </div>
-
-    <!-- ═══ RECENT PAST ═══ -->
-    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Recent Past</div>
-    <div class="affil-single">
-      <div>
-        <!-- EDIT: role title -->
-        <div class="affil-role">Ph.D. in Physics</div>
-        <!-- EDIT: institution -->
-        <div class="affil-place">University of Missouri–Columbia</div>
-        <!-- EDIT: advisors and focus -->
-        <div class="affil-detail">Advisors: Prof. Giovanni Vignale · Dr. Guang Bian<br>2D quantum materials · Quantum computing · Machine learning for materials (learning)</div>
-      </div>
-    </div>
-
   </section>
 </div>
 
 <!-- PUBLICATIONS -->
 <div class="container" id="publications">
   <section>
-    <div class="section-label">Publications</div>
+    <div class="label">Publications</div>
     <h2 class="section-title">Peer-Reviewed Research</h2>
     <div class="pub-list">
       <div class="pub-card">
         <div class="pub-year">2025</div>
-        <div>
-          <div class="pub-title">Insulator-Metal Transition &amp; Magnetic Crossover in Bilayer Graphene <span class="pub-tag tag-blue">PRB</span></div>
-          <div class="pub-journal">Physical Review B 111, 125130 · Bilayer graphene · Trigonal warping · Low-field transitions</div>
-        </div>
+        <div><div class="pub-title">Insulator-Metal Transition &amp; Magnetic Crossover in Bilayer Graphene <span class="ptag prb">PRB</span></div><div class="pub-meta">Physical Review B 111, 125130 · Bilayer graphene · Trigonal warping</div></div>
       </div>
       <div class="pub-card">
         <div class="pub-year">2024</div>
-        <div>
-          <div class="pub-title">Observation of 2D Weyl Fermions in Bismuthene <span class="pub-tag tag-green">Nat Commun</span></div>
-          <div class="pub-journal">Nature Communications 15, 6001 · Theory–experiment collaboration with NUS</div>
-        </div>
+        <div><div class="pub-title">Observation of 2D Weyl Fermions in Bismuthene <span class="ptag pnc">Nat Commun</span></div><div class="pub-meta">Nature Communications 15, 6001 · Theory–experiment · NUS collaboration</div></div>
       </div>
       <div class="pub-card">
         <div class="pub-year">2023</div>
-        <div>
-          <div class="pub-title">Giant Faraday Rotation in Nonsymmorphic Dirac Semimetals <span class="pub-tag tag-blue">PRB</span></div>
-          <div class="pub-journal">Physical Review B 107, 245120 · Optical response · Topological semimetals</div>
-        </div>
+        <div><div class="pub-title">Giant Faraday Rotation in Nonsymmorphic Dirac Semimetals <span class="ptag prb">PRB</span></div><div class="pub-meta">Physical Review B 107, 245120 · Optical response · Topological semimetals</div></div>
       </div>
       <div class="pub-card">
         <div class="pub-year">2021</div>
-        <div>
-          <div class="pub-title">Photon Absorption in 2D Nonsymmorphic Dirac Semimetals <span class="pub-tag tag-blue">PRB</span></div>
-          <div class="pub-journal">Physical Review B 105, 085101 · Optical conductivity · 2D materials</div>
-        </div>
+        <div><div class="pub-title">Photon Absorption in 2D Nonsymmorphic Dirac Semimetals <span class="ptag prb">PRB</span></div><div class="pub-meta">Physical Review B 105, 085101 · Optical conductivity · 2D materials</div></div>
       </div>
     </div>
   </section>
 </div>
 
-<!-- PROJECTS -->
+<!-- RESEARCH -->
 <div class="container" id="projects">
   <section>
-    <div class="section-label">Research Vision</div>
+    <div class="label">Research Vision</div>
     <h2 class="section-title">What I'm Building</h2>
-
-    <!-- ═══════════════════════════════════════════════════
-         BIG GOAL CARD
-         To edit: change the text inside the <p> tag and the chips below
-    ════════════════════════════════════════════════════ -->
-    <div style="border:2px solid var(--accent);border-radius:var(--radius);padding:28px 30px;margin-bottom:28px;background:linear-gradient(135deg,#eff6ff,#f0f9ff)">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-        <span style="font-size:26px">🎯</span>
-        <div>
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:2px">Long-Term Goal</div>
-          <div style="font-weight:700;font-size:17px;color:var(--ink)">Generative Hybrid Quantum–Classical Workflow</div>
-        </div>
-      </div>
-      <p style="font-size:14px;color:#334155;line-height:1.85;margin-bottom:16px">
-        My overarching goal is to build a modular generative workflow that tightly couples classical simulation, quantum simulation, and machine learning. The idea is to use physics-based quantum and classical solvers to generate high-fidelity training data for correlated quantum systems, then feed those outputs into ML models to construct exact, interpretable predictive models. I'm currently building my ML foundation with this vision in mind — working toward a feedback loop that accelerates the discovery of new quantum materials and device-relevant properties.
-      </p>
-      <div style="display:flex;flex-wrap:wrap;gap:6px">
-        <span class="chip" style="border-color:#bfdbfe;color:#1d4ed8;background:#dbeafe">Classical simulation</span>
-        <span class="chip" style="border-color:#bfdbfe;color:#1d4ed8;background:#dbeafe">Quantum simulation</span>
-        <span class="chip" style="border-color:#bfdbfe;color:#1d4ed8;background:#dbeafe">Generative ML</span>
-        <span class="chip" style="border-color:#bfdbfe;color:#1d4ed8;background:#dbeafe">Predictive modelling</span>
-        <span class="chip" style="border-color:#bfdbfe;color:#1d4ed8;background:#dbeafe">Hybrid workflows</span>
+    <div class="big-goal">
+      <div class="bg-label">🎯 Long-Term Goal</div>
+      <!-- EDIT: big goal title and description -->
+      <div class="bg-title">Generative Hybrid Quantum–Classical Workflow</div>
+      <div class="bg-desc">My overarching goal is to build a modular generative workflow coupling classical simulation, quantum simulation, and machine learning. Physics-based solvers generate high-fidelity training data for correlated quantum systems; those outputs feed ML models to construct exact, interpretable predictive models. I'm building my ML foundation with this vision in mind — working toward a feedback loop that accelerates quantum materials discovery.</div>
+      <div class="goal-chips">
+        <span class="gc">Classical simulation</span><span class="gc">Quantum simulation</span><span class="gc">Generative ML</span><span class="gc">Predictive modelling</span><span class="gc">Hybrid workflows</span>
       </div>
     </div>
-
-    <!-- ═══════════════════════════════════════════════════
-         SHORT-TERM GOALS (2 cards side by side)
-         To edit: change proj-title and proj-desc text in each card
-    ════════════════════════════════════════════════════ -->
     <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Currently Working On</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:28px">
-
-      <div class="proj-card" style="border-color:#c7d2fe">
-        <div class="proj-icon">💻</div>
-        <!-- EDIT SHORT-TERM GOAL 1 TITLE HERE -->
-        <div class="proj-title">Quantum Hamiltonian Simulations</div>
-        <!-- EDIT SHORT-TERM GOAL 1 DESCRIPTION HERE -->
-        <div class="proj-desc">Developing and benchmarking error-mitigated quantum Hamiltonian simulation workflows — including VQE and Sample-based Quantum Diagonalization — on IBM heavy-hex hardware, targeting correlated phases and ground-state properties of the Fermi-Hubbard model.</div>
-        <div class="proj-tags"><span class="chip">VQE</span><span class="chip">SQD</span><span class="chip">Qiskit</span><span class="chip">IBM hardware</span></div>
+    <div class="stg-grid">
+      <div class="stg-card">
+        <div class="stg-icon">💻</div>
+        <!-- EDIT: short-term goal 1 -->
+        <div class="stg-title">Quantum Hamiltonian Simulations</div>
+        <div class="stg-desc">Developing and benchmarking error-mitigated quantum Hamiltonian simulation workflows — VQE and SQD — on IBM heavy-hex hardware, targeting correlated phases of the Fermi-Hubbard model.</div>
+        <div class="stg-chips"><span class="sc">VQE</span><span class="sc">SQD</span><span class="sc">Qiskit</span><span class="sc">IBM hardware</span></div>
       </div>
-
-      <div class="proj-card" style="border-color:#c7d2fe">
-        <div class="proj-icon">🌊</div>
-        <!-- EDIT SHORT-TERM GOAL 2 TITLE HERE -->
-        <div class="proj-title">Quantum Reservoir Computing</div>
-        <!-- EDIT SHORT-TERM GOAL 2 DESCRIPTION HERE -->
-        <div class="proj-desc">Exploring quantum reservoir computing as a near-term quantum ML paradigm — learning how driven quantum systems can act as expressive reservoirs for temporal and correlated data, with an eye toward integrating this into the broader hybrid workflow.</div>
-        <div class="proj-tags"><span class="chip">QRC</span><span class="chip">Near-term QML</span><span class="chip">Dynamical systems</span></div>
+      <div class="stg-card">
+        <div class="stg-icon">🌊</div>
+        <!-- EDIT: short-term goal 2 -->
+        <div class="stg-title">Quantum Reservoir Computing</div>
+        <div class="stg-desc">Exploring driven quantum systems as expressive reservoirs for temporal and correlated data — a near-term quantum ML paradigm I'm studying for the hybrid workflow.</div>
+        <div class="stg-chips"><span class="sc">QRC</span><span class="sc">Near-term QML</span><span class="sc">Dynamical systems</span></div>
       </div>
-
     </div>
-
-    <!-- ═══════════════════════════════════════════════════
-         PAST WORK — GitHub link only
-         To edit: change the href to your actual GitHub repo URL
-    ════════════════════════════════════════════════════ -->
     <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Past Work</div>
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <div class="past-row">
       <div>
-        <div style="font-weight:600;font-size:14px;margin-bottom:3px">2D Quantum Materials — Simulations & Code</div>
-        <div style="font-size:13px;color:var(--muted)">Tight-binding models, Berry curvature, optical response, TBG — all prior simulation work lives here.</div>
+        <div class="past-title">2D Quantum Materials — Simulations &amp; Code</div>
+        <div class="past-sub">Tight-binding models, Berry curvature, optical response, TBG — all prior simulation work lives here.</div>
       </div>
-      <!-- EDIT THIS HREF to your actual GitHub repo link -->
-      <a class="btn btn-outline" href="https://github.com/amarnath995" target="_blank" style="flex-shrink:0">View on GitHub →</a>
+      <!-- EDIT: update href to your specific GitHub repo -->
+      <a class="btn btn-o" href="https://github.com/amarnath995" target="_blank">View on GitHub →</a>
     </div>
-
   </section>
 </div>
 
-
-<!-- ARXIV SPOTLIGHT -->
+<!-- ARXIV -->
 <div class="container" id="arxiv">
   <section>
-    <div class="section-label">arXiv Spotlight</div>
+    <div class="label">arXiv Spotlight</div>
     <h2 class="section-title">Latest Preprints I'm Watching</h2>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:18px">Three topics I follow closely — click any to fetch the latest papers.</p>
-
-    <!-- TOPIC BUTTONS — edit the data-query and label text to change topics -->
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
-      <button class="topic-btn active" data-query="altermagnets OR altermagnetism" onclick="selectTopic(this)">Altermagnets</button>
-      <button class="topic-btn" data-query="quantum Hamiltonian simulation" onclick="selectTopic(this)">Quantum Hamiltonian Simulation</button>
-      <button class="topic-btn" data-query="twisted bilayer graphene" onclick="selectTopic(this)">Twisted Bilayer Graphene</button>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:20px">Three topics I follow — click a topic then fetch live papers.</p>
+    <div class="topic-row">
+      <!-- EDIT: change data-query and button label to change topics -->
+      <button class="t-btn active" data-query="altermagnets OR altermagnetism" onclick="selectTopic(this)">Altermagnets</button>
+      <button class="t-btn" data-query="quantum Hamiltonian simulation" onclick="selectTopic(this)">Quantum Hamiltonian Simulation</button>
+      <button class="t-btn" data-query="twisted bilayer graphene" onclick="selectTopic(this)">Twisted Bilayer Graphene</button>
     </div>
-
-    <div style="display:flex;gap:10px;align-items:center;margin-bottom:20px;flex-wrap:wrap">
-      <select class="arxiv-select" id="arxiv-count">
-        <option value="5">5 papers</option>
-        <option value="10">10 papers</option>
-      </select>
-      <button class="btn btn-primary" onclick="fetchArxiv()">Fetch Latest →</button>
-      <span id="arxiv-active-label" style="font-size:12px;color:var(--muted)">Topic: <strong>Altermagnets</strong></span>
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+      <select class="count-sel" id="arxiv-count"><option value="5">5 papers</option><option value="10">10 papers</option></select>
+      <button class="btn btn-p" onclick="fetchArxiv()">Fetch Latest →</button>
+      <span id="arxiv-label" style="font-size:12px;color:var(--muted)">Topic: <strong>Altermagnets</strong></span>
     </div>
-
-    <div id="arxiv-results"><div class="arxiv-loading">← Pick a topic and click Fetch Latest</div></div>
+    <div id="arxiv-results"><div class="arxiv-msg">← Pick a topic and click Fetch Latest</div></div>
   </section>
 </div>
 
 <!-- THOUGHTS -->
 <div class="container" id="thoughts">
   <section>
-    <div class="section-label">New Thoughts</div>
-    <h2 class="section-title">Notes & Reflections</h2>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:22px">Short ideas and things I'm thinking about — updated occasionally.</p>
+    <div class="label">New Thoughts</div>
+    <h2 class="section-title">Notes &amp; Reflections</h2>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:24px">Things I'm thinking about — updated occasionally.</p>
     <div class="thought-list">
-      <div class="thought-card">
-        <div class="thought-date">JUNE 2025</div>
-        <div class="thought-text">"The geometry of a quantum state — its Berry curvature and quantum metric — is far more physically consequential than I initially appreciated. It shows up in transport, optical response, and now even qubit design."</div>
-        <div class="thought-tag"># Quantum Geometry</div>
+      <!-- EDIT: copy this block to add a thought -->
+      <div class="thought">
+        <div class="t-date">JUNE 2025</div>
+        <div class="t-text">"The geometry of a quantum state — its Berry curvature and quantum metric — is far more physically consequential than I initially appreciated. It shows up in transport, optical response, and now even qubit design."</div>
+        <div class="t-tag"># Quantum Geometry</div>
       </div>
-      <div class="thought-card">
-        <div class="thought-date">MAY 2025</div>
-        <div class="thought-text">"Running VQE on real IBM hardware is humbling. The gap between a textbook algorithm and a noise-resilient implementation on heavy-hex is enormous — and I think that's exactly where the field needs people."</div>
-        <div class="thought-tag"># Quantum Computing</div>
+      <div class="thought">
+        <div class="t-date">MAY 2025</div>
+        <div class="t-text">"Running VQE on real IBM hardware is humbling. The gap between a textbook algorithm and a noise-resilient implementation on heavy-hex is enormous — and that's exactly where the field needs people."</div>
+        <div class="t-tag"># Quantum Computing</div>
       </div>
-      <div class="thought-card">
-        <div class="thought-date">MARCH 2025</div>
-        <div class="thought-text">"The most impactful 2D materials papers combine a clean theoretical prediction with an experimentally accessible signature. The theory has to 'speak' to the experiment. That's what I want my work to do."</div>
-        <div class="thought-tag"># Research Philosophy</div>
+      <div class="thought">
+        <div class="t-date">MARCH 2025</div>
+        <div class="t-text">"The most impactful 2D materials papers combine a clean theoretical prediction with an experimentally accessible signature. The theory has to speak to the experiment. That's what I want my work to do."</div>
+        <div class="t-tag"># Research Philosophy</div>
       </div>
     </div>
   </section>
@@ -483,23 +435,16 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
 <!-- NOVELS -->
 <div class="container" id="novels">
   <section>
-    <div class="section-label">Reading</div>
+    <div class="label">Reading</div>
     <h2 class="section-title">Novels I've Read</h2>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:20px">A few I keep coming back to. More to be added.</p>
-    <!-- EDIT: add your novels below. Copy a <div class="novel-card"> block to add one. -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px">
-      <div class="novel-card">
-        <div class="novel-title">Novel Title Here</div>
-        <div class="novel-author">Author Name</div>
-      </div>
-      <div class="novel-card">
-        <div class="novel-title">Novel Title Here</div>
-        <div class="novel-author">Author Name</div>
-      </div>
-      <div class="novel-card">
-        <div class="novel-title">Novel Title Here</div>
-        <div class="novel-author">Author Name</div>
-      </div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:20px">A few I keep coming back to.</p>
+    <!-- EDIT: replace Title Here / Author with real entries. Copy a .novel-card to add more. -->
+    <div class="novel-grid">
+      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
+      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
+      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
+      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
+      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
     </div>
   </section>
 </div>
@@ -507,97 +452,110 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
 <!-- CONTACT -->
 <div class="container" id="contact">
   <section>
-    <div class="section-label">Contact</div>
+    <div class="label">Contact</div>
     <h2 class="section-title">Get in Touch</h2>
     <div class="contact-grid">
-      <a class="contact-item" id="email-link" href="#">
-        <span class="contact-icon">✉</span>
-        <div class="contact-text"><div class="contact-label">EMAIL</div><div class="contact-val" id="email-display">loading…</div></div>
+      <a class="cc" id="email-link" href="#">
+        <span class="cc-icon">✉</span>
+        <div><div class="cc-label">EMAIL</div><div class="cc-val" id="email-val">—</div></div>
       </a>
-      <a class="contact-item" href="https://github.com/amarnath995" target="_blank">
-        <span class="contact-icon">⌥</span>
-        <div class="contact-text"><div class="contact-label">GITHUB</div><div class="contact-val">github.com/amarnath995</div></div>
+      <a class="cc" href="https://github.com/amarnath995" target="_blank">
+        <span class="cc-icon">⌥</span>
+        <div><div class="cc-label">GITHUB</div><div class="cc-val">github.com/amarnath995</div></div>
       </a>
-      <a class="contact-item" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">
-        <span class="contact-icon">🔗</span>
-        <div class="contact-text"><div class="contact-label">LINKEDIN</div><div class="contact-val">Full academic profile</div></div>
+      <!-- EDIT: replace YOURLINKEDINID -->
+      <a class="cc" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">
+        <span class="cc-icon">🔗</span>
+        <div><div class="cc-label">LINKEDIN</div><div class="cc-val">Full academic profile</div></div>
       </a>
     </div>
   </section>
 </div>
 
 <footer>
-  <div>© 2025 Amarnath Chakraborty · <a href="https://github.com/amarnath995/amarnath995.github.io" style="color:var(--muted);text-decoration:none">View source on GitHub</a></div>
+  <div>© 2025 Amarnath Chakraborty · <a href="https://github.com/amarnath995/amarnath995.github.io">Source on GitHub</a></div>
 </footer>
 
 <script>
-let activeQuery = 'altermagnets OR altermagnetism';
+// DARK MODE
+function toggleTheme(){
+  var h=document.documentElement,b=document.getElementById('theme-btn');
+  if(h.getAttribute('data-theme')==='dark'){h.setAttribute('data-theme','light');b.textContent='🌙 Dark';}
+  else{h.setAttribute('data-theme','dark');b.textContent='☀️ Light';}
+}
 
-function selectTopic(btn) {
-  document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+// SKILL CARDS — plain JS, no classList issues
+var openSkill=null;
+function toggleSkill(name){
+  // close current if same
+  if(openSkill===name){
+    document.getElementById('p-'+openSkill).style.display='none';
+    document.getElementById('v-'+openSkill).style.transform='';
+    openSkill=null;
+    return;
+  }
+  // close previous
+  if(openSkill){
+    document.getElementById('p-'+openSkill).style.display='none';
+    document.getElementById('v-'+openSkill).style.transform='';
+  }
+  // open new
+  var panel=document.getElementById('p-'+name);
+  panel.style.display='flex';
+  panel.style.flexWrap='wrap';
+  document.getElementById('v-'+name).style.transform='rotate(180deg)';
+  openSkill=name;
+}
+
+// ARXIV
+var activeQuery='altermagnets OR altermagnetism';
+function selectTopic(btn){
+  document.querySelectorAll('.t-btn').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
-  activeQuery = btn.dataset.query;
-  document.getElementById('arxiv-active-label').innerHTML = `Topic: <strong>${btn.textContent}</strong>`;
+  activeQuery=btn.getAttribute('data-query');
+  document.getElementById('arxiv-label').innerHTML='Topic: <strong>'+btn.textContent+'</strong>';
 }
-
-async function fetchArxiv() {
-  const n = document.getElementById('arxiv-count').value;
-  const box = document.getElementById('arxiv-results');
-  box.innerHTML = '<div class="arxiv-loading">⏳ Fetching latest papers…</div>';
-  try {
-    const apiUrl = `https://export.arxiv.org/api/query?search_query=all:${encodeURIComponent(activeQuery)}&sortBy=submittedDate&sortOrder=descending&max_results=${n}`;
-    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`;
-    const res = await fetch(proxyUrl);
-    if (!res.ok) throw new Error('bad response');
-    const txt = await res.text();
-    const xml = new DOMParser().parseFromString(txt, 'application/xml');
-    const entries = xml.querySelectorAll('entry');
-    if (!entries.length) { box.innerHTML = '<div class="arxiv-loading">No results found. Try again shortly.</div>'; return; }
-    box.innerHTML = '';
-    entries.forEach(e => {
-      const title = e.querySelector('title')?.textContent?.trim().replace(/\s+/g,' ') || '';
-      const summary = (e.querySelector('summary')?.textContent?.trim().replace(/\s+/g,' ') || '').slice(0,260) + '…';
-      const allAuthors = [...e.querySelectorAll('author name')];
-      const authors = allAuthors.slice(0,4).map(a=>a.textContent).join(', ') + (allAuthors.length > 4 ? ' et al.' : '');
-      const link = e.querySelector('id')?.textContent?.trim() || '#';
-      const dateRaw = e.querySelector('published')?.textContent?.trim() || '';
-      const date = dateRaw ? new Date(dateRaw).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : '';
-      const div = document.createElement('div');
-      div.className = 'arxiv-card';
-      div.innerHTML = `
-        <div class="arxiv-card-title">${title}</div>
-        <div class="arxiv-card-authors">${authors}${date?`<span class="arxiv-date">· ${date}</span>`:''}</div>
-        <div class="arxiv-card-summary">${summary}</div>
-        <a class="arxiv-card-link" href="${link}" target="_blank">Read on arXiv →</a>`;
-      box.appendChild(div);
+function fetchArxiv(){
+  var n=document.getElementById('arxiv-count').value;
+  var box=document.getElementById('arxiv-results');
+  box.innerHTML='<div class="arxiv-msg">⏳ Fetching papers…</div>';
+  var api='https://export.arxiv.org/api/query?search_query=all:'+encodeURIComponent(activeQuery)+'&sortBy=submittedDate&sortOrder=descending&max_results='+n;
+  var proxy='https://corsproxy.io/?'+encodeURIComponent(api);
+  fetch(proxy).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(txt){
+    var xml=new DOMParser().parseFromString(txt,'application/xml');
+    var entries=Array.from(xml.querySelectorAll('entry'));
+    if(!entries.length){box.innerHTML='<div class="arxiv-msg">No results found.</div>';return;}
+    var html='<div class="arxiv-list">';
+    entries.forEach(function(e){
+      var title=((e.querySelector('title')||{}).textContent||'').trim().replace(/\s+/g,' ');
+      var abs=((e.querySelector('summary')||{}).textContent||'').trim().replace(/\s+/g,' ').slice(0,260)+'…';
+      var auths=Array.from(e.querySelectorAll('author name')).slice(0,4).map(function(a){return a.textContent;}).join(', ');
+      if(e.querySelectorAll('author name').length>4)auths+=' et al.';
+      var link=((e.querySelector('id')||{}).textContent||'').trim();
+      var dr=((e.querySelector('published')||{}).textContent||'').trim();
+      var date=dr?new Date(dr).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'';
+      html+='<div class="arxiv-card"><div class="arxiv-title">'+title+'</div><div class="arxiv-authors">'+auths+(date?' · '+date:'')+'</div><div class="arxiv-abs">'+abs+'</div><a class="arxiv-lnk" href="'+link+'" target="_blank">Read on arXiv →</a></div>';
     });
-  } catch(err) {
-    box.innerHTML = '<div class="arxiv-loading">⚠ Could not fetch papers. Please try again in a moment.</div>';
-  }
-// Skill card toggle
-function toggleSkill(panelId, arrowId) {
-  const panel = document.getElementById(panelId);
-  const arrow = document.getElementById(arrowId);
-  const isOpen = panel.classList.contains('open');
-  // close all panels first
-  document.querySelectorAll('.skill-panel').forEach(p => p.classList.remove('open'));
-  document.querySelectorAll('.skill-card-arrow').forEach(a => { a.style.transform = ''; });
-  if (!isOpen) {
-    panel.classList.add('open');
-    arrow.style.transform = 'rotate(180deg)';
-  }
+    html+='</div>';
+    box.innerHTML=html;
+  }).catch(function(){box.innerHTML='<div class="arxiv-msg">⚠ Could not fetch. Try again shortly.</div>';});
 }
 
-// Build email to avoid Cloudflare interception
+// EMAIL — built in JS so Cloudflare cannot intercept
 (function(){
-  const u = 'amarnathchakraborty95';
-  const d = 'gmail.com';
-  const e = u + '@' + d;
-  const el = document.getElementById('email-link');
-  const disp = document.getElementById('email-display');
-  if(el) el.href = 'mailto:' + e;
-  if(disp) disp.textContent = e;
+  var e='amarnathchakraborty95'+'@'+'gmail.com';
+  var l=document.getElementById('email-link');
+  var v=document.getElementById('email-val');
+  if(l)l.href='mailto:'+e;
+  if(v)v.textContent=e;
 })();
 
+// AVATAR fallback
+(function(){
+  var img=document.getElementById('av-img');
+  var fb=document.getElementById('av-fb');
+  if(img){img.onerror=function(){img.style.display='none';if(fb)fb.style.display='inline';};}
+})();
+</script>
 </body>
 </html>
