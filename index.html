@@ -64,6 +64,17 @@ section+section{border-top:1px solid var(--border)}
 .proj-tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:5px}
 .chip{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--muted)}
 .skill-tag{display:inline-block;font-size:13px;padding:5px 14px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--ink);font-weight:500}
+.acc-item{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;background:#fff;transition:border-color .2s}
+.acc-item:hover{border-color:var(--accent)}
+.acc-item.open{border-color:var(--accent)}
+.acc-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
+.acc-title{font-weight:600;font-size:15px;color:var(--ink)}
+.acc-arrow{font-size:16px;color:var(--muted);transition:transform .25s;display:inline-block}
+.acc-item.open .acc-arrow{transform:rotate(180deg);color:var(--accent)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s}
+.acc-item.open .acc-body{max-height:400px;padding-bottom:16px}
+.acc-list{list-style:none;padding:0 20px;display:flex;flex-wrap:wrap;gap:8px}
+.acc-list li{font-size:13px;padding:5px 14px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--ink);font-weight:500}
 
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
 .skill-group{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px}
@@ -153,6 +164,71 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
           onerror="this.parentElement.innerHTML='⚛'"
           style="width:100%;height:100%;object-fit:cover;border-radius:50%"/>
       </div>
+    </div>
+  </section>
+</div>
+
+<!-- SKILLS (accordion) -->
+<div class="container" id="skills">
+  <section>
+    <div class="section-label">Skills</div>
+    <h2 class="section-title">What I Work With</h2>
+    <div style="display:flex;flex-direction:column;gap:10px">
+
+      <!-- ═══ ACCORDION 1: Theoretical Physics ═══
+           To edit: change items inside the <ul> below -->
+      <div class="acc-item" onclick="toggleAcc(this)">
+        <div class="acc-header">
+          <span class="acc-title">Theoretical Physics</span>
+          <span class="acc-arrow">▾</span>
+        </div>
+        <div class="acc-body">
+          <ul class="acc-list">
+            <li>Tight-binding models</li>
+            <li>Green's functions</li>
+            <li>Response theory &amp; Transport properties</li>
+            <li>Magneto-optics</li>
+            <li>Dirac physics</li>
+            <li>Altermagnetism</li>
+            <li>Quantum geometry</li>
+            <li>Quantum Reservoir Computing</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ═══ ACCORDION 2: Classical Computational ═══ -->
+      <div class="acc-item" onclick="toggleAcc(this)">
+        <div class="acc-header">
+          <span class="acc-title">Classical Computational</span>
+          <span class="acc-arrow">▾</span>
+        </div>
+        <div class="acc-body">
+          <ul class="acc-list">
+            <li>Python</li>
+            <li>VASP (DFT)</li>
+            <li>Julia</li>
+            <li>MATLAB</li>
+            <li>TMDCA</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ═══ ACCORDION 3: Quantum Computing ═══ -->
+      <div class="acc-item" onclick="toggleAcc(this)">
+        <div class="acc-header">
+          <span class="acc-title">Quantum Computing</span>
+          <span class="acc-arrow">▾</span>
+        </div>
+        <div class="acc-body">
+          <ul class="acc-list">
+            <li>Qiskit</li>
+            <li>Quantum Hamiltonian simulation (VQE)</li>
+            <li>Sample-based Quantum Diagonalization (SQD)</li>
+            <li>IBM heavy-hex hardware</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </section>
 </div>
@@ -322,82 +398,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
   </section>
 </div>
 
-<!-- SKILLS -->
-<div class="container" id="skills">
-  <section>
-    <div class="section-label">Skills</div>
-    <h2 class="section-title">What I Work With</h2>
-    <div style="display:flex;flex-direction:column;gap:20px">
-
-      <!-- ROW 1 -->
-      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
-        <div style="min-width:130px;padding-top:4px">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2)">Code</div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <!-- EDIT: add/remove language chips here -->
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Julia</span>
-          <span class="skill-tag">Qiskit</span>
-          <span class="skill-tag">Fortran</span>
-          <span class="skill-tag">MATLAB</span>
-          <span class="skill-tag">Mathematica</span>
-        </div>
-      </div>
-
-      <div style="border-top:1px solid var(--border)"></div>
-
-      <!-- ROW 2 -->
-      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
-        <div style="min-width:130px;padding-top:4px">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2)">Quantum</div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <!-- EDIT: add/remove quantum computing chips here -->
-          <span class="skill-tag">Variational Algorithms (VQE)</span>
-          <span class="skill-tag">Sample-based Diagonalization</span>
-          <span class="skill-tag">IBM Heavy-Hex Hardware</span>
-          <span class="skill-tag">Quantum Reservoir Computing</span>
-        </div>
-      </div>
-
-      <div style="border-top:1px solid var(--border)"></div>
-
-      <!-- ROW 3 -->
-      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
-        <div style="min-width:130px;padding-top:4px">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2)">Theory</div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <!-- EDIT: add/remove theory/modelling chips here -->
-          <span class="skill-tag">Tight-binding models</span>
-          <span class="skill-tag">Kubo formalism</span>
-          <span class="skill-tag">Green's functions</span>
-          <span class="skill-tag">DFT (VASP)</span>
-          <span class="skill-tag">TMDCA · Lanczos</span>
-        </div>
-      </div>
-
-      <div style="border-top:1px solid var(--border)"></div>
-
-      <!-- ROW 4 -->
-      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
-        <div style="min-width:130px;padding-top:4px">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2)">Physics</div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <!-- EDIT: add/remove physics concept chips here -->
-          <span class="skill-tag">Quantum geometry</span>
-          <span class="skill-tag">Topological phases</span>
-          <span class="skill-tag">Altermagnetism</span>
-          <span class="skill-tag">Dirac · Weyl systems</span>
-          <span class="skill-tag">Correlated electrons</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-</div>
 
 <!-- ARXIV SPOTLIGHT -->
 <div class="container" id="arxiv">
@@ -458,13 +458,9 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
     <div class="section-label">Contact</div>
     <h2 class="section-title">Get in Touch</h2>
     <div class="contact-grid">
-      <a class="contact-item" href="/cdn-cgi/l/email-protection#8feee2eefde1eefbe7ece7eee4fdeeede0fdfbf6b6bacfe8e2eee6e3a1ece0e2">
+      <a class="contact-item" id="email-link" href="#">
         <span class="contact-icon">✉</span>
-        <div class="contact-text"><div class="contact-label">PERSONAL EMAIL</div><div class="contact-val"><span class="__cf_email__" data-cfemail="8cede1edfee2edf8e4efe4ede7feedeee3fef8f5b5b9ccebe1ede5e0a2efe3e1">[email&#160;protected]</span></div></div>
-      </a>
-      <a class="contact-item" href="/cdn-cgi/l/email-protection#58393b3039332a393a372a2c2118353931347635312b2b372d2a31763d3c2d">
-        <span class="contact-icon">🎓</span>
-        <div class="contact-text"><div class="contact-label">UNIVERSITY EMAIL</div><div class="contact-val"><span class="__cf_email__" data-cfemail="dfbebcb7beb4adbebdb0adaba69fb2beb6b3f1b2b6acacb0aaadb6f1babbaa">[email&#160;protected]</span></div></div>
+        <div class="contact-text"><div class="contact-label">EMAIL</div><div class="contact-val" id="email-display">loading…</div></div>
       </a>
       <a class="contact-item" href="https://github.com/amarnath995" target="_blank">
         <span class="contact-icon">⌥</span>
@@ -526,7 +522,23 @@ async function fetchArxiv() {
   } catch(err) {
     box.innerHTML = '<div class="arxiv-loading">⚠ Could not fetch papers. Please try again in a moment.</div>';
   }
+// Accordion toggle
+function toggleAcc(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
 }
-</script>
+
+// Build email to avoid Cloudflare interception
+(function(){
+  const u = 'amarnathchakraborty95';
+  const d = 'gmail.com';
+  const e = u + '@' + d;
+  const el = document.getElementById('email-link');
+  const disp = document.getElementById('email-display');
+  if(el) el.href = 'mailto:' + e;
+  if(disp) disp.textContent = e;
+})();
+
 </body>
 </html>
