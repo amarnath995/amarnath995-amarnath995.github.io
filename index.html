@@ -162,6 +162,16 @@ section+section{border-top:1px solid var(--border)}
 footer{background:var(--surface);border-top:1px solid var(--border);padding:28px 5%;text-align:center;font-size:13px;color:var(--muted)}
 footer a{color:var(--muted);text-decoration:none}
 @keyframes fadeUp{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* Skill bars */
+.sb-row{display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:14px;margin-bottom:13px}
+.sb-row:last-child{margin-bottom:0}
+.sb-label{font-size:13px;font-weight:500;color:var(--ink)}
+.sb-track{height:8px;background:var(--surface2);border-radius:20px;overflow:hidden}
+.sb-fill{height:100%;width:0;border-radius:20px;background:var(--clr);transition:width .8s cubic-bezier(.4,0,.2,1)}
+.sb-fill.animated{width:var(--pct)}
+.sb-pct{font-size:11px;font-weight:700;color:var(--muted);text-align:right}
+@media(max-width:600px){.sb-row{grid-template-columns:1fr;gap:4px}.sb-pct{text-align:left}}
 @media(max-width:640px){
   .hero-grid,.stg-grid{grid-template-columns:1fr}
   .avatar{display:none}
@@ -179,6 +189,7 @@ footer a{color:var(--muted);text-decoration:none}
     <ul class="nav-links">
       <li><a href="#skills">Skills</a></li>
       <li><a href="#about">Positions</a></li>
+      <li><a href="research.html">Research Map</a></li>
       <li><a href="#publications">Papers</a></li>
       <li><a href="#projects">Research</a></li>
       <li><a href="#arxiv">arXiv</a></li>
@@ -224,59 +235,60 @@ footer a{color:var(--muted);text-decoration:none}
   <section>
     <div class="label">Skills</div>
     <h2 class="section-title">What I Work With</h2>
-    <div class="skill-grid">
 
+    <!-- Three clickable cards side by side -->
+    <div class="skill-grid" style="margin-bottom:0">
       <div class="sk-card sk1" id="c-theory" onclick="toggleSkill('theory')">
         <span class="sk-chev" id="v-theory">▾</span>
         <span class="sk-icon">🔭</span>
         <div class="sk-title">Theoretical Physics</div>
         <div class="sk-hint">Click to expand</div>
       </div>
-
       <div class="sk-card sk2" id="c-classical" onclick="toggleSkill('classical')">
         <span class="sk-chev" id="v-classical">▾</span>
         <span class="sk-icon">🖥️</span>
         <div class="sk-title">Classical Computation</div>
         <div class="sk-hint">Click to expand</div>
       </div>
-
       <div class="sk-card sk3" id="c-quantum" onclick="toggleSkill('quantum')">
         <span class="sk-chev" id="v-quantum">▾</span>
         <span class="sk-icon">⚛️</span>
         <div class="sk-title">Quantum Computing</div>
         <div class="sk-hint">Click to expand</div>
       </div>
-
-      <!-- EDIT: pills for Theoretical Physics -->
-      <div class="sk-panel p1" id="p-theory">
-        <span class="pill pi1">Tight-binding models</span>
-        <span class="pill pi1">Green's functions</span>
-        <span class="pill pi1">Response theory &amp; Transport</span>
-        <span class="pill pi1">Magneto-optics</span>
-        <span class="pill pi1">Dirac physics</span>
-        <span class="pill pi1">Altermagnetism</span>
-        <span class="pill pi1">Quantum geometry</span>
-        <span class="pill pi1">Quantum Reservoir Computing</span>
-      </div>
-
-      <!-- EDIT: pills for Classical Computation -->
-      <div class="sk-panel p2" id="p-classical">
-        <span class="pill pi2">Python</span>
-        <span class="pill pi2">Julia</span>
-        <span class="pill pi2">MATLAB</span>
-        <span class="pill pi2">VASP (DFT)</span>
-        <span class="pill pi2">TMDCA</span>
-      </div>
-
-      <!-- EDIT: pills for Quantum Computing -->
-      <div class="sk-panel p3" id="p-quantum">
-        <span class="pill pi3">Qiskit</span>
-        <span class="pill pi3">Variational Quantum Eigensolver (VQE)</span>
-        <span class="pill pi3">Sample-based Krylov Quantum Diagonalization (SKQD)</span>
-        <span class="pill pi3">IBM Heavy-Hex Hardware</span>
-      </div>
-
     </div>
+
+    <!-- Skill bar panels — shown below cards when clicked -->
+
+    <!-- PANEL 1: Theoretical Physics
+         EDIT: change bar label or pct value (0–100) for each skill row -->
+    <div id="p-theory" style="display:none;margin-top:4px;background:#eef2ff;border:2px solid #c7d2fe;border-radius:0 0 14px 14px;padding:22px 26px 18px">
+      <div class="sb-row"><div class="sb-label">Tight-binding models</div><div class="sb-track"><div class="sb-fill" style="--pct:92%;--clr:#6366f1"></div></div><div class="sb-pct">Expert</div></div>
+      <div class="sb-row"><div class="sb-label">Green's functions &amp; Response theory</div><div class="sb-track"><div class="sb-fill" style="--pct:88%;--clr:#6366f1"></div></div><div class="sb-pct">Expert</div></div>
+      <div class="sb-row"><div class="sb-label">Magneto-optics &amp; Transport</div><div class="sb-track"><div class="sb-fill" style="--pct:85%;--clr:#6366f1"></div></div><div class="sb-pct">Advanced</div></div>
+      <div class="sb-row"><div class="sb-label">Dirac physics &amp; Topology</div><div class="sb-track"><div class="sb-fill" style="--pct:90%;--clr:#6366f1"></div></div><div class="sb-pct">Expert</div></div>
+      <div class="sb-row"><div class="sb-label">Quantum geometry &amp; Berry curvature</div><div class="sb-track"><div class="sb-fill" style="--pct:82%;--clr:#6366f1"></div></div><div class="sb-pct">Advanced</div></div>
+      <div class="sb-row"><div class="sb-label">Altermagnetism</div><div class="sb-track"><div class="sb-fill" style="--pct:65%;--clr:#6366f1"></div></div><div class="sb-pct">Growing</div></div>
+      <div class="sb-row"><div class="sb-label">Quantum Reservoir Computing</div><div class="sb-track"><div class="sb-fill" style="--pct:40%;--clr:#6366f1"></div></div><div class="sb-pct">Learning</div></div>
+    </div>
+
+    <!-- PANEL 2: Classical Computation -->
+    <div id="p-classical" style="display:none;margin-top:4px;background:#ecfeff;border:2px solid #a5f3fc;border-radius:0 0 14px 14px;padding:22px 26px 18px">
+      <div class="sb-row"><div class="sb-label">Python</div><div class="sb-track"><div class="sb-fill" style="--pct:90%;--clr:#0891b2"></div></div><div class="sb-pct">Expert</div></div>
+      <div class="sb-row"><div class="sb-label">Julia</div><div class="sb-track"><div class="sb-fill" style="--pct:80%;--clr:#0891b2"></div></div><div class="sb-pct">Advanced</div></div>
+      <div class="sb-row"><div class="sb-label">MATLAB</div><div class="sb-track"><div class="sb-fill" style="--pct:75%;--clr:#0891b2"></div></div><div class="sb-pct">Advanced</div></div>
+      <div class="sb-row"><div class="sb-label">VASP (DFT)</div><div class="sb-track"><div class="sb-fill" style="--pct:65%;--clr:#0891b2"></div></div><div class="sb-pct">Proficient</div></div>
+      <div class="sb-row"><div class="sb-label">TMDCA / Lanczos</div><div class="sb-track"><div class="sb-fill" style="--pct:70%;--clr:#0891b2"></div></div><div class="sb-pct">Proficient</div></div>
+    </div>
+
+    <!-- PANEL 3: Quantum Computing -->
+    <div id="p-quantum" style="display:none;margin-top:4px;background:#f0fdf4;border:2px solid #bbf7d0;border-radius:0 0 14px 14px;padding:22px 26px 18px">
+      <div class="sb-row"><div class="sb-label">Qiskit</div><div class="sb-track"><div class="sb-fill" style="--pct:82%;--clr:#059669"></div></div><div class="sb-pct">Advanced</div></div>
+      <div class="sb-row"><div class="sb-label">Variational Quantum Eigensolver (VQE)</div><div class="sb-track"><div class="sb-fill" style="--pct:78%;--clr:#059669"></div></div><div class="sb-pct">Advanced</div></div>
+      <div class="sb-row"><div class="sb-label">Sample-based Quantum Diagonalization (SQD)</div><div class="sb-track"><div class="sb-fill" style="--pct:72%;--clr:#059669"></div></div><div class="sb-pct">Advanced</div></div>
+      <div class="sb-row"><div class="sb-label">IBM Heavy-Hex Hardware</div><div class="sb-track"><div class="sb-fill" style="--pct:68%;--clr:#059669"></div></div><div class="sb-pct">Proficient</div></div>
+    </div>
+
   </section>
 </div>
 
@@ -311,6 +323,24 @@ footer a{color:var(--muted);text-decoration:none}
     <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
       <a class="btn btn-o" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">Full profile on LinkedIn →</a>
       <a class="btn btn-o" href="cv.pdf" download>Download CV →</a>
+    </div>
+  </section>
+</div>
+
+<!-- RESEARCH MAP PREVIEW -->
+<div class="container" id="researchmap">
+  <section>
+    <div class="label">Interactive Overview</div>
+    <h2 class="section-title">Research Pattern Map</h2>
+    <div style="background:var(--surface);border:2px solid var(--accent);border-radius:16px;padding:30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px">
+      <div style="max-width:520px">
+        <div style="font-size:28px;margin-bottom:12px">🗺️</div>
+        <div style="font-weight:700;font-size:17px;margin-bottom:8px;font-family:'Lora',serif">Three Pillars · Key Themes · Research Arc</div>
+        <div style="font-size:14px;color:var(--muted);line-height:1.8">
+          An interactive map of the patterns running across my research — from 2D quantum materials through quantum computing, with an eye toward hybrid ML workflows. Includes a full timeline of how my research identity has evolved since my M.Sc.
+        </div>
+      </div>
+      <a class="btn btn-p" href="research.html" style="font-size:14px;padding:12px 26px;flex-shrink:0">Explore the map →</a>
     </div>
   </section>
 </div>
@@ -440,11 +470,11 @@ footer a{color:var(--muted);text-decoration:none}
     <p style="font-size:13px;color:var(--muted);margin-bottom:20px">A few I keep coming back to.</p>
     <!-- EDIT: replace Title Here / Author with real entries. Copy a .novel-card to add more. -->
     <div class="novel-grid">
-      <div class="novel-card"><div class="novel-title">Sei Somoy</div><div class="novel-author">Sunil Gangopadhyay</div></div>
-      <div class="novel-card"><div class="novel-title">Lotakombol</div><div class="novel-author">Sanjib Chattopadhyay</div></div>
-      <div class="novel-card"><div class="novel-title">Kite Runner</div><div class="novel-author">Khaled Hosseini</div></div>
-      <div class="novel-card"><div class="novel-title">Alchemist</div><div class="novel-author">Paulo Coelho</div></div>
-      <div class="novel-card"><div class="novel-title">Kafka On The Shore</div><div class="novel-author">Haruki Murakami</div></div>
+      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
+      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
+      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
+      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
+      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
     </div>
   </section>
 </div>
@@ -484,26 +514,31 @@ function toggleTheme(){
   else{h.setAttribute('data-theme','dark');b.textContent='☀️ Light';}
 }
 
-// SKILL CARDS — plain JS, no classList issues
+// SKILL CARDS — direct style toggle with bar animation
 var openSkill=null;
 function toggleSkill(name){
-  // close current if same
+  var panel=document.getElementById('p-'+name);
+  var chev=document.getElementById('v-'+name);
+  var card=document.getElementById('c-'+name);
   if(openSkill===name){
-    document.getElementById('p-'+openSkill).style.display='none';
-    document.getElementById('v-'+openSkill).style.transform='';
+    panel.style.display='none';
+    chev.style.transform='';
+    card.style.borderRadius='16px';
     openSkill=null;
     return;
   }
-  // close previous
   if(openSkill){
     document.getElementById('p-'+openSkill).style.display='none';
     document.getElementById('v-'+openSkill).style.transform='';
+    document.getElementById('c-'+openSkill).style.borderRadius='16px';
   }
-  // open new
-  var panel=document.getElementById('p-'+name);
-  panel.style.display='flex';
-  panel.style.flexWrap='wrap';
-  document.getElementById('v-'+name).style.transform='rotate(180deg)';
+  panel.style.display='block';
+  chev.style.transform='rotate(180deg)';
+  card.style.borderRadius='14px 14px 0 0';
+  // animate bars
+  setTimeout(function(){
+    panel.querySelectorAll('.sb-fill').forEach(function(b){b.classList.add('animated');});
+  },40);
   openSkill=name;
 }
 
