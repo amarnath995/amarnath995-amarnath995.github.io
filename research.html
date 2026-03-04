@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Pattern Map · Amarnath Chakraborty</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #09090f;
+    --surface: #111118;
+    --border: #1e1e2e;
+    --accent1: #7ee8fa;   /* cyan — quantum computing */
+    --accent2: #a78bfa;   /* violet — theory */
+    --accent3: #fb923c;   /* orange — materials */
+    --accent4: #34d399;   /* green — ML/AI */
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --glow1: rgba(126,232,250,0.15);
+    --glow2: rgba(167,139,250,0.15);
+    --glow3: rgba(251,146,60,0.15);
+    --glow4: rgba(52,211,153,0.15);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    padding: 2rem 1.5rem 4rem;
+    overflow-x: hidden;
+  }
+
+  /* noise overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.6;
+  }
+
+  .wrap { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; }
+
+  header { margin-bottom: 3rem; }
+  .label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--accent1) 0%, var(--accent2) 50%, var(--accent3) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .subtitle { color: var(--muted); font-size: 0.8rem; margin-top: 0.6rem; }
+
+  /* ── TAB NAV ── */
+  .tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .tab {
+    padding: 0.45rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: var(--surface);
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab:hover { color: var(--text); border-color: #2e2e4e; }
+  .tab.active { color: var(--bg); background: var(--accent1); border-color: var(--accent1); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+  /* ── CARDS ── */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .card {
+    background: var(--surface);
+    padding: 1.4rem 1.6rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+  .card:hover { background: #13131f; }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  }
+  .card.c1::before { background: var(--accent1); box-shadow: 0 0 12px var(--accent1); }
+  .card.c2::before { background: var(--accent2); box-shadow: 0 0 12px var(--accent2); }
+  .card.c3::before { background: var(--accent3); box-shadow: 0 0 12px var(--accent3); }
+  .card.c4::before { background: var(--accent4); box-shadow: 0 0 12px var(--accent4); }
+
+  .card-tag {
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 0.6rem; font-weight: 500;
+  }
+  .c1 .card-tag { color: var(--accent1); }
+  .c2 .card-tag { color: var(--accent2); }
+  .c3 .card-tag { color: var(--accent3); }
+  .c4 .card-tag { color: var(--accent4); }
+
+  .card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
+  .card p { font-size: 0.75rem; color: var(--muted); line-height: 1.7; }
+  .card ul { list-style: none; margin-top: 0.5rem; }
+  .card ul li { font-size: 0.72rem; color: var(--muted); padding: 0.2rem 0; }
+  .card ul li::before { content: '→ '; color: inherit; opacity: 0.5; }
+  .c1 .card ul li::before { color: var(--accent1); }
+  .c2 .card ul li::before { color: var(--accent2); }
+  .c3 .card ul li::before { color: var(--accent3); }
+  .c4 .card ul li::before { color: var(--accent4); }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0.55rem; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(to bottom, var(--accent1), var(--accent2), var(--accent3));
+  }
+  .tl-item { position: relative; margin-bottom: 2rem; }
+  .tl-dot {
+    position: absolute; left: -1.72rem; top: 0.35rem;
+    width: 10px; height: 10px; border-radius: 50%;
+    border: 2px solid var(--bg);
+  }
+  .tl-item.c1 .tl-dot { background: var(--accent1); box-shadow: 0 0 8px var(--accent1); }
+  .tl-item.c2 .tl-dot { background: var(--accent2); box-shadow: 0 0 8px var(--accent2); }
+  .tl-item.c3 .tl-dot { background: var(--accent3); box-shadow: 0 0 8px var(--accent3); }
+  .tl-item.c4 .tl-dot { background: var(--accent4); box-shadow: 0 0 8px var(--accent4); }
+  .tl-year { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 0.15rem; }
+  .tl-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text); }
+  .tl-desc { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.6; }
+  .tl-badge {
+    display: inline-block; margin-top: 0.35rem;
+    padding: 0.15rem 0.55rem; border-radius: 2px;
+    font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .c1 .tl-badge { background: var(--glow1); color: var(--accent1); }
+  .c2 .tl-badge { background: var(--glow2); color: var(--accent2); }
+  .c3 .tl-badge { background: var(--glow3); color: var(--accent3); }
+  .c4 .tl-badge { background: var(--glow4); color: var(--accent4); }
+
+  /* ── SKILLS BARS ── */
+  .skill-row { margin-bottom: 1.2rem; }
+  .skill-label { display: flex; justify-content: space-between; font-size: 0.72rem; margin-bottom: 0.4rem; }
+  .skill-label span:last-child { color: var(--muted); }
+  .bar-bg { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .bar-fill {
+    height: 100%; border-radius: 2px;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .bar-fill.animated { transform: scaleX(1); }
+  .bar-1 { background: linear-gradient(90deg, var(--accent1), #5bc8e8); width: 95%; }
+  .bar-2 { background: linear-gradient(90deg, var(--accent2), #c4b5fd); width: 90%; }
+  .bar-3 { background: linear-gradient(90deg, var(--accent3), #fbbf24); width: 80%; }
+  .bar-4 { background: linear-gradient(90deg, var(--accent4), #6ee7b7); width: 70%; }
+  .bar-5 { background: linear-gradient(90deg, var(--accent1), var(--accent2)); width: 85%; }
+  .bar-6 { background: linear-gradient(90deg, var(--accent2), var(--accent3)); width: 75%; }
+  .bar-7 { background: linear-gradient(90deg, var(--accent3), var(--accent4)); width: 65%; }
+
+  /* ── PATTERN INSIGHT BLOCK ── */
+  .insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+  .insight {
+    border: 1px solid var(--border); padding: 1.4rem;
+    position: relative; background: var(--surface);
+  }
+  .insight-num {
+    font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800;
+    opacity: 0.06; position: absolute; top: 0.5rem; right: 1rem; line-height: 1;
+    pointer-events: none;
+  }
+  .insight h4 { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .insight p { font-size: 0.73rem; color: var(--muted); line-height: 1.7; }
+  .i1 { border-left: 2px solid var(--accent1); }
+  .i1 h4 { color: var(--accent1); }
+  .i2 { border-left: 2px solid var(--accent2); }
+  .i2 h4 { color: var(--accent2); }
+  .i3 { border-left: 2px solid var(--accent3); }
+  .i3 h4 { color: var(--accent3); }
+  .i4 { border-left: 2px solid var(--accent4); }
+  .i4 h4 { color: var(--accent4); }
+  .i5 { border-left: 2px solid var(--muted); }
+  .i5 h4 { color: var(--muted); }
+
+  /* ── PUBLICATIONS ── */
+  .pub { border: 1px solid var(--border); padding: 1rem 1.2rem; margin-bottom: 0.8rem; background: var(--surface); display: flex; gap: 1rem; align-items: flex-start; }
+  .pub-year { font-size: 0.65rem; color: var(--muted); min-width: 36px; padding-top: 0.1rem; }
+  .pub-content { flex: 1; }
+  .pub-title { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+  .pub-journal { font-size: 0.68rem; color: var(--muted); font-style: italic; }
+  .pub-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .pub-tag { font-size: 0.58rem; padding: 0.12rem 0.45rem; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; }
+
+  .tag-qc { background: var(--glow1); color: var(--accent1); }
+  .tag-2d { background: var(--glow3); color: var(--accent3); }
+  .tag-topo { background: var(--glow2); color: var(--accent2); }
+  .tag-exp { background: var(--glow4); color: var(--accent4); }
+
+  section-title {
+    display: block;
+    font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 1.2rem; padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+<div style="position:sticky;top:0;z-index:200;background:rgba(9,9,15,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #1e1e2e;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:48px;font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase">
+  <a href="index.html" style="color:#7ee8fa;text-decoration:none;opacity:.85;transition:opacity .2s">← Back to Portfolio</a>
+  <span style="color:#64748b">Research Pattern Map</span>
+</div>
+<div class="wrap">
+
+  <header>
+    <div class="label">Research Pattern Analysis</div>
+    <h1>Amarnath Chakraborty</h1>
+    <p class="subtitle">Ph.D. Physics · University of Missouri &nbsp;·&nbsp; Quantum Research Intern · Chinar Quantum AI &nbsp;·&nbsp; Postdoc (upcoming) · Seoul National University</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('patterns')">Key Patterns</button>
+    <button class="tab" onclick="switchTab('timeline')">Timeline</button>
+    <button class="tab" onclick="switchTab('skills')">Skills Map</button>
+    <button class="tab" onclick="switchTab('pubs')">Publications</button>
+  </div>
+
+  <!-- ══ TAB 1: PATTERNS ══ -->
+  <div class="panel active" id="tab-patterns">
+    <section-title>5 Core Research Patterns</section-title>
+    <div class="insight-grid" style="margin-bottom:2rem;">
+      <div class="insight i1">
+        <div class="insight-num">01</div>
+        <h4>The Theory → Experiment Bridge</h4>
+        <p>Every project stays close to experimental reality. The Bismuthene paper (Nat. Commun.) came from NUS collaboration; Faraday rotation and photon absorption work maps directly to measurable optical responses. You model, experimentalists verify.</p>
+      </div>
+      <div class="insight i2">
+        <div class="insight-num">02</div>
+        <h4>Escalating Complexity of Platforms</h4>
+        <p>Your trajectory moves from single-layer Dirac semimetals → bilayer graphene → IBM heavy-hex hardware. Each step adds a layer of complexity: symmetry, correlation, then real-device noise. This is a deliberate ladder.</p>
+      </div>
+      <div class="insight i3">
+        <div class="insight-num">03</div>
+        <h4>Disorder as a Through-Line</h4>
+        <p>From TMDCA/Lanczos at JNCASR in 2019 to the insulator-metal transition paper in 2025, disorder in quantum systems is a persistent thread. You study how imperfection reshapes quantum phases — a theme that connects your earliest to latest work.</p>
+      </div>
+      <div class="insight i4">
+        <div class="insight-num">04</div>
+        <h4>Converging on Quantum Computing</h4>
+        <p>Your research is converging from materials science toward quantum hardware. The IBM internship, VQE/SQD work, Qiskit Advocate status, and outreach teaching all point to a deliberate pivot: you're positioning materials theory as a feeder to quantum computation.</p>
+      </div>
+      <div class="insight i5">
+        <div class="insight-num">05</div>
+        <h4>ML Integration — Intentional, Actively Building</h4>
+        <p>ML appears in bio and research vision but not yet in publications. The long-term goal is a generative hybrid workflow coupling classical simulation, quantum simulation, and ML predictive models. Quantum Reservoir Computing is the near-term entry point being actively explored.</p>
+      </div>
+    </div>
+
+    <section-title>Research Pillars</section-title>
+    <div class="grid">
+      <div class="card c1">
+        <div class="card-tag">Pillar 1</div>
+        <h3>Quantum Computing</h3>
+        <p>Increasingly central. You've moved from studying quantum materials to running algorithms on quantum hardware.</p>
+        <ul>
+          <li>VQE / SQD on IBM heavy-hex</li>
+          <li>Fermi-Hubbard model benchmarking</li>
+          <li>Topological qubit design</li>
+          <li>Qiskit Advocate, QGSS badge</li>
+        </ul>
+      </div>
+      <div class="card c2">
+        <div class="card-tag">Pillar 2</div>
+        <h3>Topological Theory</h3>
+        <p>Your deepest, longest-running expertise. Berry curvature, Weyl fermions, nonsymmorphic symmetry.</p>
+        <ul>
+          <li>Twisted bilayer graphene continuum models</li>
+          <li>Berry curvature & orbital response</li>
+          <li>Nonsymmorphic Dirac semimetals</li>
+          <li>Quantum geometry in Weyl/Dirac systems</li>
+        </ul>
+      </div>
+      <div class="card c3">
+        <div class="card-tag">Pillar 3</div>
+        <h3>2D Materials Physics</h3>
+        <p>The empirical anchor of your work. Real materials, measurable effects, experimental partners.</p>
+        <ul>
+          <li>Bilayer graphene (insulator-metal transition)</li>
+          <li>Bismuthene Weyl fermions (Nat. Commun.)</li>
+          <li>Faraday/Kerr optical effects</li>
+          <li>Photon absorption in 2D semimetals</li>
+        </ul>
+      </div>
+      <div class="card c4">
+        <div class="card-tag">Pillar 4</div>
+        <h3>ML &amp; Hybrid Methods</h3>
+        <p>Emerging, intentional. You're building toward AI-accelerated materials discovery workflows.</p>
+        <ul>
+          <li>Active learning for TMDCA/Lanczos</li>
+          <li>ML surrogates for 2D systems</li>
+          <li>High-Tc superconductor screening</li>
+          <li>Physics-simulation + AI hybrid pipelines</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 2: TIMELINE ══ -->
+  <div class="panel" id="tab-timeline">
+    <section-title>Research Journey</section-title>
+    <div class="timeline">
+
+      <div class="tl-item c2">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2016 – 2018</div>
+        <div class="tl-title">M.S., University of Hyderabad</div>
+        <div class="tl-desc">Polaron self-energies &amp; decoherence in polar quantum dots via LLP Holstein methods. Early exposure to qubit-relevant solid-state physics.</div>
+        <span class="tl-badge">Theory foundations</span>
+      </div>
+
+      <div class="tl-item c2">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2018</div>
+        <div class="tl-title">Project Student, JNCASR — Soft Glassy Rheology</div>
+        <div class="tl-desc">Reproduced Bouchaud's Trap Model. Exposure to disordered systems and statistical mechanics of complex phases.</div>
+        <span class="tl-badge">Disorder &amp; complexity</span>
+      </div>
+
+      <div class="tl-item c3">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2019</div>
+        <div class="tl-title">Project Assistant, JNCASR — Disordered Hubbard Models</div>
+        <div class="tl-desc">Applied TMDCA and Lanczos to compute LDOS/DOS and phase diagrams. This thread reappears in your 2025 IBM conference work on high-Tc.</div>
+        <span class="tl-badge">Key recurring theme</span>
+      </div>
+
+      <div class="tl-item c2">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2019 – 2025</div>
+        <div class="tl-title">Ph.D. Physics — University of Missouri (Completed)</div>
+        <div class="tl-desc">Under Prof. Giovanni Vignale &amp; Dr. Guang Bian. 2D quantum materials: transport, magnetism, topology, disorder. Four peer-reviewed publications. Physics Leaders Award for outstanding research presentation.</div>
+        <span class="tl-badge">Doctorate complete</span>
+      </div>
+
+      <div class="tl-item c3">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2021</div>
+        <div class="tl-title">Publication — Photon Absorption in 2D Nonsymmorphic Dirac Semimetals</div>
+        <div class="tl-desc">Phys. Rev. B 105, 085101. First major publication; establishes your voice in optical response of 2D systems.</div>
+        <span class="tl-badge">Pub #1</span>
+      </div>
+
+      <div class="tl-item c3">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2023</div>
+        <div class="tl-title">Publication — Giant Faraday Rotation in Nonsymmorphic Dirac Semimetals</div>
+        <div class="tl-desc">Phys. Rev. B 107, 245120. Extends optical response work; confirms the nonsymmorphic Dirac semimetal as a sustained research system.</div>
+        <span class="tl-badge">Pub #2</span>
+      </div>
+
+      <div class="tl-item c4">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2024</div>
+        <div class="tl-title">Visiting Scholar, NUS (I-FIM)</div>
+        <div class="tl-desc">Orbital susceptibility and metal-insulator transitions in bilayer graphene under crossed fields. Experimental collaboration that fed directly into your 2025 Phys. Rev. B paper.</div>
+        <span class="tl-badge">Experiment link</span>
+      </div>
+
+      <div class="tl-item c4">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2024</div>
+        <div class="tl-title">Publication — 2D Weyl Fermions in Bismuthene (Nat. Commun.)</div>
+        <div class="tl-desc">Nature Communications 15, 6001. Your highest-impact publication to date; joint with NUS experimentalists. First Nature-family paper.</div>
+        <span class="tl-badge">Pub #3 · Highest impact</span>
+      </div>
+
+      <div class="tl-item c2">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025</div>
+        <div class="tl-title">Publication — Insulator-Metal Transition in Bilayer Graphene</div>
+        <div class="tl-desc">Phys. Rev. B 111, 125130. Trigonal warping mechanism. Closes the loop on your NUS visit and extends bilayer graphene theory.</div>
+        <span class="tl-badge">Pub #4</span>
+      </div>
+
+      <div class="tl-item c1">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025</div>
+        <div class="tl-title">IBM Quantum Internship — VQE/SQD for Fermi-Hubbard</div>
+        <div class="tl-desc">Error-mitigated quantum algorithms on real IBM hardware. Presented at IBM Quantum Developer Conference. Full pivot to quantum computing application.</div>
+        <span class="tl-badge">Quantum computing pivot</span>
+      </div>
+
+      <div class="tl-item c1">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025</div>
+        <div class="tl-title">Qiskit Advocate + QGSS Excellence Badge</div>
+        <div class="tl-desc">Community recognition for quantum simulation contributions. Teaching Qiskit and topological qubit design to physics students at UMC.</div>
+        <span class="tl-badge">Recognition &amp; community</span>
+      </div>
+
+      <div class="tl-item c1">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025 — Current</div>
+        <div class="tl-title">Quantum Research Intern — Chinar Quantum AI</div>
+        <div class="tl-desc">Building Hamiltonian simulation workflows at the core of the company. Connecting with academic groups to contribute toward India's National Quantum Mission. Bridging many-body physics and quantum computing for practical simulation challenges.</div>
+        <span class="tl-badge">Industry · India NQM</span>
+      </div>
+
+      <div class="tl-item c4">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025 — Upcoming</div>
+        <div class="tl-title">Postdoctoral Scientist — Seoul National University</div>
+        <div class="tl-desc">Joining Prof. Bohm-Jung Yang's group. Focus: altermagnetic responses in 2D materials via quantum geometric tensor signatures — connecting Berry curvature and quantum metric to measurable transport and optical phenomena in this emerging class of magnetic systems.</div>
+        <span class="tl-badge">Altermagnetism · Quantum geometry</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ TAB 3: SKILLS ══ -->
+  <div class="panel" id="tab-skills">
+    <section-title>Skill Depth Map</section-title>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
+      <div>
+        <p style="font-size:0.65rem;color:var(--muted);margin-bottom:1.2rem;letter-spacing:0.05em;">COMPUTATIONAL &amp; MODELING</p>
+        <div class="skill-row">
+          <div class="skill-label"><span>Tight-binding / Continuum models</span><span>Expert</span></div>
+          <div class="bar-bg"><div class="bar-fill bar-1"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Python / Julia simulation libraries</span><span>Expert</span></div>
+          <div class="bar-bg"><div class="bar-fill bar-2"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Green's function / Kubo formalism</span><span>Advanced</span></div>
+          <div class="bar-bg"><div class="bar-fill bar-3"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>DFT (VASP)</span><span>Intermediate</span></div>
+          <div class="bar-bg"><div class="bar-fill bar-4"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>TMDCA / Lanczos methods</span><span>Advanced</span></div>
+          <div class="bar-bg"><div class="bar-fill bar-5"></div></div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:0.65rem;color:var(--muted);margin-bottom:1.2rem;letter-spacing:0.05em;">QUANTUM &amp; EMERGING</p>
+        <div class="skill-row">
+          <div class="skill-label"><span>Qiskit (VQE, SQD, noise mitigation)</span><span>Advanced</span></div>
+          <div class="bar-bg"><div class="bar-fill bar-2"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Berry curvature / Topological invariants</span><span>Expert</span></div>
+          <div class="bar-bg"><div class="bar-fill bar-1"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Error mitigation (real hardware)</span><span>Intermediate</span></div>
+          <div class="bar-bg"><div class="bar-fill bar-6"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>ML for materials (active learning)</span><span>Early-stage</span></div>
+          <div class="bar-bg"><div class="bar-fill bar-7"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Scientific communication</span><span>Strong</span></div>
+          <div class="bar-bg"><div class="bar-fill bar-3"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem;">
+      <section-title>Collaboration Network</section-title>
+      <div class="grid">
+        <div class="card c1"><div class="card-tag">International</div><h3>NUS Singapore</h3><p>Multi-year collaboration. Experimental validation partner — Nat. Commun. 2024 &amp; PRB 2025 both came from this link.</p></div>
+        <div class="card c2"><div class="card-tag">National Lab</div><h3>IBM Quantum</h3><p>Competitive internship 2025. Real hardware access for VQE/SQD benchmarking on heavy-hex QPU. IBM Dev Conference presentation.</p></div>
+        <div class="card c3"><div class="card-tag">India</div><h3>JNCASR</h3><p>Two projects (2018–2019). Foundations in disordered systems — a theme that persists through the 2025 IBM high-Tc conference work.</p></div>
+        <div class="card c4"><div class="card-tag">U.S. National</div><h3>UMD / NSF RQS</h3><p>2025 Quantum Simulation Summer School. Near-term quantum simulation and resource estimation training.</p></div>
+        <div class="card c1"><div class="card-tag">Industry · India</div><h3>Chinar Quantum AI</h3><p>Current internship. Building Hamiltonian simulation workflows contributing toward India's National Quantum Mission.</p></div>
+        <div class="card c2"><div class="card-tag">Upcoming · Korea</div><h3>Seoul National University</h3><p>Postdoc with Prof. Bohm-Jung Yang. Altermagnetism &amp; quantum geometric tensor signatures in 2D materials.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 4: PUBLICATIONS ══ -->
+  <div class="panel" id="tab-pubs">
+    <section-title>Publication Arc (Chronological)</section-title>
+
+    <div class="pub">
+      <div class="pub-year">2021</div>
+      <div class="pub-content">
+        <div class="pub-title"><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.105.085101" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid #2e2e4e">Photon Absorption in 2D Nonsymmorphic Dirac Semimetals</a></div>
+        <div class="pub-journal">Physical Review B 105, 085101</div>
+        <div class="pub-tags">
+          <span class="pub-tag tag-2d">2D Materials</span>
+          <span class="pub-tag tag-topo">Topological</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">2023</div>
+      <div class="pub-content">
+        <div class="pub-title"><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.245120" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid #2e2e4e">Giant Faraday Rotation in Nonsymmorphic Dirac Semimetals</a></div>
+        <div class="pub-journal">Physical Review B 107, 245120</div>
+        <div class="pub-tags">
+          <span class="pub-tag tag-2d">2D Materials</span>
+          <span class="pub-tag tag-topo">Topological</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">2024</div>
+      <div class="pub-content">
+        <div class="pub-title"><a href="https://www.nature.com/articles/s41467-024-50030-6" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid #2e2e4e">Observation of 2D Weyl Fermions in Bismuthene</a></div>
+        <div class="pub-journal">Nature Communications 15, 6001</div>
+        <div class="pub-tags">
+          <span class="pub-tag tag-2d">2D Materials</span>
+          <span class="pub-tag tag-topo">Topological</span>
+          <span class="pub-tag tag-exp">Experiment</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">2025</div>
+      <div class="pub-content">
+        <div class="pub-title"><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.111.125130" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid #2e2e4e">Insulator-Metal Transition &amp; Magnetic Crossover in Bilayer Graphene</a></div>
+        <div class="pub-journal">Physical Review B 111, 125130</div>
+        <div class="pub-tags">
+          <span class="pub-tag tag-2d">2D Materials</span>
+          <span class="pub-tag tag-topo">Topological</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem; border:1px solid var(--border); padding:1.2rem; background:var(--surface);">
+      <p style="font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem;">Publication Pattern Observation</p>
+      <p style="font-size:0.75rem;color:var(--muted);line-height:1.8;">
+        All 4 publications sit in <span style="color:var(--accent3)">2D quantum materials</span> and <span style="color:var(--accent2)">topological physics</span>. The trajectory shows increasing journal prestige (PRB → Nat. Commun.) and a shift toward <span style="color:var(--accent4)">experimentally-grounded</span> work. The SNU postdoc on <span style="color:var(--accent2)">altermagnetic responses via quantum geometric tensors</span> signals the next publication arc. A peer-reviewed QC paper on VQE/SQD may also be imminent.
+      </p>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<script>
+  function switchTab(id) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+    if (id === 'skills') animateBars();
+  }
+
+  function animateBars() {
+    setTimeout(() => {
+      document.querySelectorAll('.bar-fill').forEach(b => b.classList.add('animated'));
+    }, 100);
+  }
+
+  // animate bars if skills tab starts active
+  window.addEventListener('load', () => {
+    if (document.getElementById('tab-skills').classList.contains('active')) animateBars();
+  });
+</script>
+</body>
+</html>
