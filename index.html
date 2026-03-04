@@ -22,49 +22,44 @@
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:15px;transition:background .3s,color .3s}
 
-/* ── NAV ── */
+/* NAV */
 nav{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 4%}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
 .nav-logo{font-family:'Lora',serif;font-weight:600;font-size:17px;color:var(--ink);text-decoration:none;flex-shrink:0}
-.nav-links{display:flex;gap:20px;list-style:none;align-items:center}
+.nav-links{display:flex;gap:18px;list-style:none;align-items:center}
 .nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s;white-space:nowrap}
 .nav-links a:hover{color:var(--accent)}
 .theme-btn{background:none;border:1.5px solid var(--border);border-radius:20px;padding:5px 12px;font-size:13px;cursor:pointer;color:var(--muted);font-family:'Inter',sans-serif;transition:all .2s;white-space:nowrap}
 .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
-/* hamburger */
 .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
 .ham span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:all .25s}
-.mobile-menu{display:none;position:fixed;inset:56px 0 0 0;background:var(--nav-bg);backdrop-filter:blur(14px);z-index:199;padding:28px 6%;flex-direction:column;gap:0;border-top:1px solid var(--border)}
+.mobile-menu{display:none;position:fixed;inset:56px 0 0 0;background:var(--nav-bg);backdrop-filter:blur(14px);z-index:199;padding:28px 6%;flex-direction:column;gap:0;border-top:1px solid var(--border);overflow-y:auto}
 .mobile-menu.open{display:flex}
 .mobile-menu a,.mobile-menu button{font-size:15px;font-weight:500;color:var(--muted);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border);background:none;border-left:none;border-right:none;border-top:none;font-family:'Inter',sans-serif;cursor:pointer;text-align:left;transition:color .2s}
 .mobile-menu a:hover,.mobile-menu button:hover{color:var(--accent)}
 
-/* ── LAYOUT ── */
+/* LAYOUT */
 .container{max-width:1280px;margin:0 auto;padding:0 4%}
 section{padding:64px 0}
 section+section{border-top:1px solid var(--border)}
 .label{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .section-title{font-family:'Lora',serif;font-size:27px;font-weight:600;margin-bottom:24px;color:var(--ink)}
-
-/* ── HERO ── */
-#hero{padding:72px 0 56px;border:none!important}
-.hero-grid{display:grid;grid-template-columns:1fr 220px;gap:60px;align-items:start}
-.hero-name{font-family:'Lora',serif;font-size:50px;font-weight:600;line-height:1.05;margin-bottom:8px;color:var(--ink)}
-.hero-sub{font-size:13.5px;color:var(--accent);font-weight:600;margin-bottom:16px;line-height:1.6}
-.hero-bio{font-size:14.5px;color:var(--muted);line-height:1.85;margin-bottom:22px;max-width:640px}
-.hero-bio strong{color:var(--ink);font-weight:600}
-.hero-links{display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:7px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:'Inter',sans-serif}
 .btn-p{background:var(--accent);color:#fff}.btn-p:hover{opacity:.88}
 .btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--border)}.btn-o:hover{border-color:var(--accent);color:var(--accent)}
-.avatar-col{display:flex;flex-direction:column;align-items:center;gap:12px}
-.avatar{width:210px;height:210px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--a3));display:flex;align-items:center;justify-content:center;font-size:42px;flex-shrink:0;overflow:hidden;border:4px solid var(--border)}
-.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.avatar-email{font-size:12px;color:var(--muted);text-align:center;word-break:break-all;line-height:1.5}
-.avatar-email a{color:var(--muted);text-decoration:none}
-.avatar-email a:hover{color:var(--accent)}
 
-/* ── POSITIONS ── */
+/* HERO */
+#hero{padding:72px 0 60px;border:none!important}
+.hero-grid{display:grid;grid-template-columns:1fr 210px;gap:56px;align-items:start}
+.hero-name{font-family:'Lora',serif;font-size:50px;font-weight:600;line-height:1.05;margin-bottom:8px;color:var(--ink)}
+.hero-sub{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:16px;line-height:1.65}
+.hero-bio{font-size:14.5px;color:var(--muted);line-height:1.9;margin-bottom:22px}
+.hero-bio strong{color:var(--ink);font-weight:600}
+.hero-links{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.avatar{width:210px;height:210px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--a3));display:flex;align-items:center;justify-content:center;font-size:42px;overflow:hidden;border:4px solid var(--border)}
+.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+
+/* POSITIONS */
 .pos-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .pos-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 24px;transition:border-color .2s;display:flex;flex-direction:column}
 .pos-card:hover{border-color:var(--accent)}
@@ -77,107 +72,123 @@ section+section{border-top:1px solid var(--border)}
 .pos-place{font-size:13px;color:var(--accent);margin-bottom:8px;font-weight:500}
 .pos-desc{font-size:13px;color:var(--muted);line-height:1.75;flex:1}
 
-/* ── PUBLICATIONS ── */
-.pub-list{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.pub-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;display:flex;gap:16px;transition:border-color .2s;text-decoration:none;color:inherit}
-.pub-card:hover{border-color:var(--accent)}
+/* PUBLICATIONS */
+.pub-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pub-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;display:flex;gap:16px;transition:all .2s;text-decoration:none;color:inherit}
+.pub-card:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.07)}
 .pub-year{font-size:12px;font-weight:700;color:var(--accent);min-width:34px;flex-shrink:0;padding-top:2px}
-.pub-title{font-weight:600;font-size:14px;margin-bottom:5px;line-height:1.45}
+.pub-title{font-weight:600;font-size:14px;margin-bottom:4px;line-height:1.45}
 .pub-meta{font-size:12px;color:var(--muted)}
 .ptag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:700;margin-left:6px;vertical-align:middle}
 .prb{background:#dbeafe;color:#1d4ed8}[data-theme="dark"] .prb{background:#1e3a5f;color:#93c5fd}
 .pnc{background:#dcfce7;color:#166534}[data-theme="dark"] .pnc{background:#14532d;color:#86efac}
 
-/* ── RESEARCH VISION ── */
-.big-goal{border:2px solid var(--accent);border-radius:14px;padding:28px 32px;margin-bottom:20px;background:var(--surface)}
+/* TABLET FLASHCARD UI */
+.tablet-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px}
+.tablet{background:linear-gradient(145deg,var(--surface2),var(--border));border-radius:24px;padding:7px;box-shadow:0 12px 40px rgba(0,0,0,.1),0 2px 8px rgba(0,0,0,.06)}
+[data-theme="dark"] .tablet{box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.tablet-screen{background:var(--card);border-radius:18px;overflow:hidden}
+.tablet-header{padding:16px 20px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;background:var(--surface)}
+.tablet-icon{font-size:20px;line-height:1}
+.tablet-title{font-family:'Lora',serif;font-weight:600;font-size:15px;color:var(--ink)}
+.tablet-body{padding:12px}
+.fc{border:1.5px solid var(--border);border-radius:12px;margin-bottom:9px;cursor:pointer;transition:border-color .2s,box-shadow .2s;overflow:hidden}
+.fc:last-child{margin-bottom:0}
+.fc:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(37,99,235,.1)}
+.fc.open{border-color:var(--accent)}
+.fc-front{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;gap:8px}
+.fc-label{font-weight:600;font-size:13.5px;color:var(--ink);display:flex;align-items:center;gap:10px}
+.fc-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.dot-blue{background:#3b82f6}
+.dot-violet{background:#8b5cf6}
+.dot-cyan{background:#06b6d4}
+.dot-green{background:#10b981}
+.fc-chev{font-size:12px;color:var(--muted);transition:transform .22s;flex-shrink:0}
+.fc.open .fc-chev{transform:rotate(180deg)}
+.fc-back{display:none;padding:4px 16px 14px;font-size:13px;color:var(--muted);line-height:1.65;border-top:1px solid var(--border);margin-top:0;padding-top:12px}
+.fc.open .fc-back{display:block}
+
+/* LONG-TERM GOAL */
+.big-goal{border:2px solid var(--accent);border-radius:14px;padding:30px 32px;background:var(--surface)}
 .bg-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
 .bg-title{font-family:'Lora',serif;font-size:20px;font-weight:600;margin-bottom:10px}
 .bg-desc{font-size:13.5px;color:var(--muted);line-height:1.8;margin-bottom:14px}
 .goal-chips{display:flex;flex-wrap:wrap;gap:7px}
 .gc{font-size:12px;padding:4px 11px;border-radius:20px;background:#dbeafe;color:#1d4ed8;border:1px solid #bfdbfe;font-weight:500}
 [data-theme="dark"] .gc{background:#1e3a5f;color:#93c5fd;border-color:#1d4ed8}
-.stg-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
-.stg-card{background:var(--card);border:1.5px solid #c7d2fe;border-radius:13px;padding:22px}
-[data-theme="dark"] .stg-card{border-color:#3730a3}
-.stg-icon{font-size:22px;margin-bottom:8px}
-.stg-title{font-weight:700;font-size:14px;margin-bottom:6px}
-.stg-desc{font-size:13px;color:var(--muted);line-height:1.65}
-.stg-chips{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
-.sc{font-size:11px;padding:3px 9px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--muted);font-weight:500}
-.past-row{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.past-title{font-weight:600;font-size:14px;margin-bottom:3px}
-.past-sub{font-size:12.5px;color:var(--muted)}
 
-/* ── ARXIV ── */
+/* ARXIV */
 .topic-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
 .t-btn{padding:7px 16px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--muted);font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s}
 .t-btn:hover{border-color:var(--accent);color:var(--accent)}
 .t-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.count-sel{padding:7px 11px;border:1.5px solid var(--border);border-radius:7px;font-size:13px;font-family:'Inter',sans-serif;background:var(--card);color:var(--ink);cursor:pointer;outline:none}
-.arxiv-list{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:8px}
-.arxiv-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
-.arxiv-title{font-weight:600;font-size:13.5px;margin-bottom:5px;line-height:1.45}
-.arxiv-authors{font-size:11.5px;color:var(--muted);margin-bottom:5px}
-.arxiv-abs{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:7px}
+.arxiv-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.arxiv-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column}
+.arxiv-title{font-weight:600;font-size:13.5px;line-height:1.45;color:var(--ink);margin-bottom:6px}
+.arxiv-authors{font-size:11.5px;color:var(--muted);margin-bottom:6px}
+.arxiv-abs{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:8px;flex:1}
 .arxiv-lnk{font-size:12px;font-weight:600;color:var(--accent);text-decoration:none}
 .arxiv-lnk:hover{text-decoration:underline}
-.arxiv-msg{text-align:center;padding:28px;color:var(--muted);font-size:14px}
+.arxiv-msg{text-align:center;padding:32px;color:var(--muted);font-size:14px}
 
-/* ── THOUGHTS ── */
-.thought-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.thought{border-left:3px solid var(--accent);padding:16px 20px;background:var(--surface);border-radius:0 12px 12px 0}
-.t-date{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--muted);margin-bottom:5px}
-.t-text{font-family:'Lora',serif;font-size:14px;color:var(--ink);line-height:1.85;font-style:italic}
-.t-tag{font-size:11px;font-weight:600;color:var(--a3);margin-top:8px}
+/* THOUGHT OF THE MONTH — full width, responsive */
+#thoughts{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+#thoughts section{padding:56px 0}
+.thought-inner{width:100%}
+.thought-label{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.thought-quote{font-family:'Lora',serif;font-style:italic;color:var(--ink);line-height:1.8;
+  font-size:clamp(15px,1.6vw,21px);
+  max-width:min(900px,90%);
+  margin-bottom:18px}
+.thought-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.thought-date{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.thought-tag{font-size:11px;font-weight:600;color:var(--a3);background:var(--surface2);padding:3px 11px;border-radius:20px}
 
-/* ── NOVELS ── */
-.novel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:11px}
-.novel-card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px;transition:border-color .2s}
+/* NOVELS */
+.novel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:560px}
+.novel-card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:18px;transition:border-color .2s}
 .novel-card:hover{border-color:var(--a2)}
-.novel-title{font-weight:600;font-size:13px;margin-bottom:4px;line-height:1.35}
+.novel-title{font-weight:600;font-size:14px;margin-bottom:4px;line-height:1.35;color:var(--ink)}
 .novel-author{font-size:12px;color:var(--muted)}
 
-/* ── CONTACT ── */
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
-.cc{display:flex;align-items:flex-start;gap:13px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;text-decoration:none;color:var(--ink);transition:border-color .2s;min-width:0}
-.cc:hover{border-color:var(--accent)}
-.cc-icon{font-size:20px;flex-shrink:0;margin-top:2px}
-.cc-label{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);margin-bottom:2px}
-.cc-val{font-size:13px;font-weight:500;word-break:break-all;line-height:1.35}
+/* FOOTER CTA */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:40px 4%}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-cta{font-family:'Lora',serif;font-size:17px;color:var(--ink)}
+.footer-cta span{display:block;font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);margin-top:5px;font-style:normal}
+.footer-links{display:flex;gap:10px;flex-wrap:wrap}
+.footer-copy{max-width:1280px;margin:20px auto 0;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);text-align:center}
+.footer-copy a{color:var(--muted);text-decoration:none}
 
-footer{background:var(--surface);border-top:1px solid var(--border);padding:24px 4%;text-align:center;font-size:13px;color:var(--muted)}
-footer a{color:var(--muted);text-decoration:none}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
-
-/* ── RESPONSIVE: TABLET ── */
+/* RESPONSIVE — TABLET ≤ 1024px */
 @media(max-width:1024px){
-  .pos-list{grid-template-columns:1fr 1fr}
-  .thought-list{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr 1fr}
-  .hero-name{font-size:42px}
   .hero-grid{grid-template-columns:1fr 180px;gap:40px}
   .avatar{width:180px;height:180px}
+  .hero-name{font-size:42px}
+  .pos-list{grid-template-columns:1fr 1fr}
+  .arxiv-list{grid-template-columns:1fr 1fr}
+  .thought-quote{font-size:clamp(15px,2vw,19px)}
 }
 
-/* ── RESPONSIVE: MOBILE ── */
+/* RESPONSIVE — MOBILE ≤ 700px */
 @media(max-width:700px){
   .nav-links{display:none}
   .ham{display:flex}
-  .hero-grid{grid-template-columns:1fr;gap:28px}
-  .hero-name{font-size:36px}
-  .avatar-col{flex-direction:row;align-items:center;gap:18px;justify-content:flex-start}
-  .avatar{width:88px;height:88px;font-size:26px}
-  .avatar-email{text-align:left;font-size:11px}
-  .pos-list{grid-template-columns:1fr}
-  .pub-list{grid-template-columns:1fr}
-  .stg-grid{grid-template-columns:1fr}
-  .arxiv-list{grid-template-columns:1fr}
-  .thought-list{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
   section{padding:44px 0}
   .section-title{font-size:22px}
-  .big-goal{padding:20px}
+  /* avatar floats right in hero on mobile */
+  .hero-grid{grid-template-columns:1fr;gap:0}
+  .hero-name{font-size:34px}
+  .avatar{width:84px;height:84px;font-size:26px;float:right;margin:0 0 12px 16px;border-width:3px}
+  .hero-bio{clear:both}
+  .pos-list{grid-template-columns:1fr}
+  .pub-list{grid-template-columns:1fr}
+  .tablet-grid{grid-template-columns:1fr}
+  .arxiv-list{grid-template-columns:1fr}
+  .novel-grid{grid-template-columns:1fr 1fr;max-width:100%}
+  .thought-quote{font-size:15px;max-width:100%}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+  .big-goal{padding:20px 22px}
 }
 </style>
 </head>
@@ -193,7 +204,7 @@ footer a{color:var(--muted);text-decoration:none}
       <li><a href="#projects">Research</a></li>
       <li><a href="research.html">Research Map</a></li>
       <li><a href="#arxiv">arXiv</a></li>
-      <li><a href="#thoughts">Thoughts</a></li>
+      <li><a href="#thoughts">Thought</a></li>
       <li><a href="#novels">Reading</a></li>
       <li><button class="theme-btn" id="theme-btn" onclick="toggleTheme()">🌙 Dark</button></li>
     </ul>
@@ -205,13 +216,13 @@ footer a{color:var(--muted);text-decoration:none}
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#about"       onclick="closeMenu()">Positions</a>
+  <a href="#about"        onclick="closeMenu()">Positions</a>
   <a href="#publications" onclick="closeMenu()">Papers</a>
-  <a href="#projects"    onclick="closeMenu()">Research</a>
+  <a href="#projects"     onclick="closeMenu()">Research</a>
   <a href="research.html">Research Map</a>
-  <a href="#arxiv"       onclick="closeMenu()">arXiv</a>
-  <a href="#thoughts"    onclick="closeMenu()">Thoughts</a>
-  <a href="#novels"      onclick="closeMenu()">Reading</a>
+  <a href="#arxiv"        onclick="closeMenu()">arXiv</a>
+  <a href="#thoughts"     onclick="closeMenu()">Thought</a>
+  <a href="#novels"       onclick="closeMenu()">Reading</a>
   <button onclick="toggleTheme();closeMenu()">🌙 Toggle Dark Mode</button>
 </div>
 
@@ -224,24 +235,31 @@ footer a{color:var(--muted);text-decoration:none}
         <h1 class="hero-name">Amarnath<br>Chakraborty</h1>
         <div class="hero-sub">Ph.D. Physics · University of Missouri–Columbia<br>Quantum Research Intern · Chinar Quantum AI</div>
         <p class="hero-bio">
-          I grew up in <strong>Jhargram, West Bengal</strong> and studied physics through Midnapore College, the University of Hyderabad, and JNCASR Bangalore before completing my Ph.D. at Missouri under Prof. Giovanni Vignale. My work spans emergent quantum phenomena in 2D materials — band topology, magneto-optical response, and quantum geometry — and is now converging toward hybrid quantum–classical simulation. Outside physics, I'm an <strong>avid reader</strong> who believes the best ideas live at edges of disciplines.
+          I grew up in <strong>Jhargram, West Bengal</strong> and trained through Midnapore College, the University of Hyderabad, and JNCASR Bangalore before completing my Ph.D. at UMC under Prof. Giovanni Vignale. My work spans emergent quantum phenomena in 2D materials — band topology, magneto-optical response, and quantum geometry — now converging toward hybrid quantum–classical simulation workflows. Outside physics, I'm an <strong>avid reader</strong> who believes the best ideas live at the edges of disciplines.
         </p>
         <div class="hero-links">
           <a class="btn btn-p" href="cv.pdf" download>⬇ Download CV</a>
-          <!-- EDIT: replace YOURID with Google Scholar profile ID -->
           <a class="btn btn-o" href="https://scholar.google.com/citations?user=YOURID" target="_blank">Scholar</a>
           <a class="btn btn-o" href="https://github.com/amarnath995" target="_blank">GitHub</a>
           <!-- EDIT: replace YOURLINKEDINID -->
           <a class="btn btn-o" href="https://linkedin.com/in/YOURLINKEDINID" target="_blank">LinkedIn</a>
+          <a class="btn btn-o" id="email-btn" href="#" title="Email me">
+            <svg width="17" height="13" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-right:1px">
+              <path d="M4 36h8V17.5L0 11v21a4 4 0 004 4z" fill="#4285F4"/>
+              <path d="M36 36h8a4 4 0 004-4V11l-12 6.5V36z" fill="#34A853"/>
+              <path d="M4 4h8v13.5L0 11V8a4 4 0 014-4z" fill="#FBBC04"/>
+              <path d="M44 4h-8v13.5L48 11V8a4 4 0 00-4-4z" fill="#EA4335"/>
+              <path d="M12 4l12 9 12-9H12z" fill="#EA4335"/>
+              <path d="M12 4v13.5l12 7 12-7V4L24 13 12 4z" fill="white"/>
+            </svg>
+            Email
+          </a>
         </div>
       </div>
       <!-- Upload photo.jpg to repo root -->
-      <div class="avatar-col">
-        <div class="avatar">
-          <img src="photo.jpg" alt="Amarnath" id="av-img"/>
-          <span id="av-fb" style="display:none">⚛</span>
-        </div>
-        <div class="avatar-email"><a id="email-link-hero" href="#">amarnathchakraborty95@gmail.com</a></div>
+      <div class="avatar">
+        <img src="photo.jpg" alt="Amarnath Chakraborty" id="av-img"/>
+        <span id="av-fb" style="display:none">⚛</span>
       </div>
     </div>
   </section>
@@ -257,7 +275,7 @@ footer a{color:var(--muted);text-decoration:none}
         <span class="pos-tag t-now">Current</span>
         <div class="pos-role">Quantum Research Intern</div>
         <div class="pos-place">Chinar Quantum AI</div>
-        <div class="pos-desc">Building quantum Hamiltonian simulation workflows and forging academic connections to support India's National Quantum Mission.</div>
+        <div class="pos-desc">Building quantum Hamiltonian simulation workflows and connecting academic groups to support India's National Quantum Mission.</div>
       </div>
       <div class="pos-card p-upcoming">
         <span class="pos-tag t-next">Upcoming</span>
@@ -269,7 +287,7 @@ footer a{color:var(--muted);text-decoration:none}
         <span class="pos-tag t-past">Recent Past</span>
         <div class="pos-role">Ph.D. Researcher</div>
         <div class="pos-place">University of Missouri–Columbia</div>
-        <div class="pos-desc">Doctoral work under Prof. Giovanni Vignale &amp; Dr. Guang Bian on 2D quantum materials — four publications, IBM Quantum internship, Qiskit Advocate.</div>
+        <div class="pos-desc">Under Prof. Giovanni Vignale &amp; Dr. Guang Bian. Four publications, IBM Quantum internship, Qiskit Advocate, Physics Leaders Award.</div>
       </div>
     </div>
   </section>
@@ -306,25 +324,67 @@ footer a{color:var(--muted);text-decoration:none}
   <section>
     <div class="label">Research Vision</div>
     <h2 class="section-title">What I'm Building</h2>
-    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Currently Working On</div>
-    <div class="stg-grid">
-      <div class="stg-card">
-        <div class="stg-icon">💻</div>
-        <div class="stg-title">Quantum Hamiltonian Simulations</div>
-        <div class="stg-desc">Benchmarking error-mitigated VQE and SQD on IBM heavy-hex hardware, targeting correlated phases of the Fermi-Hubbard model.</div>
-        <div class="stg-chips"><span class="sc">VQE</span><span class="sc">SQD</span><span class="sc">Qiskit</span><span class="sc">IBM hardware</span></div>
+
+    <div class="tablet-grid">
+
+      <!-- TABLET: Quantum Computing -->
+      <div class="tablet">
+        <div class="tablet-screen">
+          <div class="tablet-header">
+            <span class="tablet-icon">⚛️</span>
+            <span class="tablet-title">Quantum Computing</span>
+          </div>
+          <div class="tablet-body">
+            <div class="fc" onclick="toggleFC(this)">
+              <div class="fc-front">
+                <span class="fc-label"><span class="fc-dot dot-blue"></span>Quantum Hamiltonian Simulation</span>
+                <span class="fc-chev">▾</span>
+              </div>
+              <div class="fc-back">Classically compressed SKQD on IBM heavy-hex hardware, targeting correlated phases of the Fermi-Hubbard model.</div>
+            </div>
+            <div class="fc" onclick="toggleFC(this)">
+              <div class="fc-front">
+                <span class="fc-label"><span class="fc-dot dot-violet"></span>Quantum Reservoir Computing</span>
+                <span class="fc-chev">▾</span>
+              </div>
+              <div class="fc-back">Quantum dynamics as a natural reservoir for computation — I'm exploring this as my entry point into quantum ML.</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="stg-card">
-        <div class="stg-icon">🌊</div>
-        <div class="stg-title">Quantum Reservoir Computing</div>
-        <div class="stg-desc">Exploring driven quantum systems as expressive reservoirs for temporal data — a near-term quantum ML paradigm for the hybrid workflow.</div>
-        <div class="stg-chips"><span class="sc">QRC</span><span class="sc">Near-term QML</span><span class="sc">Dynamical systems</span></div>
+
+      <!-- TABLET: Quantum Materials -->
+      <div class="tablet">
+        <div class="tablet-screen">
+          <div class="tablet-header">
+            <span class="tablet-icon">🔬</span>
+            <span class="tablet-title">Quantum Materials</span>
+          </div>
+          <div class="tablet-body">
+            <div class="fc" onclick="toggleFC(this)">
+              <div class="fc-front">
+                <span class="fc-label"><span class="fc-dot dot-cyan"></span>Twistronics</span>
+                <span class="fc-chev">▾</span>
+              </div>
+              <div class="fc-back">Moiré engineering in twisted bilayer graphene — correlated flat-band physics.</div>
+            </div>
+            <div class="fc" onclick="toggleFC(this)">
+              <div class="fc-front">
+                <span class="fc-label"><span class="fc-dot dot-green"></span>Altermagnetism</span>
+                <span class="fc-chev">▾</span>
+              </div>
+              <div class="fc-back">Altermagnetic responses via quantum geometric tensor signatures in 2D materials.</div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+
+    </div><!-- /tablet-grid -->
+
     <div class="big-goal">
       <div class="bg-label">🎯 Long-Term Goal</div>
       <div class="bg-title">Generative Hybrid Quantum–Classical Workflow</div>
-      <div class="bg-desc">A modular pipeline coupling classical simulation, quantum simulation, and ML — where physics-based solvers generate training data for correlated systems, feeding interpretable predictive models that accelerate materials discovery.</div>
+      <div class="bg-desc">A modular pipeline coupling classical simulation, quantum simulation, and ML — where physics-based solvers generate training data for correlated systems, feeding interpretable predictive models that accelerate quantum materials discovery.</div>
       <div class="goal-chips">
         <span class="gc">Classical simulation</span>
         <span class="gc">Quantum simulation</span>
@@ -333,46 +393,44 @@ footer a{color:var(--muted);text-decoration:none}
         <span class="gc">Predictive modelling</span>
       </div>
     </div>
-    <div class="past-row">
-      <div>
-        <div class="past-title">2D Quantum Materials — Simulations &amp; Code</div>
-        <div class="past-sub">Tight-binding, Berry curvature, optical response, TBG — prior simulation work on GitHub.</div>
-      </div>
-      <a class="btn btn-o" href="https://github.com/amarnath995" target="_blank">View on GitHub →</a>
-    </div>
+
   </section>
 </div>
 
-<!-- ARXIV -->
+<!-- ARXIV SPOTLIGHT -->
 <div class="container" id="arxiv">
   <section>
     <div class="label">arXiv Spotlight</div>
     <h2 class="section-title">Latest Preprints I'm Watching</h2>
     <div class="topic-row">
-      <button class="t-btn active" data-query="altermagnet+AND+optical+response" onclick="selectTopic(this)">Altermagnets &amp; Optical Response</button>
-      <button class="t-btn" data-query="twisted+bilayer+graphene+AND+superconductivity" onclick="selectTopic(this)">TBG &amp; Superconductivity</button>
-      <button class="t-btn" data-query="quantum+Hamiltonian+simulation+AND+Krylov" onclick="selectTopic(this)">Quantum Simulation &amp; Krylov</button>
+      <button class="t-btn active" data-query="altermagnetism" onclick="selectTopic(this)">Altermagnetism</button>
+      <button class="t-btn" data-query="twisted semimetals" onclick="selectTopic(this)">Twisted Semimetals</button>
+      <button class="t-btn" data-query="Hamiltonian simulation Krylov" onclick="selectTopic(this)">Quantum Simulation of Hamiltonians</button>
     </div>
-    <div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
-      <select class="count-sel" id="arxiv-count"><option value="4">4 papers</option><option value="6">6 papers</option><option value="10">10 papers</option></select>
-      <button class="btn btn-p" onclick="fetchArxiv()">Fetch Latest →</button>
-      <span id="arxiv-label" style="font-size:12px;color:var(--muted)">Topic: <strong>Altermagnets &amp; Optical Response</strong></span>
+    <div style="margin-bottom:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <button class="btn btn-p" onclick="fetchArxiv()">Fetch 3 Latest →</button>
+      <span id="arxiv-label" style="font-size:12px;color:var(--muted)">Topic: <strong>Altermagnetism</strong></span>
     </div>
-    <div id="arxiv-results"><div class="arxiv-msg">← Pick a topic and click Fetch Latest</div></div>
+    <div id="arxiv-results"><div class="arxiv-msg">← Pick a topic and click Fetch</div></div>
   </section>
 </div>
 
-<!-- THOUGHTS -->
-<div class="container" id="thoughts">
-  <section>
-    <div class="label">Thought of the Month</div>
-    <h2 class="section-title">What I'm Thinking About</h2>
-    <div class="thought" style="max-width:720px">
-      <div class="t-date">MARCH 2026</div>
-      <div class="t-text">"Hybrid quantum–classical computation isn't a temporary fix until fault-tolerance arrives — it's the architecture. Classical solvers handle what they're good at; quantum hardware handles the intractable. Getting the interface right is the real problem."</div>
-      <div class="t-tag"># Quantum Computing</div>
-    </div>
-  </section>
+<!-- THOUGHT OF THE MONTH — full width -->
+<div id="thoughts">
+  <div class="container">
+    <section>
+      <div class="thought-inner">
+        <div class="thought-label">Thought of the Month</div>
+        <div class="thought-quote">
+          "Hybrid quantum–classical computation isn't a stopgap until fault-tolerance arrives — it is the architecture. Classical solvers handle what they're good at; quantum hardware handles the intractable. Getting the interface right is the central problem of this generation."
+        </div>
+        <div class="thought-meta">
+          <span class="thought-date">March 2026</span>
+          <span class="thought-tag"># Quantum Computing</span>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
 
 <!-- NOVELS -->
@@ -381,17 +439,29 @@ footer a{color:var(--muted);text-decoration:none}
     <div class="label">Reading</div>
     <h2 class="section-title">Novels I Always Come Back To</h2>
     <!-- EDIT: replace with your three favourite novels -->
-    <div class="novel-grid" style="max-width:520px">
-      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
-      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
-      <div class="novel-card"><div class="novel-title">Title Here</div><div class="novel-author">Author</div></div>
+    <div class="novel-grid">
+      <div class="novel-card"><div class="novel-title">Biswasghatok</div><div class="novel-author">Narayan Sanyal</div></div>
+      <div class="novel-card"><div class="novel-title">The Kite Runner</div><div class="novel-author">Khaled Hosseini</div></div>
+      <div class="novel-card"><div class="novel-title">Kafka On The Shore</div><div class="novel-author">Haruki Murakami</div></div>
     </div>
   </section>
 </div>
 
-
+<!-- FOOTER WITH CTA -->
 <footer>
-  <div>© 2025 Amarnath Chakraborty · <a href="research.html">Research Map</a> · <a href="https://github.com/amarnath995/amarnath995.github.io">Source</a></div>
+  <div class="footer-inner">
+    <div class="footer-cta">
+      Open to collaborations, conversations, and new ideas.
+      <span>Quantum materials · Quantum simulation · Hybrid workflows · Postdoc opportunities</span>
+    </div>
+    <div class="footer-links">
+      <a class="btn btn-p" id="footer-email-btn" href="#">✉ Get in Touch</a>
+      <a class="btn btn-o" href="research.html">Research Map →</a>
+    </div>
+  </div>
+  <div class="footer-copy">
+    © 2025 Amarnath Chakraborty &nbsp;·&nbsp; <a href="https://github.com/amarnath995/amarnath995.github.io">Source on GitHub</a>
+  </div>
 </footer>
 
 <script>
@@ -404,16 +474,19 @@ function toggleTheme(){
 }
 
 // HAMBURGER
-function toggleMenu(){
-  var m=document.getElementById('mobile-menu');
-  m.classList.toggle('open');
-}
-function closeMenu(){
-  document.getElementById('mobile-menu').classList.remove('open');
+function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open');}
+function closeMenu(){document.getElementById('mobile-menu').classList.remove('open');}
+
+// FLASHCARDS — click to open, click again or click sibling to close
+function toggleFC(el){
+  var siblings=el.parentNode.querySelectorAll('.fc');
+  var isOpen=el.classList.contains('open');
+  siblings.forEach(function(s){s.classList.remove('open');});
+  if(!isOpen) el.classList.add('open');
 }
 
-// ARXIV
-var activeQuery='altermagnet+AND+optical+response';
+// ARXIV — simple reliable single-term queries, always 3 papers
+var activeQuery='altermagnetism';
 function selectTopic(btn){
   document.querySelectorAll('.t-btn').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
@@ -421,39 +494,46 @@ function selectTopic(btn){
   document.getElementById('arxiv-label').innerHTML='Topic: <strong>'+btn.textContent+'</strong>';
 }
 function fetchArxiv(){
-  var n=document.getElementById('arxiv-count').value;
   var box=document.getElementById('arxiv-results');
   box.innerHTML='<div class="arxiv-msg">⏳ Fetching papers…</div>';
-  var api='https://export.arxiv.org/api/query?search_query=all:'+activeQuery+'&sortBy=submittedDate&sortOrder=descending&max_results='+n;
+  var api='https://export.arxiv.org/api/query?search_query=all:'+encodeURIComponent(activeQuery)+'&sortBy=submittedDate&sortOrder=descending&max_results=3';
   var proxy='https://corsproxy.io/?'+encodeURIComponent(api);
-  fetch(proxy).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(txt){
-    var xml=new DOMParser().parseFromString(txt,'application/xml');
-    var entries=Array.from(xml.querySelectorAll('entry'));
-    if(!entries.length){box.innerHTML='<div class="arxiv-msg">No results found.</div>';return;}
-    var html='<div class="arxiv-list">';
-    entries.forEach(function(e){
-      var title=((e.querySelector('title')||{}).textContent||'').trim().replace(/\s+/g,' ');
-      var abs=((e.querySelector('summary')||{}).textContent||'').trim().replace(/\s+/g,' ').slice(0,220)+'…';
-      var auths=Array.from(e.querySelectorAll('author name')).slice(0,3).map(function(a){return a.textContent;}).join(', ');
-      if(e.querySelectorAll('author name').length>3)auths+=' et al.';
-      var link=((e.querySelector('id')||{}).textContent||'').trim();
-      var dr=((e.querySelector('published')||{}).textContent||'').trim();
-      var date=dr?new Date(dr).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'';
-      html+='<div class="arxiv-card"><div class="arxiv-title">'+title+'</div><div class="arxiv-authors">'+auths+(date?' · '+date:'')+'</div><div class="arxiv-abs">'+abs+'</div><a class="arxiv-lnk" href="'+link+'" target="_blank">Read on arXiv →</a></div>';
-    });
-    html+='</div>';
-    box.innerHTML=html;
-  }).catch(function(){box.innerHTML='<div class="arxiv-msg">⚠ Could not fetch. Try again shortly.</div>';});
+  fetch(proxy)
+    .then(function(r){if(!r.ok)throw 0;return r.text();})
+    .then(function(txt){
+      var xml=new DOMParser().parseFromString(txt,'application/xml');
+      var entries=Array.from(xml.querySelectorAll('entry'));
+      if(!entries.length){box.innerHTML='<div class="arxiv-msg">No results found.</div>';return;}
+      var html='<div class="arxiv-list">';
+      entries.forEach(function(e){
+        var title=((e.querySelector('title')||{}).textContent||'').trim().replace(/\s+/g,' ');
+        var abs=((e.querySelector('summary')||{}).textContent||'').trim().replace(/\s+/g,' ').slice(0,200)+'…';
+        var auths=Array.from(e.querySelectorAll('author name')).slice(0,3).map(function(a){return a.textContent;}).join(', ');
+        if(e.querySelectorAll('author name').length>3) auths+=' et al.';
+        var link=((e.querySelector('id')||{}).textContent||'').trim();
+        var dr=((e.querySelector('published')||{}).textContent||'').trim();
+        var date=dr?new Date(dr).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'';
+        html+='<div class="arxiv-card"><div class="arxiv-title">'+title+'</div>'
+             +'<div class="arxiv-authors">'+auths+(date?' · '+date:'')+'</div>'
+             +'<div class="arxiv-abs">'+abs+'</div>'
+             +'<a class="arxiv-lnk" href="'+link+'" target="_blank">Read on arXiv →</a></div>';
+      });
+      html+='</div>';
+      box.innerHTML=html;
+    })
+    .catch(function(){box.innerHTML='<div class="arxiv-msg">⚠ Could not fetch. Try again shortly.</div>';});
 }
 
-// EMAIL
+// EMAIL — set via JS so it is not harvested from static HTML
 (function(){
   var e='amarnathchakraborty95'+'@'+'gmail.com';
-  var lh=document.getElementById('email-link-hero');
-  if(lh){lh.href='mailto:'+e;lh.textContent=e;}
+  ['email-btn','footer-email-btn'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.href='mailto:'+e;
+  });
 })();
 
-// AVATAR fallback
+// AVATAR FALLBACK
 (function(){
   var img=document.getElementById('av-img');
   if(img){img.onerror=function(){img.style.display='none';var fb=document.getElementById('av-fb');if(fb)fb.style.display='inline';};}
