@@ -403,9 +403,9 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
     <div class="label">arXiv Spotlight</div>
     <h2 class="section-title">Latest Preprints I'm Watching</h2>
     <div class="topic-row">
-      <button class="t-btn active" data-query="altermagnetism" onclick="selectTopic(this)">Altermagnetism</button>
-      <button class="t-btn" data-query="Twisted Bilayer Graphene" onclick="selectTopic(this)">Twisted Multilayer Graphene</button>
-      <button class="t-btn" data-query="Quantum Simulation of Strongly Correlated Electrons" onclick="selectTopic(this)">Quantum Simulation of Hamiltonians</button>
+      <button class="t-btn active" data-query='all:"altermagnetism"' onclick="selectTopic(this)">Altermagnetism</button>
+      <button class="t-btn" data-query='all:"twisted bilayer graphene" OR all:"twisted multilayer graphene"' onclick="selectTopic(this)">Twisted Multilayer Graphene</button>
+      <button class="t-btn" data-query='cat:cond-mat.str-el AND (all:"quantum simulation" OR all:"Fermi-Hubbard")' onclick="selectTopic(this)">Quantum Simulation of Hamiltonians</button>
     </div>
     <div style="margin-bottom:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
       <button class="btn btn-p" onclick="fetchArxiv()">Fetch 3 Latest →</button>
@@ -414,7 +414,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
     <div id="arxiv-results"><div class="arxiv-msg">← Pick a topic and click Fetch</div></div>
   </section>
 </div>
-
+  
 <!-- THOUGHT OF THE MONTH — full width -->
 <div id="thoughts">
   <div class="container">
