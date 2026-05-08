@@ -59,29 +59,35 @@ section+section{border-top:1px solid var(--border)}
 .avatar{width:210px;height:210px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--a3));display:flex;align-items:center;justify-content:center;font-size:42px;overflow:hidden;border:4px solid var(--border)}
 .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 
+  
 /* POSITIONS */
+  <div class="pos-list">
+      <!-- CURRENT: Seoul National University -->
+      <div class="pos-card">
+        <span class="pos-tag t-now">Current</span>
+        <div class="pos-role">Postdoctoral Fellow</div>
+        <div class="pos-place">Seoul National University</div>
+        <div class="pos-desc">Working in Prof. Bohm-Jung Yang's group. Focus: Translation of topological theories into functional quantum simulation frameworks.</div>
+      </div>
 
-.pos-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+      <!-- PAST: Chinar Quantum AI -->
+      <div class="pos-card">
+        <span class="pos-tag t-past">Recent Past</span>
+        <div class="pos-role">Quantum Research Intern</div>
+        <div class="pos-place">Chinar Quantum AI</div>
+        <div class="pos-desc">Built quantum Hamiltonian simulation workflows and connected academic groups to support India's National Quantum Mission.</div>
+      </div>
 
-.pos-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 24px;transition:border-color .2s;display:flex;flex-direction:column}
+      <!-- PAST: University of Missouri -->
+      <div class="pos-card">
+        <span class="pos-tag t-past">Past</span>
+        <div class="pos-role">Ph.D. Researcher</div>
+        <div class="pos-place">University of Missouri–Columbia</div>
+        <div class="pos-desc">Under Prof. Giovanni Vignale &amp; Dr. Guang Bian. Four publications, IBM Quantum internship, Qiskit Advocate, Physics Leaders Award.</div>
+      </div>
 
-.pos-card:hover{border-color:var(--accent)}
-
-.p-upcoming{border:2px solid var(--a2)!important}
-
-.pos-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:10px;align-self:flex-start}
-
-.t-now{background:#dbeafe;color:#1d4ed8}[data-theme="dark"] .t-now{background:#1e3a5f;color:#93c5fd}
-
-.t-next{background:#ede9fe;color:#5b21b6}[data-theme="dark"] .t-next{background:#2e1a4e;color:#c4b5fd}
-
-.t-past{background:var(--surface2);color:var(--muted)}
-
-.pos-role{font-weight:700;font-size:15px;margin-bottom:2px}
-
-.pos-place{font-size:13px;color:var(--accent);margin-bottom:8px;font-weight:500}
-
-.pos-desc{font-size:13px;color:var(--muted);line-height:1.75;flex:1}
+    </div>
+  
 /* PUBLICATIONS */
 .pub-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .pub-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;display:flex;gap:16px;transition:all .2s;text-decoration:none;color:inherit}
