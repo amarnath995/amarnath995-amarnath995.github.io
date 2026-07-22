@@ -15,12 +15,25 @@ layout: null
         .sidebar { width: 200px; flex-shrink: 0; position: sticky; top: 60px; height: max-content; }
         .sidebar h1 { font-size: 1.4rem; margin: 0 0 6px 0; font-weight: 600; line-height: 1.2; }
         .sidebar p { font-size: 0.9rem; color: #586069; margin: 0 0 16px 0; }
+        .sidebar nav { display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; }
         .content { flex-grow: 1; max-width: 600px; }
         .content h2 { font-size: 1.25rem; font-weight: 600; border-bottom: 1px solid #eaecef; padding-bottom: 8px; margin-bottom: 16px; margin-top: 0;}
-        ul { padding-left: 20px; }
+        
+        /* FILTER BUTTONS */
+        .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+        .filter-btn { background: #f6f8fa; border: 1px solid #eaecef; border-radius: 20px; padding: 4px 14px; font-size: 0.85rem; color: #24292e; cursor: pointer; transition: all 0.2s; }
+        .filter-btn:hover { border-color: #0366d6; }
+        .filter-btn.active { background: #0366d6; color: #fff; border-color: #0366d6; }
+        
+        /* LIST STYLES */
+        ul { padding-left: 0; list-style: none; }
         li { margin-bottom: 15px; }
         .pub-title { font-weight: 600; color: #24292e; font-size: 1.1rem; }
         .pub-venue { font-style: italic; color: #586069; font-size: 0.9rem; }
+        
+        /* HIDDEN CLASS FOR FILTERING */
+        .hidden { display: none; }
+        
         @media (max-width: 768px) { .wrapper { flex-direction: column; margin: 40px auto; gap: 40px; } .sidebar { width: 100%; position: relative; top: 0; } }
     </style>
 </head>
@@ -30,17 +43,28 @@ layout: null
         <h1>The Notebook</h1>
         <p>A collection of culinary explorations, photography, literature reviews, and training metrics.</p>
         <nav>
-            <a href="vita.html">Vita & Background</a><br><br>
+            <a href="vita.html">Vita & Background</a>
             <a href="../index.html">&larr; Back to Academic Profile</a>
         </nav>
     </aside>
     <main class="content">
         <section>
-            <h2>Latest Entries</h2>
-            <ul>
-                <!-- This loop automatically generates your blog list -->
+            <h2>Entries</h2>
+            
+            <!-- FILTER BUTTONS -->
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterSelection('all')">All</button>
+                <button class="filter-btn" onclick="filterSelection('Cuisine')">Cuisine</button>
+                <button class="filter-btn" onclick="filterSelection('Photography')">Photography</button>
+                <button class="filter-btn" onclick="filterSelection('Landscapes')">Landscapes</button>
+                <button class="filter-btn" onclick="filterSelection('Books')">Books</button>
+                <button class="filter-btn" onclick="filterSelection('Travel')">Travel</button>
+            </div>
+
+            <ul id="post-list">
+                <!-- This loop attaches the category to a data attribute -->
                 {% for post in site.posts %}
-                <li>
+                <li class="post-item" data-category="{{ post.category }}">
                     <a href="{{ site.baseurl }}{{ post.url }}" class="pub-title">{{ post.title }}</a><br>
                     <span class="pub-venue">{{ post.date | date: "%B %d, %Y" }} &middot; {{ post.category }}</span>
                 </li>
@@ -49,5 +73,29 @@ layout: null
         </section>
     </main>
 </div>
+
+<script>
+    // FILTER SCRIPT
+    function filterSelection(c) {
+        var items = document.getElementsByClassName("post-item");
+        var btns = document.getElementsByClassName("filter-btn");
+        
+        // Change active button color
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].classList.remove("active");
+            if (btns[i].textContent.trim() === c || (c === 'all' && btns[i].textContent.trim() === 'All')) {
+                btns[i].classList.add("active");
+            }
+        }
+
+        // Hide or show the posts
+        for (var i = 0; i < items.length; i++) {
+            items[i].classList.remove("hidden");
+            if (c !== "all" && items[i].getAttribute("data-category") !== c) {
+                items[i].classList.add("hidden");
+            }
+        }
+    }
+</script>
 </body>
 </html>
