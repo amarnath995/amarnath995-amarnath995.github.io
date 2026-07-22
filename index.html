@@ -1,569 +1,200 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Amarnath Chakraborty | Physicist</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-[data-theme="light"]{
-  --bg:#fafafa;--surface:#f0f2f8;--surface2:#e8eaf2;
-  --ink:#111827;--muted:#6b7280;--border:#dde1ec;
-  --accent:#2563eb;--a2:#7c3aed;--a3:#0891b2;
-  --card:#ffffff;--nav-bg:rgba(250,250,250,0.95);
-}
-[data-theme="dark"]{
-  --bg:#0d0f1a;--surface:#151826;--surface2:#1e2235;
-  --ink:#e8eaf0;--muted:#8b92a8;--border:#252840;
-  --accent:#60a5fa;--a2:#a78bfa;--a3:#22d3ee;
-  --card:#151826;--nav-bg:rgba(13,15,26,0.97);
-}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:15px;transition:background .3s,color .3s}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amarnath Chakraborty | Theoretical Physicist</title>
+    <style>
+        /* BASE STYLES */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292e;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
 
-/* NAV */
-nav{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 4%}
-.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-logo{font-family:'Lora',serif;font-weight:600;font-size:17px;color:var(--ink);text-decoration:none;flex-shrink:0}
-.nav-links{display:flex;gap:18px;list-style:none;align-items:center}
-.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s;white-space:nowrap}
-.nav-links a:hover{color:var(--accent)}
-.theme-btn{background:none;border:1.5px solid var(--border);border-radius:20px;padding:5px 12px;font-size:13px;cursor:pointer;color:var(--muted);font-family:'Inter',sans-serif;transition:all .2s;white-space:nowrap}
-.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
-.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
-.ham span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:all .25s}
-.mobile-menu{display:none;position:fixed;inset:56px 0 0 0;background:var(--nav-bg);backdrop-filter:blur(14px);z-index:199;padding:28px 6%;flex-direction:column;gap:0;border-top:1px solid var(--border);overflow-y:auto}
-.mobile-menu.open{display:flex}
-.mobile-menu a,.mobile-menu button{font-size:15px;font-weight:500;color:var(--muted);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border);background:none;border-left:none;border-right:none;border-top:none;font-family:'Inter',sans-serif;cursor:pointer;text-align:left;transition:color .2s}
-.mobile-menu a:hover,.mobile-menu button:hover{color:var(--accent)}
+        /* LAYOUT */
+        .wrapper {
+            display: flex;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+            gap: 50px;
+        }
 
-/* LAYOUT */
-.container{max-width:1280px;margin:0 auto;padding:0 4%}
-section{padding:64px 0}
-section+section{border-top:1px solid var(--border)}
-.label{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.section-title{font-family:'Lora',serif;font-size:27px;font-weight:600;margin-bottom:24px;color:var(--ink)}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:7px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:'Inter',sans-serif}
-.btn-p{background:var(--accent);color:#fff}.btn-p:hover{opacity:.88}
-.btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--border)}.btn-o:hover{border-color:var(--accent);color:var(--accent)}
+        /* SIDEBAR (Now Sticky) */
+        .sidebar {
+            width: 200px;
+            flex-shrink: 0;
+            /* This keeps the sidebar locked in place while scrolling */
+            position: sticky;
+            top: 60px;
+            height: max-content;
+        }
+        .sidebar img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+        }
+        .sidebar h1 {
+            font-size: 1.4rem;
+            margin: 0 0 6px 0;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #24292e;
+        }
+        .sidebar p {
+            font-size: 0.9rem;
+            color: #586069;
+            margin: 0 0 16px 0;
+            line-height: 1.4;
+        }
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 0.9rem;
+        }
 
-/* HERO */
-#hero{padding:72px 0 60px;border:none!important}
-.hero-grid{display:grid;grid-template-columns:1fr 210px;gap:56px;align-items:start}
-.hero-name{font-family:'Lora',serif;font-size:50px;font-weight:600;line-height:1.05;margin-bottom:8px;color:var(--ink)}
-.hero-sub{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:16px;line-height:1.65}
-.hero-bio{font-size:14.5px;color:var(--muted);line-height:1.9;margin-bottom:22px}
-.hero-bio strong{color:var(--ink);font-weight:600}
-.hero-links{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
-.avatar{width:210px;height:210px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--a3));display:flex;align-items:center;justify-content:center;font-size:42px;overflow:hidden;border:4px solid var(--border)}
-.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+        /* MAIN CONTENT */
+        .content {
+            flex-grow: 1;
+            max-width: 600px;
+        }
+        .content h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #24292e;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        .content section {
+            margin-bottom: 40px;
+        }
+        .content p {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+        
+        /* LISTS */
+        ul {
+            padding-left: 20px;
+            margin-top: 0;
+        }
+        li {
+            margin-bottom: 12px;
+        }
+        .pub-title {
+            font-weight: 600;
+            color: #24292e;
+        }
+        .pub-venue {
+            font-style: italic;
+            color: #24292e;
+        }
 
-  
-/* POSITIONS */
-
-.pos-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.pos-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 24px;transition:border-color .2s;display:flex;flex-direction:column}
-.pos-card:hover{border-color:var(--accent)}
-.p-upcoming{border:2px solid var(--a2)!important}
-.pos-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:10px;align-self:flex-start}
-.t-now{background:#dbeafe;color:#1d4ed8}[data-theme="dark"] .t-now{background:#1e3a5f;color:#93c5fd}
-.t-next{background:#ede9fe;color:#5b21b6}[data-theme="dark"] .t-next{background:#2e1a4e;color:#c4b5fd}
-.t-past{background:var(--surface2);color:var(--muted)}
-.pos-role{font-weight:700;font-size:15px;margin-bottom:2px}
-.pos-place{font-size:13px;color:var(--accent);margin-bottom:8px;font-weight:500}
-.pos-desc{font-size:13px;color:var(--muted);line-height:1.75;flex:1}
-
-
-  
-/* PUBLICATIONS */
-.pub-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.pub-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;display:flex;gap:16px;transition:all .2s;text-decoration:none;color:inherit}
-.pub-card:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.07)}
-.pub-year{font-size:12px;font-weight:700;color:var(--accent);min-width:34px;flex-shrink:0;padding-top:2px}
-.pub-title{font-weight:600;font-size:14px;margin-bottom:4px;line-height:1.45}
-.pub-meta{font-size:12px;color:var(--muted)}
-.ptag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:700;margin-left:6px;vertical-align:middle}
-.prb{background:#dbeafe;color:#1d4ed8}[data-theme="dark"] .prb{background:#1e3a5f;color:#93c5fd}
-.pnc{background:#dcfce7;color:#166534}[data-theme="dark"] .pnc{background:#14532d;color:#86efac}
-
-/* TABLET FLASHCARD UI */
-.tablet-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px}
-.tablet{background:linear-gradient(145deg,var(--surface2),var(--border));border-radius:24px;padding:7px;box-shadow:0 12px 40px rgba(0,0,0,.1),0 2px 8px rgba(0,0,0,.06)}
-[data-theme="dark"] .tablet{box-shadow:0 12px 40px rgba(0,0,0,.5)}
-.tablet-screen{background:var(--card);border-radius:18px;overflow:hidden}
-.tablet-header{padding:16px 20px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;background:var(--surface)}
-.tablet-icon{font-size:20px;line-height:1}
-.tablet-title{font-family:'Lora',serif;font-weight:600;font-size:15px;color:var(--ink)}
-.tablet-body{padding:12px}
-.fc{border:1.5px solid var(--border);border-radius:12px;margin-bottom:9px;cursor:pointer;transition:border-color .2s,box-shadow .2s;overflow:hidden}
-.fc:last-child{margin-bottom:0}
-.fc:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(37,99,235,.1)}
-.fc.open{border-color:var(--accent)}
-.fc-front{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;gap:8px}
-.fc-label{font-weight:600;font-size:13.5px;color:var(--ink);display:flex;align-items:center;gap:10px}
-.fc-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.dot-blue{background:#3b82f6}
-.dot-violet{background:#8b5cf6}
-.dot-cyan{background:#06b6d4}
-.dot-green{background:#10b981}
-.fc-chev{font-size:12px;color:var(--muted);transition:transform .22s;flex-shrink:0}
-.fc.open .fc-chev{transform:rotate(180deg)}
-.fc-back{display:none;padding:4px 16px 14px;font-size:13px;color:var(--muted);line-height:1.65;border-top:1px solid var(--border);margin-top:0;padding-top:12px}
-.fc.open .fc-back{display:block}
-
-/* LONG-TERM GOAL */
-.big-goal{border:2px solid var(--accent);border-radius:14px;padding:30px 32px;background:var(--surface)}
-.bg-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
-.bg-title{font-family:'Lora',serif;font-size:20px;font-weight:600;margin-bottom:10px}
-.bg-desc{font-size:13.5px;color:var(--muted);line-height:1.8;margin-bottom:14px}
-.goal-chips{display:flex;flex-wrap:wrap;gap:7px}
-.gc{font-size:12px;padding:4px 11px;border-radius:20px;background:#dbeafe;color:#1d4ed8;border:1px solid #bfdbfe;font-weight:500}
-[data-theme="dark"] .gc{background:#1e3a5f;color:#93c5fd;border-color:#1d4ed8}
-
-/* ARXIV */
-.topic-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.t-btn{padding:7px 16px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--muted);font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s}
-.t-btn:hover{border-color:var(--accent);color:var(--accent)}
-.t-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.arxiv-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
-.arxiv-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column}
-.arxiv-title{font-weight:600;font-size:13.5px;line-height:1.45;color:var(--ink);margin-bottom:6px}
-.arxiv-authors{font-size:11.5px;color:var(--muted);margin-bottom:6px}
-.arxiv-abs{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:8px;flex:1}
-.arxiv-lnk{font-size:12px;font-weight:600;color:var(--accent);text-decoration:none}
-.arxiv-lnk:hover{text-decoration:underline}
-.arxiv-msg{text-align:center;padding:32px;color:var(--muted);font-size:14px}
-
-/* THOUGHT OF THE MONTH — full width, responsive */
-#thoughts{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-#thoughts section{padding:56px 0}
-.thought-inner{width:100%}
-.thought-label{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.thought-quote{font-family:'Lora',serif;font-style:italic;color:var(--ink);line-height:1.8;
-  font-size:clamp(15px,1.6vw,21px);
-  max-width:min(900px,90%);
-  margin-bottom:18px}
-.thought-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.thought-date{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
-.thought-tag{font-size:11px;font-weight:600;color:var(--a3);background:var(--surface2);padding:3px 11px;border-radius:20px}
-
-/* NOVELS */
-.novel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:560px}
-.novel-card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:18px;transition:border-color .2s}
-.novel-card:hover{border-color:var(--a2)}
-.novel-title{font-weight:600;font-size:14px;margin-bottom:4px;line-height:1.35;color:var(--ink)}
-.novel-author{font-size:12px;color:var(--muted)}
-
-/* FOOTER CTA */
-footer{background:var(--surface);border-top:1px solid var(--border);padding:40px 4%}
-.footer-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
-.footer-cta{font-family:'Lora',serif;font-size:17px;color:var(--ink)}
-.footer-cta span{display:block;font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);margin-top:5px;font-style:normal}
-.footer-links{display:flex;gap:10px;flex-wrap:wrap}
-.footer-copy{max-width:1280px;margin:20px auto 0;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);text-align:center}
-.footer-copy a{color:var(--muted);text-decoration:none}
-
-/* RESPONSIVE — TABLET ≤ 1024px */
-@media(max-width:1024px){
-  .hero-grid{grid-template-columns:1fr 180px;gap:40px}
-  .avatar{width:180px;height:180px}
-  .hero-name{font-size:42px}
-  .pos-list{grid-template-columns:1fr 1fr}
-  .arxiv-list{grid-template-columns:1fr 1fr}
-  .thought-quote{font-size:clamp(15px,2vw,19px)}
-}
-
-/* RESPONSIVE — MOBILE ≤ 700px */
-@media(max-width:700px){
-  /* Add these two lines to increase left/right margins on phones */
-  .container { padding: 0 36px; }
-  nav { padding: 0 36px; }
-  .nav-links{display:none}
-  .ham{display:flex}
-  section{padding:44px 0}
-  .section-title{font-size:22px}
-  /* avatar floats right in hero on mobile */
-  /* hero section on mobile - Avatar on top */
-  .hero-grid {display: flex;
-    flex-direction: column-reverse; /* Puts the avatar above the text */
-    align-items: flex-start; /* Keeps text left-aligned */
-    gap: 20px;
-  }
-  .hero-name {font-size:34px;}
-  .avatar {width: 100px; /* Slightly larger looks better on top */
-    height: 100px;
-    float: none; /* Removes the broken float */
-    margin: 0; 
-    border-width: 3px;
-  }
-  .hero-bio {clear:none;} /* Fixes the clear from previous code */
-  .pos-list{grid-template-columns:1fr}
-  .pub-list{grid-template-columns:1fr}
-  .tablet-grid{grid-template-columns:1fr}
-  .arxiv-list{grid-template-columns:1fr}
-  .novel-grid{grid-template-columns:1fr 1fr;max-width:100%}
-  .thought-quote{font-size:15px;max-width:100%}
-  .footer-inner{flex-direction:column;align-items:flex-start}
-  .big-goal{padding:20px 22px}
-}
-</style>
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .wrapper {
+                flex-direction: column;
+                margin: 40px auto;
+                gap: 40px;
+            }
+            .sidebar {
+                width: 100%;
+                position: relative; /* Removes sticky on mobile */
+                top: 0;
+            }
+            .sidebar img {
+                width: 140px;
+                height: 140px;
+            }
+            .sidebar nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a class="nav-logo" href="#hero">AC</a>
-    <ul class="nav-links">
-      <li><a href="#about">Positions</a></li>
-      <li><a href="#publications">Papers</a></li>
-      <li><a href="#projects">Research</a></li>
-      <li><a href="research.html">Research Map</a></li>
-      <li><a href="#arxiv">arXiv</a></li>
-      <li><a href="#thoughts">Thought</a></li>
-      <li><a href="#novels">Reading</a></li>
-      <li><button class="theme-btn" id="theme-btn" onclick="toggleTheme()">🌙 Dark</button></li>
-    </ul>
-    <button class="ham" id="ham-btn" onclick="toggleMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+<div class="wrapper">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <img src="photo.jpg" alt="Amarnath Chakraborty">
+        <h1>Amarnath Chakraborty</h1>
+        <p>Postdoctoral Fellow<br>Seoul National University</p>
+        <nav>
+            <a href="mailto:amarnathchakraborty95@gmail.com">Email</a>
+            <a href="cv.pdf" target="_blank">CV</a>
+            <a href="thesis.pdf" target="_blank">Ph.D. Thesis</a>
+            <a href="https://scholar.google.com/citations?user=zBCFSl4AAAAJ&hl=en" target="_blank">Google Scholar</a>
+            <a href="https://github.com/amarnath995" target="_blank">GitHub</a>
+        </nav>
+    </aside>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <a href="#about"        onclick="closeMenu()">Positions</a>
-  <a href="#publications" onclick="closeMenu()">Papers</a>
-  <a href="#projects"     onclick="closeMenu()">Research</a>
-  <a href="research.html">Research Map</a>
-  <a href="#arxiv"        onclick="closeMenu()">arXiv</a>
-  <a href="#thoughts"     onclick="closeMenu()">Thought</a>
-  <a href="#novels"       onclick="closeMenu()">Reading</a>
-  <button onclick="toggleTheme();closeMenu()">🌙 Toggle Dark Mode</button>
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        
+        <section id="about">
+            <h2>About</h2>
+            <p>I am a theoretical physicist currently working as a Postdoctoral Fellow at the Center for Theoretical Physics at Seoul National University, in collaboration with Prof. Bohm-Jung Yang. My active research sits at the intersection of condensed matter physics, quantum computation, and materials science.</p>
+            <p>I received my Ph.D. in Physics from the University of Missouri–Columbia in August 2025, where I worked under the supervision of Prof. Giovanni Vignale and Dr. Guang Bian. Prior to my current role, I also worked as a quantum research intern and algorithm developer at Chinar Quantum AI.</p>
+        </section>
+
+        <section id="research">
+            <h2>Research Interests</h2>
+            <ul>
+                <li><strong>Quantum Materials & Twistronics:</strong> Investigating moiré heterostructures, twisted bilayer graphene, and correlated flat-band physics. My current theoretical frameworks explore quantum metric nematicity, nonlinear Kerr effects, and altermagnetic responses via quantum geometric tensor signatures.</li>
+                <li><strong>Hamiltonian Simulations & Algorithms:</strong> Developing and benchmarking hybrid quantum-classical algorithms to solve ground states of lattice models. I focus specifically on utilizing Sample-based Krylov Quantum Diagonalization (SKQD) and Variational Quantum Eigensolvers (VQE).</li>
+                <li><strong>Optimization Pipelines:</strong> Designing and implementing optimization workflows using Python, MATLAB, and Qiskit to bridge classical numerical solvers with quantum hardware.</li>
+            </ul>
+        </section>
+
+        <section id="publications">
+            <h2>Selected Publications</h2>
+            <ul>
+                <li>
+                    <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.111.125130" target="_blank" class="pub-title">Insulator-Metal Transition & Magnetic Crossover in Bilayer Graphene</a><br>
+                    <span class="pub-venue">Physical Review B</span> 111, 125130 (2025)
+                </li>
+                <li>
+                    <a href="https://www.nature.com/articles/s41467-024-50030-6" target="_blank" class="pub-title">Observation of 2D Weyl Fermions in Bismuthene</a><br>
+                    <span class="pub-venue">Nature Communications</span> 15, 6001 (2024)
+                </li>
+                <li>
+                    <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.245120" target="_blank" class="pub-title">Giant Faraday Rotation in Nonsymmorphic Dirac Semimetals</a><br>
+                    <span class="pub-venue">Physical Review B</span> 107, 245120 (2023)
+                </li>
+            </ul>
+        </section>
+
+        <section id="notebook">
+            <h2>The Notebook</h2>
+            <p>A dedicated space outside the lab for exploring ideas, hobbies, and personal logs.</p>
+            <ul>
+                <li><a href="./notebook/index.html"><strong>Enter the Notebook</strong></a> — A collection of culinary explorations, photography, literature reviews, and training metrics.</li>
+            </ul>
+        </section>
+
+    </main>
 </div>
 
-<!-- HERO -->
-<div class="container" id="hero">
-  <section>
-    <div class="hero-grid">
-      <div>
-        <div class="label">Physicist · Quantum Materials</div>
-        <h1 class="hero-name">Amarnath Chakraborty</h1>
-        <div class="hero-sub">Postdoctoral Fellow · Seoul National University &nbsp;✦&nbsp; Ph.D. Physics · University of Missouri–Columbia &nbsp;✦&nbsp; Quantum Research Intern · Chinar Quantum AI</div>
-        <p class="hero-bio">
-          I grew up in <strong>Jhargram, West Bengal</strong> and trained through Midnapore College, the University of Hyderabad, and JNCASR Bangalore before completing my Ph.D. at UMC under Prof. Giovanni Vignale. My work spans emergent quantum phenomena in 2D materials — band topology, magneto-optical response, and quantum geometry — now converging toward hybrid quantum–classical simulation workflows. Outside physics, I'm an <strong>avid reader</strong> who believes the best ideas live at the edges of disciplines.
-        </p>
-        <div class="hero-links">
-          <a class="btn btn-p" href="cv.pdf" download>⬇ Download CV</a>
-          <!-- Added Thesis Button -->
-          <a class="btn btn-o" href="thesis.pdf" download>🎓 Download Thesis</a>
-          <a class="btn btn-o" href="https://scholar.google.com/citations?user=YOURID" target="_blank">Scholar</a>
-          <a class="btn btn-o" href="https://github.com/amarnath995" target="_blank">GitHub</a>
-          <!-- EDIT: replace YOURLINKEDINID -->
-          <a class="btn btn-o" href="https://linkedin.com/in/amarnath-chakraborty95" target="_blank">LinkedIn</a>
-          <a class="btn btn-o" id="email-btn" href="#" title="Email me">
-            <svg width="17" height="13" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-right:1px">
-              <path d="M4 36h8V17.5L0 11v21a4 4 0 004 4z" fill="#4285F4"/>
-              <path d="M36 36h8a4 4 0 004-4V11l-12 6.5V36z" fill="#34A853"/>
-              <path d="M4 4h8v13.5L0 11V8a4 4 0 014-4z" fill="#FBBC04"/>
-              <path d="M44 4h-8v13.5L48 11V8a4 4 0 00-4-4z" fill="#EA4335"/>
-              <path d="M12 4l12 9 12-9H12z" fill="#EA4335"/>
-              <path d="M12 4v13.5l12 7 12-7V4L24 13 12 4z" fill="white"/>
-            </svg>
-            Email
-          </a>
-        </div>
-      </div>
-      <!-- Upload photo.jpg to repo root -->
-      <div class="avatar">
-        <img src="photo.jpg" alt="Amarnath Chakraborty" id="av-img"/>
-        <span id="av-fb" style="display:none">⚛</span>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- POSITIONS -->
-<div class="container" id="about">
-  <section>
-    <div class="label">Positions</div>
-    <h2 class="section-title">Where I Work</h2>
-    <div class="pos-list">
-      
-      <!-- BOX 1: Original Blue Format (t-now) -->
-      <div class="pos-card">
-        <span class="pos-tag t-now">Current</span>
-        <div class="pos-role">Postdoctoral Scientist</div>
-        <div class="pos-place">Seoul National University</div>
-        <div class="pos-desc">Joining Prof. Bohm-Jung Yang's group. Focus: altermagnetic responses via quantum geometric tensor signatures in 2D materials.</div>
-      </div>
-
-      <!-- BOX 2: Original Purple Border Format (p-upcoming & t-next) -->
-      <div class="pos-card p-upcoming">
-        <span class="pos-tag t-next">Recent Past</span>
-        <div class="pos-role">Quantum Research Intern</div>
-        <div class="pos-place">Chinar Quantum AI</div>
-        <div class="pos-desc">Built quantum Hamiltonian simulation workflows and connected academic groups to support India's National Quantum Mission.</div>
-      </div>
-
-      <!-- BOX 3: Original Gray Format (t-past) -->
-      <div class="pos-card">
-        <span class="pos-tag t-past">Past</span>
-        <div class="pos-role">Ph.D. Researcher</div>
-        <div class="pos-place">University of Missouri–Columbia</div>
-        <div class="pos-desc">Under Prof. Giovanni Vignale &amp; Dr. Guang Bian. Four publications, IBM Quantum internship, Qiskit Advocate, Physics Leaders Award.</div>
-      </div>
-
-    </div>
-  </section>
-</div>
-
-<!-- PUBLICATIONS -->
-<div class="container" id="publications">
-  <section>
-    <div class="label">Publications</div>
-    <h2 class="section-title">Peer-Reviewed Research</h2>
-    <div class="pub-list">
-      <a class="pub-card" href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.111.125130" target="_blank">
-        <div class="pub-year">2025</div>
-        <div><div class="pub-title">Insulator-Metal Transition &amp; Magnetic Crossover in Bilayer Graphene <span class="ptag prb">PRB</span></div><div class="pub-meta">Physical Review B 111, 125130</div></div>
-      </a>
-      <a class="pub-card" href="https://www.nature.com/articles/s41467-024-50030-6" target="_blank">
-        <div class="pub-year">2024</div>
-        <div><div class="pub-title">Observation of 2D Weyl Fermions in Bismuthene <span class="ptag pnc">Nat Commun</span></div><div class="pub-meta">Nature Communications 15, 6001</div></div>
-      </a>
-      <a class="pub-card" href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.245120" target="_blank">
-        <div class="pub-year">2023</div>
-        <div><div class="pub-title">Giant Faraday Rotation in Nonsymmorphic Dirac Semimetals <span class="ptag prb">PRB</span></div><div class="pub-meta">Physical Review B 107, 245120</div></div>
-      </a>
-      <a class="pub-card" href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.105.085101" target="_blank">
-        <div class="pub-year">2021</div>
-        <div><div class="pub-title">Photon Absorption in 2D Nonsymmorphic Dirac Semimetals <span class="ptag prb">PRB</span></div><div class="pub-meta">Physical Review B 105, 085101</div></div>
-      </a>
-    </div>
-  </section>
-</div>
-
-<!-- RESEARCH VISION -->
-<div class="container" id="projects">
-  <section>
-    <div class="label">Research Vision</div>
-    <h2 class="section-title">What I'm Building</h2>
-
-    <div class="tablet-grid">
-
-      <!-- TABLET: Quantum Computing -->
-      <div class="tablet">
-        <div class="tablet-screen">
-          <div class="tablet-header">
-            <span class="tablet-icon">⚛️</span>
-            <span class="tablet-title">Quantum Computing</span>
-          </div>
-          <div class="tablet-body">
-            <div class="fc" onclick="toggleFC(this)">
-              <div class="fc-front">
-                <span class="fc-label"><span class="fc-dot dot-blue"></span>Quantum Hamiltonian Simulation</span>
-                <span class="fc-chev">▾</span>
-              </div>
-              <div class="fc-back">Classically compressed SKQD on IBM heavy-hex hardware, targeting correlated phases of the Fermi-Hubbard model.</div>
-            </div>
-            <div class="fc" onclick="toggleFC(this)">
-              <div class="fc-front">
-                <span class="fc-label"><span class="fc-dot dot-violet"></span>Quantum Reservoir Computing</span>
-                <span class="fc-chev">▾</span>
-              </div>
-              <div class="fc-back">Quantum dynamics as a natural reservoir for computation — I'm exploring this as my entry point into quantum ML.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TABLET: Quantum Materials -->
-      <div class="tablet">
-        <div class="tablet-screen">
-          <div class="tablet-header">
-            <span class="tablet-icon">🔬</span>
-            <span class="tablet-title">Quantum Materials</span>
-          </div>
-          <div class="tablet-body">
-            <div class="fc" onclick="toggleFC(this)">
-              <div class="fc-front">
-                <span class="fc-label"><span class="fc-dot dot-cyan"></span>Twistronics</span>
-                <span class="fc-chev">▾</span>
-              </div>
-              <div class="fc-back">Moiré engineering in twisted bilayer graphene — correlated flat-band physics.</div>
-            </div>
-            <div class="fc" onclick="toggleFC(this)">
-              <div class="fc-front">
-                <span class="fc-label"><span class="fc-dot dot-green"></span>Altermagnetism</span>
-                <span class="fc-chev">▾</span>
-              </div>
-              <div class="fc-back">Altermagnetic responses via quantum geometric tensor signatures in 2D materials.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /tablet-grid -->
-
-    <div class="big-goal">
-      <div class="bg-label">🎯 Long-Term Goal</div>
-      <div class="bg-title">Generative Hybrid Quantum–Classical Workflow</div>
-      <div class="bg-desc">A modular pipeline coupling classical simulation, quantum simulation, and ML — where physics-based solvers generate training data for correlated systems, feeding interpretable predictive models that accelerate quantum materials discovery.</div>
-      <div class="goal-chips">
-        <span class="gc">Classical simulation</span>
-        <span class="gc">Quantum simulation</span>
-        <span class="gc">Generative ML</span>
-        <span class="gc">Hybrid workflows</span>
-        <span class="gc">Predictive modelling</span>
-      </div>
-    </div>
-
-  </section>
-</div>
-
-<!-- ARXIV SPOTLIGHT -->
-<div class="container" id="arxiv">
-  <section>
-    <div class="label">arXiv Spotlight</div>
-    <h2 class="section-title">Latest Preprints I'm Watching</h2>
-    <div class="topic-row">
-      <button class="t-btn active" data-query="altermagnetism" onclick="selectTopic(this)">Altermagnetism</button>
-      <button class="t-btn" data-query="&quot;twisted bilayer graphene&quot;" onclick="selectTopic(this)">Twisted Bilayer Graphene</button>
-      <button class="t-btn" data-query="&quot;quantum simulation&quot; AND cat:cond-mat.str-el" onclick="selectTopic(this)">Quantum Simulation of Hamiltonians</button>
-    </div>
-    <div style="margin-bottom:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-      <button class="btn btn-p" onclick="fetchArxiv()">Fetch 3 Latest →</button>
-      <span id="arxiv-label" style="font-size:12px;color:var(--muted)">Topic: <strong>Altermagnetism</strong></span>
-    </div>
-    <div id="arxiv-results"><div class="arxiv-msg">← Pick a topic and click Fetch</div></div>
-  </section>
-</div>
-  
-<!-- THOUGHT OF THE MONTH — full width -->
-<div id="thoughts">
-  <div class="container">
-    <section>
-      <div class="thought-inner">
-        <div class="thought-label">Thought of the Month</div>
-        <div class="thought-quote">
-          "Hybrid quantum–classical computation isn't a stopgap until fault-tolerance arrives — it is the architecture. Classical solvers handle what they're good at; quantum hardware handles the intractable. Getting the interface right is the central problem of this generation."
-        </div>
-        <div class="thought-meta">
-          <span class="thought-date">March 2026</span>
-          <span class="thought-tag"># Quantum Computing</span>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
-
-<!-- NOVELS -->
-<div class="container" id="novels">
-  <section>
-    <div class="label">Reading</div>
-    <h2 class="section-title">Novels I Always Come Back To</h2>
-    <!-- EDIT: replace with your three favourite novels -->
-    <div class="novel-grid">
-      <div class="novel-card"><div class="novel-title">Biswasghatok</div><div class="novel-author">Narayan Sanyal</div></div>
-      <div class="novel-card"><div class="novel-title">The Kite Runner</div><div class="novel-author">Khaled Hosseini</div></div>
-      <div class="novel-card"><div class="novel-title">Kafka On The Shore</div><div class="novel-author">Haruki Murakami</div></div>
-    </div>
-  </section>
-</div>
-
-<!-- FOOTER WITH CTA -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-cta">
-      Open to collaborations, conversations, and new ideas.
-      <span>Quantum materials · Quantum simulation · Hybrid workflows · Postdoc opportunities</span>
-    </div>
-    <div class="footer-links">
-      <a class="btn btn-p" id="footer-email-btn" href="#">✉ Get in Touch</a>
-      <a class="btn btn-o" href="research.html">Research Map →</a>
-    </div>
-  </div>
-  <div class="footer-copy">
-    © 2025 Amarnath Chakraborty &nbsp;·&nbsp; <a href="https://github.com/amarnath995/amarnath995.github.io">Source on GitHub</a>
-  </div>
-</footer>
-
-<script>
-// DARK MODE
-function toggleTheme(){
-  var h=document.documentElement,b=document.getElementById('theme-btn');
-  var isDark=h.getAttribute('data-theme')==='dark';
-  h.setAttribute('data-theme',isDark?'light':'dark');
-  b.textContent=isDark?'🌙 Dark':'☀️ Light';
-}
-
-// HAMBURGER
-function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open');}
-function closeMenu(){document.getElementById('mobile-menu').classList.remove('open');}
-
-// FLASHCARDS — click to open, click again or click sibling to close
-function toggleFC(el){
-  var siblings=el.parentNode.querySelectorAll('.fc');
-  var isOpen=el.classList.contains('open');
-  siblings.forEach(function(s){s.classList.remove('open');});
-  if(!isOpen) el.classList.add('open');
-}
-
-// ARXIV — simple reliable single-term queries, always 3 papers
-var activeQuery='altermagnetism';
-function selectTopic(btn){
-  document.querySelectorAll('.t-btn').forEach(function(b){b.classList.remove('active');});
-  btn.classList.add('active');
-  activeQuery=btn.getAttribute('data-query');
-  document.getElementById('arxiv-label').innerHTML='Topic: <strong>'+btn.textContent+'</strong>';
-}
-function fetchArxiv(){
-  var box=document.getElementById('arxiv-results');
-  box.innerHTML='<div class="arxiv-msg">⏳ Fetching papers…</div>';
-  var api='https://export.arxiv.org/api/query?search_query=all:'+encodeURIComponent(activeQuery)+'&sortBy=submittedDate&sortOrder=descending&max_results=3';
-  var proxy='https://corsproxy.io/?'+encodeURIComponent(api);
-  fetch(proxy)
-    .then(function(r){if(!r.ok)throw 0;return r.text();})
-    .then(function(txt){
-      var xml=new DOMParser().parseFromString(txt,'application/xml');
-      var entries=Array.from(xml.querySelectorAll('entry'));
-      if(!entries.length){box.innerHTML='<div class="arxiv-msg">No results found.</div>';return;}
-      var html='<div class="arxiv-list">';
-      entries.forEach(function(e){
-        var title=((e.querySelector('title')||{}).textContent||'').trim().replace(/\s+/g,' ');
-        var abs=((e.querySelector('summary')||{}).textContent||'').trim().replace(/\s+/g,' ').slice(0,200)+'…';
-        var auths=Array.from(e.querySelectorAll('author name')).slice(0,3).map(function(a){return a.textContent;}).join(', ');
-        if(e.querySelectorAll('author name').length>3) auths+=' et al.';
-        var link=((e.querySelector('id')||{}).textContent||'').trim();
-        var dr=((e.querySelector('published')||{}).textContent||'').trim();
-        var date=dr?new Date(dr).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'';
-        html+='<div class="arxiv-card"><div class="arxiv-title">'+title+'</div>'
-             +'<div class="arxiv-authors">'+auths+(date?' · '+date:'')+'</div>'
-             +'<div class="arxiv-abs">'+abs+'</div>'
-             +'<a class="arxiv-lnk" href="'+link+'" target="_blank">Read on arXiv →</a></div>';
-      });
-      html+='</div>';
-      box.innerHTML=html;
-    })
-    .catch(function(){box.innerHTML='<div class="arxiv-msg">⚠ Could not fetch. Try again shortly.</div>';});
-}
-
-// EMAIL — set via JS so it is not harvested from static HTML
-(function(){
-  var e='amarnathchakraborty95'+'@'+'gmail.com';
-  ['email-btn','footer-email-btn'].forEach(function(id){
-    var el=document.getElementById(id);
-    if(el) el.href='mailto:'+e;
-  });
-})();
-
-// AVATAR FALLBACK
-(function(){
-  var img=document.getElementById('av-img');
-  if(img){img.onerror=function(){img.style.display='none';var fb=document.getElementById('av-fb');if(fb)fb.style.display='inline';};}
-})();
-</script>
 </body>
 </html>
